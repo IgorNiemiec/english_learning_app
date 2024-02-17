@@ -1,4 +1,5 @@
 import 'package:english_learning_app/firebase_options.dart';
+import 'package:english_learning_app/views/login_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -18,11 +19,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home:  LoginView()
     );
   }
 }
