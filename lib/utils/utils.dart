@@ -9,7 +9,7 @@ ButtonStyle applicationButtonStyle()
     backgroundColor: Colors.black,
     foregroundColor: applicationColor,
     side: const BorderSide(color: applicationColor,width: 2),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
   );
 }
 
