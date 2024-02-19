@@ -15,6 +15,24 @@ class AppBloc extends Bloc<AppEvent,AppState>
   AppBloc() : super(const AppStateLoggedOut(isLoading: false))
   {
 
+
+    on<AppEventInitialize>((event, emit) {
+      
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (user == null)
+      {
+        emit(const AppStateLoggedOut(isLoading: false));
+      }
+      else
+      {
+        emit(AppStateLoggedIn(isLoading: false, user: user));
+      }
+
+
+
+    },);
+
     on<AppEventGoToRegistration>((event, emit) {
       
       emit(const AppStateIsInRegistrationView(isLoading: false));

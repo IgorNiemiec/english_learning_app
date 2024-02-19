@@ -1,3 +1,4 @@
+import 'package:english_learning_app/app.dart';
 import 'package:english_learning_app/firebase_options.dart';
 import 'package:english_learning_app/views/login_view.dart';
 import 'package:english_learning_app/views/main_panel_view.dart';
@@ -14,13 +15,4 @@ void main() async {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home:  MainPanelView(),
-    );
-  }
-}

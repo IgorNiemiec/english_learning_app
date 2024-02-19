@@ -47,3 +47,9 @@ class AppEventRegister implements AppEvent
 
 
 }
+
+@immutable
+class AppEventInitialize implements AppEvent
+{
+  const AppEventInitialize();
+}
