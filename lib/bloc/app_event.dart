@@ -7,6 +7,12 @@ abstract class AppEvent
 }
 
 @immutable
+class AppEventLogOut implements AppEvent
+{
+  const AppEventLogOut();
+}
+
+@immutable
 class AppEventLogIn implements AppEvent
 {
   final String email;
@@ -33,8 +39,11 @@ class AppEventRegister implements AppEvent
   final String email;
   final String password;
 
+
   const AppEventRegister({
     required this.email,
     required this.password,
   });
+
+
 }
