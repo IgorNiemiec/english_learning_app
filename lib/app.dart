@@ -7,6 +7,7 @@ import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/loading/loading_screen.dart';
 import 'package:english_learning_app/views/login_view.dart';
 import 'package:english_learning_app/views/main_panel_view.dart';
+import 'package:english_learning_app/views/register_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,8 +57,7 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateIsInRegistrationView)
             {
-              // To Do
-              return Container();
+              return RegisterView();
             }
             else
             {

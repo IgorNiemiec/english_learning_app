@@ -7,9 +7,9 @@ import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginView extends StatelessWidget
+class RegisterView extends StatelessWidget
 {
-   LoginView({Key? key}) : super(key: key);
+   RegisterView({Key? key}) : super(key: key);
 
   
    final emailController = TextEditingController();
@@ -29,7 +29,7 @@ class LoginView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.2,
-              child: Text("Login",textAlign: TextAlign.left,style: TextStyle(
+              child: Text("Register",textAlign: TextAlign.left,style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
                 color: applicationColor,
@@ -77,32 +77,19 @@ class LoginView extends StatelessWidget
                         onPressed: ()
                         {
                           context.read<AppBloc>().add(
-                            AppEventLogIn(email: emailController.text, password: passwordController.text)
+                            AppEventRegister(email: emailController.text, password: passwordController.text)
                           );
                         },
-                        child: Text("Login"),
+                        child: Text("Register"),
                       ),
                    ),
                    SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
                 ],
               ),
             ),
-             Container(
-              alignment: Alignment.center,
+             SizedBox(
               height: MediaQuery.of(context).size.height * 0.2,
-              padding: const EdgeInsets.all(8.0),
-              child: TextButton(
-                onPressed: ()
-                {
-                  context.read<AppBloc>().add(
-                    AppEventGoToRegistration()
-                  );
-                },
-                child: Text("Haven't account yet? Register",style: TextStyle(
-                  color: applicationColor
-                ),),
-              ),
-            ),
+             )
           ],
         ),
       ),
