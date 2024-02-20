@@ -40,7 +40,7 @@ class RegisterView extends StatelessWidget
               height: MediaQuery.of(context).size.height * 0.6,
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.15,),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                     width: MediaQuery.of(context).size.width * 0.7,
@@ -83,13 +83,29 @@ class RegisterView extends StatelessWidget
                         child: Text("Register"),
                       ),
                    ),
-                   SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
+                   SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+                   Container(
+                    alignment: Alignment.center,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+
+                      },
+                      child: Text("Sign up with Google",style: TextStyle(
+                        color: Colors.yellow
+                      ),),
+                    ),
+                   ),
+                   )
+                   
                 ],
               ),
             ),
-             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
-             )
+            
           ],
         ),
       ),
