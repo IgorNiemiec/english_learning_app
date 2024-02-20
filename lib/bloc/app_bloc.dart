@@ -4,6 +4,7 @@ import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 
 class AppBloc extends Bloc<AppEvent,AppState>
@@ -66,6 +67,37 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
     },);
 
+
+    on<AppEventLogInWithGoogleAuth>((event, emit) async {
+      //  emit(const AppStateLoggedOut(isLoading: true));
+
+        try
+        {
+          
+          final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+          final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+          final credential = GoogleAuthProvider.credential(
+            accessToken: googleAuth?.accessToken,
+            idToken: googleAuth?.idToken,
+          );
+
+         final userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+         final user = userCredential.user!;
+
+         emit(AppStateLoggedIn(isLoading: false, user: user));
+          
+
+        }
+        on FirebaseAuthException catch(e)
+        {
+          emit(AppStateLoggedOut(isLoading: false,
+          authError: AuthError.from(e)));
+        }
+
+    },);
 
     on<AppEventGoToLogIn>((event, emit) {
       emit(const AppStateLoggedOut(isLoading: false));

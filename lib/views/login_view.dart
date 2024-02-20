@@ -93,6 +93,9 @@ class LoginView extends StatelessWidget
                     child: OutlinedButton(
                       onPressed: ()
                       {
+                        context.read<AppBloc>().add(
+                          const AppEventLogInWithGoogleAuth()
+                        );
 
                       },
                       child: Text("Sign in with Google",style: TextStyle(
