@@ -69,7 +69,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
 
     on<AppEventLogInWithGoogleAuth>((event, emit) async {
-      //  emit(const AppStateLoggedOut(isLoading: true));
+        emit(const AppStateLoggedOut(isLoading: true));
 
         try
         {
