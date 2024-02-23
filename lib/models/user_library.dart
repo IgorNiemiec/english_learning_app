@@ -42,6 +42,21 @@ class UserLibrary
 
   }
   
+  Map<String,dynamic> toJson()
+  {
+    var list = [];
+
+    for(var element in words)
+    {
+      element.toJson();
+      list.add(element);
+    }
+
+    return {
+      "words": words
+    };
+    
+  }
 
 
   @override
@@ -49,7 +64,8 @@ class UserLibrary
   words.isEqualToIgnorinOrdering(other.words);
 
 
-
+  @override
+  String toString() => "UserLibrary: ${words.toString()}";
  
 
 }

@@ -15,12 +15,26 @@ class Word
   required this.wordLevel,
  });
 
+ 
+
  factory Word.fromJson(Map<String,dynamic> json) => Word(
   wordEn: json['wordEn'] as String,
   wordPl: json['wordPl'] as String, 
   points: json['points'] as int, 
   wordLevel: json['wordLevel'] as String
  );
+
+
+  Map<String,dynamic> toJson()
+  {
+    return {
+      "wordEn" : wordEn,
+      "wordPl" : wordPl,
+      "points" : points,
+      "wordLevel" : wordLevel,
+    };
+  }
+
 
  @override
  String toString() => "Word: $wordEn, Translation: $wordPl, Points: $points, word level: $wordLevel";

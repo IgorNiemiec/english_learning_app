@@ -1,4 +1,5 @@
 import 'package:english_learning_app/auth/auth_error.dart';
+import 'package:english_learning_app/models/user_library.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart' show immutable;
 
@@ -21,12 +22,14 @@ abstract class AppState
 class AppStateLoggedIn extends AppState
 {
    final User user;
+   final UserLibrary userLibrary;
 
    const AppStateLoggedIn(
     {
       required bool isLoading,
       AuthError? authError,
       required this.user,
+      required this.userLibrary,
     }
    ) : super (isLoading: isLoading, authError: authError);
 
@@ -39,7 +42,7 @@ class AppStateLoggedIn extends AppState
     if (otherClass is AppStateLoggedIn)
     {
       return isLoading == otherClass.isLoading &&
-      user.uid == otherClass.user.uid;
+      user.uid == otherClass.user.uid && userLibrary == otherClass.userLibrary;
     }
     else
     {
@@ -47,7 +50,9 @@ class AppStateLoggedIn extends AppState
     }
   }
 
-  // There is no hashCode
+
+  @override
+  int get hashCode => Object.hash(user, userLibrary);
 
   @override
   String toString() => "AppStateLoggIn";
