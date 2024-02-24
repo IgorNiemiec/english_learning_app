@@ -70,11 +70,12 @@ class UserLibraryView extends StatelessWidget
                         children: <Widget>[
                           Container(
                             alignment: Alignment.center,
-                            height: MediaQuery.of(context).size.height * 0.05,
+                            height: MediaQuery.of(context).size.height * 0.07,
                             decoration: BoxDecoration(
                               border: Border.all(color: applicationColor,width: 3),
+                              borderRadius: BorderRadius.circular(10)
                             ),
-                            child: Text("${word.wordEn} : ${word.wordPl}",style: TextStyle(color: applicationColor),),
+                            child: Text("${word.wordEn} : ${word.wordPl}",style: TextStyle(color: applicationColor,fontSize: 20,overflow: TextOverflow.ellipsis),),
                           ),
                           SizedBox(height: MediaQuery.of(context).size.height * 0.02,)
                         ],
@@ -89,6 +90,53 @@ class UserLibraryView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "A")
+                        );
+
+                      },
+                      style: applicationButtonStyle(),
+                      child: const Text("A",style: TextStyle(color: applicationColor,fontSize: 20),),
+                    ),
+                  ),
+                     SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "B")
+                        );
+
+                      },
+                      style: applicationButtonStyle(),
+                      child: const Text("B",style: TextStyle(color: applicationColor,fontSize: 20),),
+                    ),
+                  ),
+                     SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "C")
+                        );
+
+                      },
+                      style: applicationButtonStyle(),
+                      child: const Text("C",style: TextStyle(color: applicationColor,fontSize: 20),),
+                    ),
+                  ),
+                ],
+              ),
             )
             
 
