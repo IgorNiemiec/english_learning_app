@@ -23,7 +23,7 @@ class UserLibrary
 
     List<Word> wordList = [];
 
-    List<Map<String,dynamic>> list = json['words'];
+    List<dynamic> list = json['words'] as List<dynamic>;
 
     for (var element in list) {
 
@@ -53,7 +53,7 @@ class UserLibrary
     }
 
     return {
-      "words": words
+      "words": list
     };
     
   }

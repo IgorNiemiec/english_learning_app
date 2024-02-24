@@ -1,7 +1,10 @@
+import 'package:english_learning_app/bloc/app_bloc.dart';
+import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/dialogs/add_wotd_dialog.dart';
 import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPanelView extends StatelessWidget
 {
@@ -144,7 +147,9 @@ class MainPanelView extends StatelessWidget
                                       style: applicationButtonStyle(),
                                       onPressed: ()
                                       {
-
+                                        context.read<AppBloc>().add(
+                                          const AppEventLogOut()
+                                        );
                                       },
                                       child: Text("...",
                                       textAlign: TextAlign.center,

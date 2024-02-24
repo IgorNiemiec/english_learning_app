@@ -19,6 +19,11 @@ class AppBloc extends Bloc<AppEvent,AppState>
   AppBloc() : super(const AppStateLoggedOut(isLoading: false))
   {
 
+    on<AppEventLogOut>((event, emit) {
+      emit(const AppStateLoggedOut(isLoading: false));
+      },
+    );
+
 
     on<AppEventInitialize>((event, emit) {
       
@@ -30,7 +35,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
       }
       else
       {
-        emit(AppStateLoggedIn(isLoading: false, user: user));
+
+        // Cache!!!!
+
+        emit(AppStateLoggedIn(
+          isLoading: false, 
+          user: user,
+          userLibrary: UserLibrary(words: [])));
       }
 
 
@@ -90,7 +101,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         try
         {
-          
+          await GoogleSignIn().signOut();
           final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
           final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
@@ -104,7 +115,20 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
          final user = userCredential.user!;
 
-         final userLibrary = await _getUserLibrary(user.uid);
+         final UserLibrary? userLibrary;
+
+         isUserDocumentCreated(user.uid);
+
+         if(await isUserDocumentCreated(user.uid))
+         {
+            userLibrary = await _getUserLibrary(user.uid);
+         }
+         else
+         {
+            await _createUserLibrary(user.uid);
+            userLibrary = UserLibrary(words: []);
+         }
+
 
          emit(AppStateLoggedIn(isLoading: false, user: user,userLibrary: userLibrary!));
           
@@ -141,9 +165,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
       {
         final credentials = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
 
+        _createUserLibrary(credentials.user!.uid);
+
+
         emit(AppStateLoggedIn(
           isLoading: false, 
-          user: credentials.user!));
+          user: credentials.user!,
+          userLibrary: UserLibrary(words: [])));
 
       }
       on FirebaseAuthException catch (e)
@@ -169,17 +197,34 @@ class AppBloc extends Bloc<AppEvent,AppState>
       return UserLibrary.fromJson(userDoc.data()!);
   } 
 
+  Future<bool> isUserDocumentCreated(String userId) async
+  {
+      final userDoc =  await FirebaseFirestore.instance.collection("UserLibrary").doc(userId).get();
+    
+      if (userDoc.exists)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+  }
+
   Future<void> _createUserLibrary(String userId) async
   {
+    
     FirebaseFirestore database = FirebaseFirestore.instance;
 
-    final CollectionReference userLibraryRef =  database.collection('UserLibrary');
+    CollectionReference collectionReference = database.collection('UserLibrary');
 
     UserLibrary userLibrary = UserLibrary(words: []);
 
-    await userLibraryRef.doc(userId).set(userLibrary.toJson());
+    await collectionReference.doc(userId).set(userLibrary.toJson());
 
   }
+
+  
 
 
 }

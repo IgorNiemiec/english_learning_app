@@ -53,7 +53,7 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateLoggedIn)
             {
-              return MainPanelView();
+              return const MainPanelView();
             }
             else if (appState is AppStateIsInRegistrationView)
             {
