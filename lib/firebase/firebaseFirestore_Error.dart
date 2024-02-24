@@ -20,8 +20,7 @@ abstract class FirebaseFirestoreError
     required this.dialogContent,
   });
 
-  factory FirebaseFirestoreError.fromError(FirebaseException exception) => firebaseFirestoreMapping[exception.code.toLowerCase().trim()] ??  FirebaseFirestoreUnknownError();
-
+  factory FirebaseFirestoreError.fromError(FirebaseException exception) => firebaseFirestoreMapping[exception.code.toLowerCase().trim()] ?? const FirebaseFirestoreUnknownError();
 
 }
 

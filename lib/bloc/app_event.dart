@@ -1,3 +1,4 @@
+import 'package:english_learning_app/models/user_library.dart';
 import 'package:flutter/foundation.dart' show immutable;
 
 @immutable
@@ -20,6 +21,7 @@ class AppEventLogIn implements AppEvent
 
   const AppEventLogIn({required this.email, required this.password});
 }
+
 
 @immutable
 class AppEventLogInWithGoogleAuth implements AppEvent
@@ -59,3 +61,36 @@ class AppEventInitialize implements AppEvent
 {
   const AppEventInitialize();
 }
+
+@immutable
+class AppEventGoToUserLibraryView implements AppEvent
+{
+  final UserLibrary userLibrary;
+
+  const AppEventGoToUserLibraryView({required this.userLibrary});
+}
+
+@immutable
+class AppEventFilterUserLibrary implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final String wordName;
+
+  const AppEventFilterUserLibrary({
+    required this.wordName,
+    required this.userLibrary});
+
+}
+
+@immutable
+class AppEventFilterUserLibraryByWordLevel implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final String wordLevel;
+
+  const AppEventFilterUserLibraryByWordLevel({
+    required this.userLibrary,
+    required this.wordLevel,
+  });
+}
+

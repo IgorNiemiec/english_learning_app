@@ -25,7 +25,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
     );
 
 
-    on<AppEventInitialize>((event, emit) {
+    on<AppEventInitialize>((event, emit) async {
       
       final user = FirebaseAuth.instance.currentUser;
 
@@ -38,10 +38,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         // Cache!!!!
 
+        final userLibrary = await _getUserLibrary(user.uid);
+
         emit(AppStateLoggedIn(
           isLoading: false, 
           user: user,
-          userLibrary: UserLibrary(words: [])));
+          userLibrary: UserLibrary(words: userLibrary!.words)));
       }
 
 
@@ -53,6 +55,15 @@ class AppBloc extends Bloc<AppEvent,AppState>
       emit(const AppStateIsInRegistrationView(isLoading: false));
 
     },);
+
+    on<AppEventGoToUserLibraryView>((event, emit) {
+      emit( AppStateIsInUserLibraryView(
+        userLibrary: event.userLibrary, 
+        filteredWords: event.userLibrary.words,
+        isLoading: false));
+    },);
+
+
 
     on<AppEventLogIn>((event, emit) async {
 
@@ -115,9 +126,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
          final user = userCredential.user!;
 
-         final UserLibrary? userLibrary;
+         UserLibrary? userLibrary;
 
-         isUserDocumentCreated(user.uid);
 
          if(await isUserDocumentCreated(user.uid))
          {
@@ -126,6 +136,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
          else
          {
             await _createUserLibrary(user.uid);
+
             userLibrary = UserLibrary(words: []);
          }
 
@@ -183,6 +194,44 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
     },);
 
+   on<AppEventFilterUserLibrary>((event, emit) {
+
+      emit(
+        AppStateIsInUserLibraryView(
+          userLibrary: event.userLibrary, 
+          filteredWords: event.userLibrary.words,
+          isLoading: true)
+      );
+
+       final filteredWords =  event.userLibrary.words.where((word) => word.wordEn.toLowerCase().contains(event.wordName.toLowerCase()) || word.wordPl.toLowerCase().contains(event.wordName.toLowerCase())).toList(); 
+
+       emit(
+        AppStateIsInUserLibraryView(
+          userLibrary: event.userLibrary,
+          filteredWords: filteredWords,
+          isLoading: false));
+
+   },);
+
+   on<AppEventFilterUserLibraryByWordLevel>((event, emit) {
+
+      emit(
+        AppStateIsInUserLibraryView(
+          userLibrary: event.userLibrary, 
+          filteredWords: event.userLibrary.words,
+          isLoading: true)
+      );
+
+      final filteredWords = event.userLibrary.words.where((word) => word.wordLevel.toLowerCase() == event.wordLevel.toLowerCase()).toList();
+
+      emit(
+        AppStateIsInUserLibraryView(
+          userLibrary: event.userLibrary, 
+          filteredWords: filteredWords,
+          isLoading: false)
+      );
+
+   },);
 
     
 
@@ -217,6 +266,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
     FirebaseFirestore database = FirebaseFirestore.instance;
 
     CollectionReference collectionReference = database.collection('UserLibrary');
+
+
 
     UserLibrary userLibrary = UserLibrary(words: []);
 

@@ -48,8 +48,7 @@ class UserLibrary
 
     for(var element in words)
     {
-      element.toJson();
-      list.add(element);
+      list.add(element.toJson());
     }
 
     return {

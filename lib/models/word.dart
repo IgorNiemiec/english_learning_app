@@ -30,7 +30,7 @@ class Word
     return {
       "wordEn" : wordEn,
       "wordPl" : wordPl,
-      "points" : points,
+      "points" : points ,
       "wordLevel" : wordLevel,
     };
   }
@@ -40,7 +40,24 @@ class Word
  String toString() => "Word: $wordEn, Translation: $wordPl, Points: $points, word level: $wordLevel";
  
  @override
- bool operator == (covariant Word other) => (wordEn == other.wordEn && wordPl == other.wordPl && wordLevel == other.wordLevel);
+ bool operator == (covariant other) 
+ {
+   if (other is Word)
+   {
+      if ((wordEn == other.wordEn && wordPl == other.wordPl && wordLevel == other.wordLevel))
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+   }
+   else
+   {
+    return false;
+   }
+ } 
 
  @override
  int get hashCode => Object.hash(

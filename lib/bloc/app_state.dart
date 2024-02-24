@@ -1,5 +1,6 @@
 import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/models/user_library.dart';
+import 'package:english_learning_app/models/word.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart' show immutable;
 
@@ -75,6 +76,22 @@ class AppStateLoggedOut extends AppState
 
 
 }
+
+@immutable
+class AppStateIsInUserLibraryView extends AppState
+{
+   final UserLibrary userLibrary;
+   final List<Word> filteredWords;
+
+   const AppStateIsInUserLibraryView({
+    required this.userLibrary,
+    required this.filteredWords,
+    required bool isLoading,
+    AuthError? authError,
+   }) : super(isLoading: isLoading, authError: authError);
+
+}
+
 
 
 @immutable

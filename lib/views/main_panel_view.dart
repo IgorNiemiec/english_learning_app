@@ -1,14 +1,19 @@
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
+import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/dialogs/add_wotd_dialog.dart';
+import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPanelView extends StatelessWidget
 {
-  const MainPanelView({Key? key}) : super(key: key);
+  UserLibrary userLibrary;
+
+   MainPanelView({Key? key,
+  required this.userLibrary}) : super(key: key);
 
   final WOTD = "Infalliable";
   final WT = "Nieomylny";
@@ -105,7 +110,11 @@ class MainPanelView extends StatelessWidget
                                       style: applicationButtonStyle(),
                                       onPressed: ()
                                       {
-
+                                       
+                                          context.read<AppBloc>().add(
+                                          AppEventGoToUserLibraryView(userLibrary: userLibrary)
+                                        );
+                                       
                                       },
                                       child: Text("MY LIBRARY",
                                       textAlign: TextAlign.center,
