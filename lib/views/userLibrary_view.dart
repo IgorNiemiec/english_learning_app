@@ -34,7 +34,7 @@ class UserLibraryView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text("User Library",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
@@ -68,14 +68,20 @@ class UserLibraryView extends StatelessWidget
                       final word = filteredWors[index];
                       return Column(
                         children: <Widget>[
-                          Container(
-                            alignment: Alignment.center,
+
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.6,
                             height: MediaQuery.of(context).size.height * 0.07,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: applicationColor,width: 3),
-                              borderRadius: BorderRadius.circular(10)
+                            child: OutlinedButton(
+                              onPressed: ()
+                              {
+                                context.read<AppBloc>().add(
+                                  AppEventGoToSingleWordView(userLibrary: userLibrary, word: word)
+                                );
+                              },
+                              style: applicationButtonStyle(),
+                              child: Text("${word.wordEn} : ${word.wordPl}",style: TextStyle(color: applicationColor,fontSize: 20,overflow: TextOverflow.ellipsis),),
                             ),
-                            child: Text("${word.wordEn} : ${word.wordPl}",style: TextStyle(color: applicationColor,fontSize: 20,overflow: TextOverflow.ellipsis),),
                           ),
                           SizedBox(height: MediaQuery.of(context).size.height * 0.02,)
                         ],

@@ -164,6 +164,37 @@ class AppBloc extends Bloc<AppEvent,AppState>
       emit(const AppStateLoggedOut(isLoading: false));
     },);
 
+    on<AppEventRemoveWordFromUserLibrary>((event, emit) async {
+
+      try
+      {
+
+        final user = FirebaseAuth.instance.currentUser;
+
+        emit(AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: true));
+
+        UserLibrary newLibrary = event.userLibrary;
+
+        newLibrary.words.remove(event.word);
+
+        await _updateUserLibrary(user!.uid, newLibrary);
+
+        emit(AppStateIsInUserLibraryView(userLibrary: newLibrary, filteredWords: newLibrary.words, isLoading: false));
+
+      }
+      catch(ex)
+      {
+             emit(AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: false,
+             authError: const AuthErrorUnknown()));
+      }
+       
+
+
+    },);
+
+    on<AppEventGoToSingleWordView>((event, emit) {
+      emit( AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: false));
+    },);
 
     on<AppEventRegister>((event, emit) async {
       
@@ -267,13 +298,24 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
     CollectionReference collectionReference = database.collection('UserLibrary');
 
-
-
     UserLibrary userLibrary = UserLibrary(words: []);
 
     await collectionReference.doc(userId).set(userLibrary.toJson());
 
   }
+
+  Future<void> _updateUserLibrary(String userId, UserLibrary userLibrary) async
+  {
+
+    FirebaseFirestore database = FirebaseFirestore.instance;
+
+    CollectionReference collectionReference = database.collection("UserLibrary");
+
+    await collectionReference.doc(userId).update(userLibrary.toJson());
+
+  }
+
+
 
   
 

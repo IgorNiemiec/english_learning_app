@@ -92,6 +92,22 @@ class AppStateIsInUserLibraryView extends AppState
 
 }
 
+@immutable
+class AppStateIsInSingleWordView extends AppState
+{
+  final UserLibrary userLibrary;
+  final Word word;
+
+  const AppStateIsInSingleWordView({
+    required this.userLibrary,
+    required this.word,
+    required bool isLoading,
+    AuthError? authError,
+  }) : super(isLoading: isLoading, authError: authError);
+
+  
+}
+
 
 
 @immutable

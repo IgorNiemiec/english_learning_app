@@ -1,4 +1,5 @@
 import 'package:english_learning_app/models/user_library.dart';
+import 'package:english_learning_app/models/word.dart';
 import 'package:flutter/foundation.dart' show immutable;
 
 @immutable
@@ -68,6 +69,33 @@ class AppEventGoToUserLibraryView implements AppEvent
   final UserLibrary userLibrary;
 
   const AppEventGoToUserLibraryView({required this.userLibrary});
+}
+
+@immutable
+class AppEventGoToSingleWordView implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final Word word;
+
+  const AppEventGoToSingleWordView({
+    required this.userLibrary,
+    required this.word,
+  });
+ 
+}
+
+@immutable
+class AppEventRemoveWordFromUserLibrary implements AppEvent
+{
+
+  final UserLibrary userLibrary;
+  final Word word;
+
+  const AppEventRemoveWordFromUserLibrary({
+    required this.userLibrary,
+    required this.word,
+  });
+
 }
 
 @immutable

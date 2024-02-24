@@ -8,6 +8,7 @@ import 'package:english_learning_app/loading/loading_screen.dart';
 import 'package:english_learning_app/views/login_view.dart';
 import 'package:english_learning_app/views/main_panel_view.dart';
 import 'package:english_learning_app/views/register_view.dart';
+import 'package:english_learning_app/views/singleWord_view.dart';
 import 'package:english_learning_app/views/userLibrary_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,6 +64,10 @@ class MainApp extends StatelessWidget {
             else if (appState is AppStateIsInUserLibraryView)
             {
               return UserLibraryView(userLibrary: appState.userLibrary, filteredWors: appState.filteredWords,);
+            }
+            else if (appState is AppStateIsInSingleWordView)
+            {
+              return SingleWordView(userLibrary: appState.userLibrary, word: appState.word);
             }
             else
             {

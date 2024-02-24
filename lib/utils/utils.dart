@@ -13,6 +13,17 @@ ButtonStyle applicationButtonStyle()
   );
 }
 
+ButtonStyle applicationRedButtonStyle()
+{
+  return ElevatedButton.styleFrom(
+    backgroundColor: Colors.black,
+    foregroundColor: applicationColor,
+    side: const BorderSide(color: Colors.red,width: 2),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
+  );
+
+}
+
 InputDecoration applicationInputDecoration({required String hintText})
 {
   return InputDecoration(
