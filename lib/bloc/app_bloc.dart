@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
@@ -7,6 +9,8 @@ import 'package:english_learning_app/dialogs/generic_dialog.dart';
 import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
+import 'package:english_learning_app/models/wotd.dart';
+import 'package:english_learning_app/wordStorage/words.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,7 +47,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
         emit(AppStateLoggedIn(
           isLoading: false, 
           user: user,
-          userLibrary: UserLibrary(words: userLibrary!.words)));
+          userLibrary: UserLibrary(words: userLibrary!.words,wordOfTheDay: userLibrary.wordOfTheDay)));
       }
 
 
@@ -135,9 +139,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
          }
          else
          {
-            await _createUserLibrary(user.uid);
+            WordOfTheDay wordOfTheDay = _generateWordOfTheDay();
 
-            userLibrary = UserLibrary(words: []);
+            await _createUserLibrary(user.uid,wordOfTheDay);
+
+        
+
+            userLibrary = UserLibrary(words: [],wordOfTheDay: wordOfTheDay);
          }
 
 
@@ -207,13 +215,19 @@ class AppBloc extends Bloc<AppEvent,AppState>
       {
         final credentials = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
 
-        _createUserLibrary(credentials.user!.uid);
+        WordOfTheDay wordOfTheDay = _generateWordOfTheDay();
+
+
+        _createUserLibrary(credentials.user!.uid,wordOfTheDay);
+
+
+        
 
 
         emit(AppStateLoggedIn(
           isLoading: false, 
           user: credentials.user!,
-          userLibrary: UserLibrary(words: [])));
+          userLibrary: UserLibrary(words: [],wordOfTheDay: wordOfTheDay)));
 
       }
       on FirebaseAuthException catch (e)
@@ -291,14 +305,16 @@ class AppBloc extends Bloc<AppEvent,AppState>
       }
   }
 
-  Future<void> _createUserLibrary(String userId) async
+  Future<void> _createUserLibrary(String userId,WordOfTheDay wotd) async
   {
     
     FirebaseFirestore database = FirebaseFirestore.instance;
 
     CollectionReference collectionReference = database.collection('UserLibrary');
 
-    UserLibrary userLibrary = UserLibrary(words: []);
+  
+
+    UserLibrary userLibrary = UserLibrary(words: [],wordOfTheDay: wotd);
 
     await collectionReference.doc(userId).set(userLibrary.toJson());
 
@@ -312,6 +328,20 @@ class AppBloc extends Bloc<AppEvent,AppState>
     CollectionReference collectionReference = database.collection("UserLibrary");
 
     await collectionReference.doc(userId).update(userLibrary.toJson());
+
+  }
+
+  WordOfTheDay _generateWordOfTheDay()
+  {
+     Random random = Random();
+
+    int wotdIndex = random.nextInt(words.length);
+
+    int timestamp = DateTime.now().millisecondsSinceEpoch;
+
+    return WordOfTheDay(
+      wotd: words[wotdIndex],
+      timestamp: timestamp);
 
   }
 

@@ -1,4 +1,5 @@
 import 'package:english_learning_app/models/word.dart';
+import 'package:english_learning_app/models/wotd.dart';
 
 extension IsEqualToIgnoringOrdering<T> on List<T>
 {
@@ -12,9 +13,12 @@ class UserLibrary
 
   List<Word> words;
 
+  WordOfTheDay wordOfTheDay;
+
   UserLibrary(
     {
-      required this.words
+      required this.words,
+      required this.wordOfTheDay,
     }
   );
 
@@ -24,6 +28,9 @@ class UserLibrary
     List<Word> wordList = [];
 
     List<dynamic> list = json['words'] as List<dynamic>;
+
+    WordOfTheDay wordOfTheDay  = WordOfTheDay.fromJson(json['wordOfTheDay']);
+
 
     for (var element in list) {
 
@@ -38,7 +45,10 @@ class UserLibrary
       
     }
 
-    return UserLibrary(words: wordList);
+    return UserLibrary(
+      words: wordList,
+      wordOfTheDay: wordOfTheDay,
+      );
 
   }
   
@@ -51,8 +61,11 @@ class UserLibrary
       list.add(element.toJson());
     }
 
+    
+
     return {
-      "words": list
+      "words": list,
+      "wordOfTheDay": wordOfTheDay.toJson(),
     };
     
   }

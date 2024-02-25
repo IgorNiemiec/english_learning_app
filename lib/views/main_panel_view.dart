@@ -56,7 +56,7 @@ class MainPanelView extends StatelessWidget
                         ),
                         Container(
                           alignment: Alignment.center,
-                          child: Text("${WOTD} - ${WT}",
+                          child: Text("${userLibrary.wordOfTheDay.wotd.wordEn} - ${userLibrary.wordOfTheDay.wotd.wordPl}",
                           style: TextStyle(
                             color: applicationColor,
                             fontSize: 20
