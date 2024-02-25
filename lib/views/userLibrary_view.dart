@@ -31,11 +31,38 @@ class UserLibraryView extends StatelessWidget
         color: Colors.black,
         child: Column(
           children: <Widget>[
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.15,
+              height: MediaQuery.of(context).size.height * 0.1,
               padding: const EdgeInsets.all(8.0),
-              child: Text("User Library",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
+              child: Row(children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          const AppEventInitialize()
+                        );
+                        
+                      },
+                      style: applicationButtonStyle(),
+                      child:const Text("Go Back",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: const Text("User Library",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
+                )
+              ]),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(

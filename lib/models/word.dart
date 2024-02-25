@@ -5,15 +5,17 @@ class Word
 
  final String wordEn;
  final String wordPl;
- int points;
+ final int points;
  final String wordLevel;
 
-  Word({
+ const Word({
   required this.wordEn,
   required this.wordPl,
   required this.points,
   required this.wordLevel,
  });
+
+ 
 
  
 
