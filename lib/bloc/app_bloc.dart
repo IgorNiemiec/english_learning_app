@@ -41,13 +41,37 @@ class AppBloc extends Bloc<AppEvent,AppState>
       {
 
         // Cache!!!!
+        
 
-        final userLibrary = await _getUserLibrary(user.uid);
+        try
+        {
 
-        emit(AppStateLoggedIn(
-          isLoading: false, 
-          user: user,
-          userLibrary: UserLibrary(words: userLibrary!.words,wordOfTheDay: userLibrary.wordOfTheDay)));
+          final userLibrary = await _getUserLibrary(user.uid);
+
+          await _updateWordOfTheDay(user.uid, userLibrary!);
+
+
+          emit(AppStateLoggedIn(
+            isLoading: false, 
+            user: user,
+            userLibrary: UserLibrary(words: userLibrary!.words,wordOfTheDay: userLibrary.wordOfTheDay)));
+ 
+
+        }
+        on FirebaseAuthException catch (e)
+        {
+
+          emit(AppStateLoggedOut(isLoading: false,
+          authError: AuthError.from(e)));
+
+        }
+        on FirebaseException catch (e)
+        {
+          emit(AppStateLoggedOut(isLoading: false,
+          authError: AuthErrorUnknown()));
+        }
+
+      
       }
 
 
@@ -143,8 +167,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
             await _createUserLibrary(user.uid,wordOfTheDay);
 
-        
-
+      
+      
             userLibrary = UserLibrary(words: [],wordOfTheDay: wordOfTheDay);
          }
 
@@ -289,7 +313,32 @@ class AppBloc extends Bloc<AppEvent,AppState>
       final userDoc = await FirebaseFirestore.instance.collection("UserLibrary").doc(userId).get();
 
       return UserLibrary.fromJson(userDoc.data()!);
-  } 
+  }
+
+  Future<void> _updateWordOfTheDay(String userId,UserLibrary userLibrary) async
+  {
+
+    final DateTime wotdTimestamp = DateTime.fromMillisecondsSinceEpoch(userLibrary.wordOfTheDay.timestamp);
+
+    final difference = DateTime.now().difference(wotdTimestamp).inDays;
+
+    if (difference > 1)
+    {
+
+      WordOfTheDay wotd = _generateWordOfTheDay();
+
+      FirebaseFirestore database = FirebaseFirestore.instance;
+
+      CollectionReference collectionReference = database.collection('UserLibrary');
+
+      UserLibrary library = UserLibrary(words: userLibrary.words, wordOfTheDay: wotd);
+
+      await collectionReference.doc(userId).update(library.toJson());
+
+    }
+
+  }
+
 
   Future<bool> isUserDocumentCreated(String userId) async
   {
@@ -344,6 +393,9 @@ class AppBloc extends Bloc<AppEvent,AppState>
       timestamp: timestamp);
 
   }
+
+
+
 
 
 
