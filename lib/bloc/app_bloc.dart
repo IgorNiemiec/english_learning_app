@@ -48,13 +48,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
           final userLibrary = await _getUserLibrary(user.uid);
 
-          await _updateWordOfTheDay(user.uid, userLibrary!);
+          final wotd = await _updateWordOfTheDay(user.uid, userLibrary!.wordOfTheDay);
 
 
           emit(AppStateLoggedIn(
             isLoading: false, 
             user: user,
-            userLibrary: UserLibrary(words: userLibrary!.words,wordOfTheDay: userLibrary.wordOfTheDay)));
+            userLibrary: UserLibrary(words: userLibrary!.words,wordOfTheDay: wotd)));
  
 
         }
@@ -106,7 +106,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         final user = userCredential.user!;
 
+        
+
         final userLibrary = await _getUserLibrary(user.uid);
+
+        final wotd = await _updateWordOfTheDay(user.uid, userLibrary!.wordOfTheDay);
+
+        userLibrary.wordOfTheDay = wotd;
 
         emit(AppStateLoggedIn(
           isLoading: false,
@@ -315,10 +321,10 @@ class AppBloc extends Bloc<AppEvent,AppState>
       return UserLibrary.fromJson(userDoc.data()!);
   }
 
-  Future<void> _updateWordOfTheDay(String userId,WordOfTheDay wordOfTheDay) async
+  Future<WordOfTheDay> _updateWordOfTheDay(String userId,WordOfTheDay wotd) async
   {
 
-    final DateTime wotdTimestamp = DateTime.fromMillisecondsSinceEpoch(wordOfTheDay.timestamp);
+    final DateTime wotdTimestamp = DateTime.fromMillisecondsSinceEpoch(wotd.timestamp);
 
     final difference = DateTime.now().difference(wotdTimestamp).inDays;
 
@@ -326,7 +332,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
     {
 
       
-      WordOfTheDay wotd = _generateWordOfTheDay();
+      WordOfTheDay wordOfTheDay = _generateWordOfTheDay();
 
       while(wotd.wotd==wordOfTheDay.wotd)
       {
@@ -338,9 +344,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       CollectionReference collectionReference = database.collection('UserLibrary');
 
-      await collectionReference.doc(userId).update(wordOfTheDay.toJson());
+      await collectionReference.doc(userId).update({"wordOfTheDay" : wordOfTheDay.toJson()});
+
+      return wordOfTheDay;
 
     }
+
+    return wotd;
 
   }
 

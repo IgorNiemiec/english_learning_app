@@ -4,6 +4,437 @@ import 'package:english_learning_app/models/word.dart';
 
 const List<Word> words = [
 
+  Word(
+    wordEn: "agresja",
+    wordPl: "aggression", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "ancient",
+    wordPl: "starożytny", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "alien",
+    wordPl: "obcy", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "amaze",
+    wordPl: "zdumiewać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "amber",
+    wordPl: "bursztyn", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "alchemy",
+    wordPl: "alchemia", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "amplitude",
+    wordPl: "amplituda", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "anchor",
+    wordPl: "kotwica", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "amusingly",
+    wordPl: "zabawnie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airline",
+    wordPl: "linia lotnicza", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "air bag",
+    wordPl: "poduszka powietrzna", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "annoy",
+    wordPl: "irytować", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "ankle",
+    wordPl: "kostka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "announce",
+    wordPl: "ogłaszać", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "animal",
+    wordPl: "zwierze", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "ally",
+    wordPl: "sprzymierzeniec", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "almighty",
+    wordPl: "gwałtownie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "anoint",
+    wordPl: "namaszczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "annuity",
+    wordPl: "renta", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+
+    Word(
+    wordEn: "airbase",
+    wordPl: "baza lotnicza", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "aim",
+    wordPl: "cel", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "angler",
+    wordPl: "wędkarz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "angling",
+    wordPl: "wędkarstwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "alimony",
+    wordPl: "alimenty", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "angularity",
+    wordPl: "kanciastość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "anguish",
+    wordPl: "udręka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "alive to",
+    wordPl: "świadomy czegoś", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "alms",
+    wordPl: "jałmużna", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "altogether",
+    wordPl: "zupełnie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "altitude",
+    wordPl: "wysokość", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "almond",
+    wordPl: "migdał (jedzenie)", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "all-purpose",
+    wordPl: "uniwersalny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+
+
+    Word(
+    wordEn: "amass",
+    wordPl: "gromadzić", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "allegation",
+    wordPl: "zarzut", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airy",
+    wordPl: "przestronny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "air conditioning",
+    wordPl: "klimatyzacja", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "air hostess",
+    wordPl: "stewardesa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airman",
+    wordPl: "lotnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "szczelny",
+    wordPl: "airtight", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airway",
+    wordPl: "drogi oddechowe", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airstrip",
+    wordPl: "pas startowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airship",
+    wordPl: "sterowiec", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airfield",
+    wordPl: "lądowisko", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "airhead",
+    wordPl: "głupek", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+
+    Word(
+    wordEn: "airily",
+    wordPl: "beztrosko", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+
+    Word(
+    wordEn: "airfare",
+    wordPl: "koszt przelotu", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "air pump",
+    wordPl: "pompa pneumatyczna", 
+    points: 0, 
+    wordLevel: "B"),
+  
+   Word(
+    wordEn: "affability",
+    wordPl: "uprzejmość", 
+    points: 0, 
+    wordLevel: "B"),
+  
+  Word(
+    wordEn: "aghast",
+    wordPl: "zszokowany", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "amble",
+    wordPl: "przechadzać się", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ambush",
+    wordPl: "zasadzka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ambience",
+    wordPl: "atmosfera", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ambiguous",
+    wordPl: "niejednoznaczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "agile",
+    wordPl: "zwinny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "amenity",
+    wordPl: "atrakcja", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "amperage",
+    wordPl: "prąd znamionowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "amplifier",
+    wordPl: "wzmacniacz", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+
+    Word(
+    wordEn: "agriculture",
+    wordPl: "rolnictwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "agitprop",
+    wordPl: "propaganda", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "ameliorate",
+    wordPl: "poprawiać", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "oburęczny",
+    wordPl: "ambidextrous", 
+    points: 0, 
+    wordLevel: "C"),
+
+
+    Word(
+    wordEn: "affirm",
+    wordPl: "potwierdzać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "afterwards",
+    wordPl: "później", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+
+    Word(
+    wordEn: "aggravate",
+    wordPl: "pogarszać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "alacrity",
+    wordPl: "ochota", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "afterthought",
+    wordPl: "refleksja", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "aftermath",
+    wordPl: "następstwo", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "affluent",
+    wordPl: "zamożny", 
+    points: 0, 
+    wordLevel: "C"),
+
+   Word(
+    wordEn: "affidavit",
+    wordPl: "oświadczenie pod przysięgą", 
+    points: 0, 
+    wordLevel: "C"),
+  
+
+
+
    Word(
     wordEn: "comb",
     wordPl: "grzebień", 
