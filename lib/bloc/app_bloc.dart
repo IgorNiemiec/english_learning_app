@@ -67,7 +67,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
         }
         on FirebaseException catch (e)
         {
-          emit(AppStateLoggedOut(isLoading: false,
+          emit(const AppStateLoggedOut(isLoading: false,
           authError: AuthErrorUnknown()));
         }
 
@@ -315,25 +315,30 @@ class AppBloc extends Bloc<AppEvent,AppState>
       return UserLibrary.fromJson(userDoc.data()!);
   }
 
-  Future<void> _updateWordOfTheDay(String userId,UserLibrary userLibrary) async
+  Future<void> _updateWordOfTheDay(String userId,WordOfTheDay wordOfTheDay) async
   {
 
-    final DateTime wotdTimestamp = DateTime.fromMillisecondsSinceEpoch(userLibrary.wordOfTheDay.timestamp);
+    final DateTime wotdTimestamp = DateTime.fromMillisecondsSinceEpoch(wordOfTheDay.timestamp);
 
     final difference = DateTime.now().difference(wotdTimestamp).inDays;
 
     if (difference > 1)
     {
 
+      
       WordOfTheDay wotd = _generateWordOfTheDay();
+
+      while(wotd.wotd==wordOfTheDay.wotd)
+      {
+        wotd = _generateWordOfTheDay();
+      }
+
 
       FirebaseFirestore database = FirebaseFirestore.instance;
 
       CollectionReference collectionReference = database.collection('UserLibrary');
 
-      UserLibrary library = UserLibrary(words: userLibrary.words, wordOfTheDay: wotd);
-
-      await collectionReference.doc(userId).update(library.toJson());
+      await collectionReference.doc(userId).update(wordOfTheDay.toJson());
 
     }
 
