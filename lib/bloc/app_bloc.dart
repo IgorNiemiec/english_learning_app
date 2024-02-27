@@ -288,6 +288,61 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    },);
 
+   on<AppEventAddWordOfTheDayToUserLibrary>((event, emit) async {
+
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (user!= null)
+      {
+
+         emit(
+          AppStateLoggedIn(isLoading: true, user: user, userLibrary: event.userLibrary)
+        );
+
+
+        try
+        {
+
+          UserLibrary newUserLibrary = event.userLibrary;
+
+          newUserLibrary.words.add(event.userLibrary.wordOfTheDay.wotd);
+
+          await _updateUserLibrary(user.uid, newUserLibrary);
+        
+          emit(
+            AppStateLoggedIn(isLoading: false, user: FirebaseAuth.instance.currentUser!, userLibrary: newUserLibrary)
+          );
+  
+          }
+          on FirebaseAuthException catch(e)
+          {
+            emit(AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,
+            authError: AuthError.from(e)));
+          }
+          on FirebaseAuth catch(e)
+          {
+            emit(
+              AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,authError: const AuthErrorUnknown())
+            );
+          }
+
+      
+      }
+      else
+      {
+        emit(
+          const AppStateLoggedOut(isLoading: false,
+           authError: AuthErrorNoCurrentUser())
+        );
+      }
+
+      
+
+      
+
+
+   },);
+
    on<AppEventFilterUserLibraryByWordLevel>((event, emit) {
 
       emit(

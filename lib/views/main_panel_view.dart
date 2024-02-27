@@ -93,7 +93,11 @@ class MainPanelView extends StatelessWidget
                                       style: applicationButtonStyle(),
                                       onPressed: ()
                                       {
-                                        showAddWotdDialog(context: context);
+
+                                        context.read<AppBloc>().add(
+                                          AppEventAddWordOfTheDayToUserLibrary(userLibrary: userLibrary)
+                                        );
+                                        
                                       },
                                       child: Text("ADD WORD",
                                       textAlign: TextAlign.center,

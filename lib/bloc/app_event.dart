@@ -15,6 +15,17 @@ class AppEventLogOut implements AppEvent
 }
 
 @immutable
+class AppEventAddWordOfTheDayToUserLibrary implements AppEvent
+{
+  final UserLibrary userLibrary;
+
+  const AppEventAddWordOfTheDayToUserLibrary({
+    required this.userLibrary,
+  });
+
+}
+
+@immutable
 class AppEventLogIn implements AppEvent
 {
   final String email;
