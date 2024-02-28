@@ -5,6 +5,8 @@ import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/loading/loading_screen.dart';
+import 'package:english_learning_app/views/commonLibrary_view.dart';
+import 'package:english_learning_app/views/commonSingleWord_View.dart';
 import 'package:english_learning_app/views/login_view.dart';
 import 'package:english_learning_app/views/main_panel_view.dart';
 import 'package:english_learning_app/views/register_view.dart';
@@ -68,6 +70,14 @@ class MainApp extends StatelessWidget {
             else if (appState is AppStateIsInSingleWordView)
             {
               return SingleWordView(userLibrary: appState.userLibrary, word: appState.word);
+            }
+            else if (appState is AppStateIsInCommonLibraryView)
+            {
+              return CommonLibraryView(filteredWords: appState.filteredWords, userLibrary: appState.userLibrary);
+            }
+            else if (appState is AppStateIsInCommonSingleWordView)
+            {
+              return CommonSingleWordView(word: appState.word, isWordInUserLibrary: appState.isWordInUserLibrary,userLibrary: appState.userLibrary,);
             }
             else
             {

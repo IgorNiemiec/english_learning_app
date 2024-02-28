@@ -1,6 +1,5 @@
 
 
-
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
@@ -13,19 +12,19 @@ import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SingleWordView extends StatelessWidget
+class CommonSingleWordView extends StatelessWidget
 {
-
-  UserLibrary userLibrary;
   Word word;
+  UserLibrary userLibrary;
+  bool isWordInUserLibrary;
+
+  CommonSingleWordView({
+    required this.word,
+    required this.isWordInUserLibrary,
+    required this.userLibrary});
 
 
-   SingleWordView({
-    Key? key,
-    required this.userLibrary,
-    required this.word}) : super(key: key);
-
-  @override
+   @override
   Widget build(BuildContext context)
   {
     return Scaffold(
@@ -54,7 +53,7 @@ class SingleWordView extends StatelessWidget
                         {
 
                           context.read<AppBloc>().add(
-                            AppEventGoToUserLibraryView(userLibrary: userLibrary)
+                             AppEventGoToCommonLibrary(userLibrary: userLibrary)
                           );
 
                         },
@@ -118,37 +117,6 @@ class SingleWordView extends StatelessWidget
                 )
               ]),
              ),
-             Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.15,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.05,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    child: OutlinedButton(
-                      onPressed: () async
-                      {
-                        await showPointExplanationDialog(context: context);
-                      },
-                      style: applicationButtonStyle(),
-                      child: const Icon(Icons.question_mark),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: Text("Word points: ${word.points}",style: TextStyle(fontSize: 25,color: applicationColor),),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.05,
-                  ),
-                ],
-              ),
-             ),
               Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,
@@ -189,19 +157,34 @@ class SingleWordView extends StatelessWidget
                child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.7,
                 height: MediaQuery.of(context).size.height * 0.1,
-                child: OutlinedButton(
-                  onPressed: () async
+                child: Builder(builder: (context) {
+                  if (isWordInUserLibrary)
                   {
-                     if (await showRemoveWordDialog(context: context))
-                     {
+                    return OutlinedButton(onPressed: ()
+                    {
+
                         context.read<AppBloc>().add(
-                          AppEventRemoveWordFromUserLibrary(userLibrary: userLibrary, word: word,isInSingleWordView: true)
+                          AppEventRemoveWordFromUserLibrary(userLibrary: userLibrary, word: word, isInSingleWordView: false)
                         );
-                     }
-                  },
-                  style: applicationRedButtonStyle(),
-                  child: const Text("Remove word from my library",style: TextStyle(color: Colors.red,),textAlign: TextAlign.center,),
-                ),
+
+                    },
+                    style: applicationRedButtonStyle(),
+                    child: const Text("Remove word from my Library",style: TextStyle(color: Colors.red,fontSize: 20),textAlign: TextAlign.center,));
+                  }
+                  else
+                  {
+                    return OutlinedButton(onPressed: ()
+                    {
+
+                      context.read<AppBloc>().add(
+                        AppEventAddWordToUserLibrary(userLibrary: userLibrary, word: word)
+                      );
+
+                    },
+                    style: applicationButtonStyle(),
+                    child: const Text("Add word to my Library",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,));
+                  }
+                },)
                )
              ),
              

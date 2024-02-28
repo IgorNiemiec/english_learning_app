@@ -101,10 +101,44 @@ class AppEventRemoveWordFromUserLibrary implements AppEvent
 
   final UserLibrary userLibrary;
   final Word word;
+  final bool isInSingleWordView;
 
   const AppEventRemoveWordFromUserLibrary({
     required this.userLibrary,
     required this.word,
+    required this.isInSingleWordView,
+  });
+
+}
+
+@immutable
+class AppEventGoToCommonLibrary implements AppEvent
+{
+  final UserLibrary userLibrary;
+  const AppEventGoToCommonLibrary({required this.userLibrary});
+}
+
+
+@immutable
+class AppEventFilterCommonLibrary implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final String wordName;
+
+  const AppEventFilterCommonLibrary({
+    required this.wordName,
+    required this.userLibrary});
+}
+
+@immutable
+class AppEventFilterCommonLibraryByWordLevel implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final String wordLevel;
+
+  const AppEventFilterCommonLibraryByWordLevel({
+    required this.wordLevel,
+    required this.userLibrary,
   });
 
 }
@@ -122,6 +156,18 @@ class AppEventFilterUserLibrary implements AppEvent
 }
 
 @immutable
+class AppEventGoToCommonSingleWord implements AppEvent
+{
+
+  final Word word;
+  final UserLibrary userLibrary;
+
+  const AppEventGoToCommonSingleWord({
+    required this.word,
+    required this.userLibrary});
+}
+
+@immutable
 class AppEventFilterUserLibraryByWordLevel implements AppEvent
 {
   final UserLibrary userLibrary;
@@ -132,4 +178,21 @@ class AppEventFilterUserLibraryByWordLevel implements AppEvent
     required this.wordLevel,
   });
 }
+
+
+@immutable
+class AppEventAddWordToUserLibrary implements AppEvent
+{
+  final Word word;
+  final UserLibrary userLibrary;
+
+  const AppEventAddWordToUserLibrary({
+    required this.userLibrary,
+    required this.word,
+  });
+
+}
+
+
+
 

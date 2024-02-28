@@ -15,8 +15,6 @@ class MainPanelView extends StatelessWidget
    MainPanelView({Key? key,
   required this.userLibrary}) : super(key: key);
 
-  final WOTD = "Infalliable";
-  final WT = "Nieomylny";
   
   @override
   Widget build(BuildContext context)
@@ -145,8 +143,12 @@ class MainPanelView extends StatelessWidget
                                       onPressed: ()
                                       {
 
+                                        context.read<AppBloc>().add(
+                                          AppEventGoToCommonLibrary(userLibrary: userLibrary)
+                                        );
+
                                       },
-                                      child: Text("LIBRARY",
+                                      child: const Text("LIBRARY",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontSize: 20,

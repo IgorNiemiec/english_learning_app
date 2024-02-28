@@ -5,12 +5,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
+import 'package:english_learning_app/dialogs/add_wotd_dialog.dart';
 import 'package:english_learning_app/dialogs/generic_dialog.dart';
 import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:english_learning_app/models/wotd.dart';
 import 'package:english_learning_app/wordStorage/words.dart';
+import 'package:english_learning_app/wordStorage/words_A.dart';
+import 'package:english_learning_app/wordStorage/words_C.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +45,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         // Cache!!!!
         
-
         try
         {
 
@@ -202,6 +204,25 @@ class AppBloc extends Bloc<AppEvent,AppState>
       emit(const AppStateLoggedOut(isLoading: false));
     },);
 
+    on<AppEventGoToCommonSingleWord>((event, emit) {
+
+      if(event.userLibrary.words.contains(event.word))
+      {
+        emit(
+          AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: true,userLibrary: event.userLibrary)
+        );
+      }
+      else
+      {
+        emit(
+          AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: false, userLibrary: event.userLibrary)
+        );
+      }
+
+        
+
+    },);
+
     on<AppEventRemoveWordFromUserLibrary>((event, emit) async {
 
       try
@@ -209,7 +230,15 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         final user = FirebaseAuth.instance.currentUser;
 
-        emit(AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: true));
+        if(event.isInSingleWordView)
+        {       
+         emit(AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: true));
+        }
+        else
+        {
+          emit(AppStateIsInCommonSingleWordView(word: event.word, isLoading: true, isWordInUserLibrary: true, userLibrary: event.userLibrary));
+        }
+
 
         UserLibrary newLibrary = event.userLibrary;
 
@@ -217,7 +246,15 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         await _updateUserLibrary(user!.uid, newLibrary);
 
-        emit(AppStateIsInUserLibraryView(userLibrary: newLibrary, filteredWords: newLibrary.words, isLoading: false));
+        if(event.isInSingleWordView)
+        { 
+          emit(AppStateIsInUserLibraryView(userLibrary: newLibrary, filteredWords: newLibrary.words, isLoading: false));
+        }
+        else
+        {
+          emit(AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: false, userLibrary: newLibrary));
+        }
+
 
       }
       catch(ex)
@@ -288,8 +325,131 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    },);
 
+   on<AppEventGoToCommonLibrary>((event, emit) {
+
+      List<Word> wordInitialList = wordsA + wordsC + words;
+      
+      emit(
+        AppStateIsInCommonLibraryView(filteredWords: wordInitialList, isLoading: false,userLibrary: event.userLibrary)
+      );
+
+   },);
+
+   on<AppEventFilterCommonLibrary>((event, emit) {
+
+     final filteredList = wordsA.where((word) => word.wordEn.contains(event.wordName) || word.wordPl.contains(event.wordName)).toList() + 
+     words.where((word) => word.wordEn.contains(event.wordName) || word.wordPl.contains(event.wordName)).toList() +
+     wordsC.where((word) => word.wordEn.contains(event.wordName) || word.wordPl.contains(event.wordName)).toList();
+
+     emit(
+      AppStateIsInCommonLibraryView(filteredWords: filteredList, isLoading: false,userLibrary: event.userLibrary)
+     );
+     
+   },);
+
+   
+
+   on<AppEventFilterCommonLibraryByWordLevel>((event, emit) {
+      if (event.wordLevel == "A")
+      {
+        emit(
+          AppStateIsInCommonLibraryView(filteredWords: wordsA, isLoading: false,userLibrary: event.userLibrary )
+        );
+      }
+      else if (event.wordLevel == "B")
+      {
+        emit(
+          AppStateIsInCommonLibraryView(filteredWords: words, isLoading: false,userLibrary: event.userLibrary )
+        );
+      }
+      else if (event.wordLevel == "C")
+      {
+        emit(
+          AppStateIsInCommonLibraryView(filteredWords: wordsC, isLoading: false,userLibrary: event.userLibrary)
+        );
+      }
+   },);
+
+   on<AppEventAddWordToUserLibrary>((event, emit) async {
+
+    
+
+         final user = FirebaseAuth.instance.currentUser;
+
+         if (user== null)
+         {
+           emit(
+            const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
+           );
+         }
+         else
+         {
+
+
+            emit(
+            AppStateIsInCommonSingleWordView(word: event.word, isLoading: true, isWordInUserLibrary: false, userLibrary: event.userLibrary)
+           );
+
+          try
+          {
+
+            UserLibrary newUserLibrary = event.userLibrary;
+
+            newUserLibrary.words.add(event.word);
+
+            await _updateUserLibrary(user.uid, newUserLibrary);
+
+            emit(
+              AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: true, userLibrary: newUserLibrary)
+            );
+
+          }
+          on FirebaseAuthException catch(e)
+          {
+            emit(
+             AppStateLoggedOut(isLoading: false,authError: AuthError.from(e))
+           );
+          }
+          on FirebaseException catch (e)
+          {
+            emit(
+              AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: false, userLibrary: event.userLibrary)
+            );
+          }
+
+
+
+
+
+         }
+
+
+
+
+
+
+
+      
+
+     
+
+
+   },);
+
+
+
    on<AppEventAddWordOfTheDayToUserLibrary>((event, emit) async {
 
+     if (_isWordInUserLibrary(event.userLibrary.wordOfTheDay.wotd, event.userLibrary))
+     {
+
+      
+
+     }
+     else
+     {
+
+        
       final user = FirebaseAuth.instance.currentUser;
 
       if (user!= null)
@@ -312,6 +472,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
           emit(
             AppStateLoggedIn(isLoading: false, user: FirebaseAuth.instance.currentUser!, userLibrary: newUserLibrary)
           );
+
   
           }
           on FirebaseAuthException catch(e)
@@ -335,6 +496,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
            authError: AuthErrorNoCurrentUser())
         );
       }
+
+
+
+
+     }
+
 
       
 
@@ -437,6 +604,11 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
     await collectionReference.doc(userId).set(userLibrary.toJson());
 
+  }
+
+  bool _isWordInUserLibrary(Word word,UserLibrary userLibrary)
+  {
+   return userLibrary.words.contains(word);
   }
 
   Future<void> _updateUserLibrary(String userId, UserLibrary userLibrary) async

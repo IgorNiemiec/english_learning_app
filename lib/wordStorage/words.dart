@@ -4,23 +4,7 @@ import 'package:english_learning_app/models/word.dart';
 
 const List<Word> words = [
 
-  Word(
-    wordEn: "agresja",
-    wordPl: "aggression", 
-    points: 0, 
-    wordLevel: "A"),
 
-     Word(
-    wordEn: "ancient",
-    wordPl: "starożytny", 
-    points: 0, 
-    wordLevel: "A"),
-
-    Word(
-    wordEn: "alien",
-    wordPl: "obcy", 
-    points: 0, 
-    wordLevel: "A"),
 
     Word(
     wordEn: "amaze",
@@ -34,11 +18,7 @@ const List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
-    Word(
-    wordEn: "alchemy",
-    wordPl: "alchemia", 
-    points: 0, 
-    wordLevel: "A"),
+   
 
      Word(
     wordEn: "amplitude",
@@ -58,41 +38,6 @@ const List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
-    Word(
-    wordEn: "airline",
-    wordPl: "linia lotnicza", 
-    points: 0, 
-    wordLevel: "A"),
-
-    Word(
-    wordEn: "air bag",
-    wordPl: "poduszka powietrzna", 
-    points: 0, 
-    wordLevel: "A"),
-
-     Word(
-    wordEn: "annoy",
-    wordPl: "irytować", 
-    points: 0, 
-    wordLevel: "A"),
-
-     Word(
-    wordEn: "ankle",
-    wordPl: "kostka", 
-    points: 0, 
-    wordLevel: "A"),
-
-     Word(
-    wordEn: "announce",
-    wordPl: "ogłaszać", 
-    points: 0, 
-    wordLevel: "A"),
-
-     Word(
-    wordEn: "animal",
-    wordPl: "zwierze", 
-    points: 0, 
-    wordLevel: "A"),
 
     Word(
     wordEn: "ally",
@@ -120,17 +65,7 @@ const List<Word> words = [
 
     
 
-    Word(
-    wordEn: "airbase",
-    wordPl: "baza lotnicza", 
-    points: 0, 
-    wordLevel: "A"),
-
-    Word(
-    wordEn: "aim",
-    wordPl: "cel", 
-    points: 0, 
-    wordLevel: "A"),
+   
 
      Word(
     wordEn: "angler",
@@ -363,23 +298,6 @@ const List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
-    Word(
-    wordEn: "agitprop",
-    wordPl: "propaganda", 
-    points: 0, 
-    wordLevel: "C"),
-
-    Word(
-    wordEn: "ameliorate",
-    wordPl: "poprawiać", 
-    points: 0, 
-    wordLevel: "C"),
-
-    Word(
-    wordEn: "oburęczny",
-    wordPl: "ambidextrous", 
-    points: 0, 
-    wordLevel: "C"),
 
 
     Word(
@@ -408,45 +326,6 @@ const List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
-    Word(
-    wordEn: "afterthought",
-    wordPl: "refleksja", 
-    points: 0, 
-    wordLevel: "C"),
-
-    Word(
-    wordEn: "aftermath",
-    wordPl: "następstwo", 
-    points: 0, 
-    wordLevel: "C"),
-
-    Word(
-    wordEn: "affluent",
-    wordPl: "zamożny", 
-    points: 0, 
-    wordLevel: "C"),
-
-   Word(
-    wordEn: "affidavit",
-    wordPl: "oświadczenie pod przysięgą", 
-    points: 0, 
-    wordLevel: "C"),
-  
-
-
-
-   Word(
-    wordEn: "comb",
-    wordPl: "grzebień", 
-    points: 0, 
-    wordLevel: "A"),
-
-    
-    Word(
-    wordEn: "coat",
-    wordPl: "płaszcz", 
-    points: 0, 
-    wordLevel: "A"),
   
   Word(
     wordEn: "infallible", 
@@ -770,84 +649,6 @@ const List<Word> words = [
     wordPl: "krzepnięcie", 
     points: 0, 
     wordLevel: "B"),
-
-   Word(
-    wordEn: "cockeyed",
-    wordPl: "idiotyczny", 
-    points: 0, 
-    wordLevel: "C"),
-
-
-
-    Word(
-    wordEn: "cog",
-    wordPl: "ząb", 
-    points: 0, 
-    wordLevel: "C"),
-
-    Word(
-    wordEn: "cogitate",
-    wordPl: "rozmyślać", 
-    points: 0, 
-    wordLevel: "C"),
-
-     Word(
-    wordEn: "commandment",
-    wordPl: "przykazanie", 
-    points: 0, 
-    wordLevel: "C"),
-
-      Word(
-    wordEn: "compatriot",
-    wordPl: "rodak", 
-    points: 0, 
-    wordLevel: "C"),
-
-     Word(
-    wordEn: "collier",
-    wordPl: "górnik", 
-    points: 0, 
-    wordLevel: "C"),
-
-    Word(
-    wordEn: "cohesion",
-    wordPl: "jedność", 
-    points: 0, 
-    wordLevel: "C"),
-
-    
-
-
-     Word(
-    wordEn: "commotion",
-    wordPl: "zamieszanie", 
-    points: 0, 
-    wordLevel: "C"),
-
-
-    Word(
-    wordEn: "comradeship",
-    wordPl: "koleżeństwo", 
-    points: 0, 
-    wordLevel: "C"),
-
-    Word(
-    wordEn: "compulsory",
-    wordPl: "obowiązkowy", 
-    points: 0, 
-    wordLevel: "C"),
-
-
-
-    
-
-
-
-
-
-
-
-
 
 
 ];

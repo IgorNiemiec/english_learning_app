@@ -108,6 +108,48 @@ class AppStateIsInSingleWordView extends AppState
   
 }
 
+@immutable
+class AppStateIsInCommonSingleWordView extends AppState
+{
+
+  final Word word;
+  final UserLibrary userLibrary;
+  final bool isWordInUserLibrary;
+
+  const AppStateIsInCommonSingleWordView({
+    required this.word,
+    required bool isLoading,
+    required this.isWordInUserLibrary,
+    required this.userLibrary,
+    AuthError? authError,
+  }) : super(
+    isLoading: isLoading,
+    authError: authError);
+
+}
+
+
+
+
+@immutable
+class AppStateIsInCommonLibraryView extends AppState
+{
+  List<Word> filteredWords;
+  UserLibrary userLibrary;
+  
+  AppStateIsInCommonLibraryView(
+    {
+      required this.filteredWords,
+      required bool isLoading,
+      required this.userLibrary,
+      AuthError? authError,
+    }
+  ) 
+  
+  : super(
+    isLoading: isLoading, 
+    authError: authError);
+}
 
 
 @immutable

@@ -9,9 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterView extends StatelessWidget
 {
+
    RegisterView({Key? key}) : super(key: key);
 
-  
    final emailController = TextEditingController();
    final passwordController = TextEditingController();
 
@@ -29,7 +29,7 @@ class RegisterView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.2,
-              child: Text("Register",textAlign: TextAlign.left,style: TextStyle(
+              child: const Text("Register",textAlign: TextAlign.left,style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
                 color: applicationColor,
@@ -45,7 +45,7 @@ class RegisterView extends StatelessWidget
                     height: MediaQuery.of(context).size.height * 0.1,
                     width: MediaQuery.of(context).size.width * 0.7,
                     child:  TextField(
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: applicationColor,
                     ),
                     controller: emailController,
@@ -84,23 +84,7 @@ class RegisterView extends StatelessWidget
                       ),
                    ),
                    SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-                   Container(
-                    alignment: Alignment.center,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.07,
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-
-                      },
-                      child: Text("Sign up with Google",style: TextStyle(
-                        color: Colors.yellow
-                      ),),
-                    ),
-                   ),
-                   )
+                 
                    
                 ],
               ),
