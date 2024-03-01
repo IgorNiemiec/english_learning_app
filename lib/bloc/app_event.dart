@@ -193,6 +193,14 @@ class AppEventAddWordToUserLibrary implements AppEvent
 
 }
 
+@immutable
+class AppEventGoToTrainingChoiceView implements AppEvent
+{
 
+  final UserLibrary userLibrary;
+
+  const AppEventGoToTrainingChoiceView({required this.userLibrary});
+  
+}
 
 

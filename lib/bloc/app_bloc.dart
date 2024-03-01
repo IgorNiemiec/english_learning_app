@@ -497,18 +497,18 @@ class AppBloc extends Bloc<AppEvent,AppState>
         );
       }
 
-
-
-
      }
 
-
-      
-
-      
-
-
    },);
+
+
+    on<AppEventGoToTrainingChoiceView>((event, emit) {
+  
+      emit(AppStateIsInTrainingChoiceView(isLoading: false, userLibrary: event.userLibrary));
+  
+    },);
+
+
 
    on<AppEventFilterUserLibraryByWordLevel>((event, emit) {
 

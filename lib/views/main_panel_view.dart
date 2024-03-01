@@ -196,7 +196,9 @@ class MainPanelView extends StatelessWidget
                   style: applicationButtonStyle(),
                   onPressed: ()
                   {
-
+                    context.read<AppBloc>().add(
+                      AppEventGoToTrainingChoiceView(userLibrary: userLibrary)
+                    );
                   },
                   child: Text("Train",style: TextStyle(
                     color: applicationColor,

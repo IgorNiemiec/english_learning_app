@@ -2,12 +2,17 @@
 
 
 import 'package:english_learning_app/constants/constants.dart';
+import 'package:english_learning_app/models/user_library.dart';
+import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class TrainingChoiceView extends StatelessWidget
 {
 
-  const TrainingChoiceView({Key? key}) : super(key: key);
+  final UserLibrary userLibrary;
+
+  const TrainingChoiceView({Key? key,
+  required this.userLibrary}) : super(key: key);
 
   @override
   Widget build(BuildContext context)
@@ -31,7 +36,6 @@ class TrainingChoiceView extends StatelessWidget
               height: MediaQuery.of(context).size.height * 0.15,
               child: const Text("Choose training mode",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.25,
@@ -40,23 +44,28 @@ class TrainingChoiceView extends StatelessWidget
                 children: <Widget>[
                   const SizedBox(),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.45,
+                    height: MediaQuery.of(context).size.height * 0.2,
                     child: OutlinedButton(
                       onPressed: ()
                       {
 
                       },
+                      style: applicationButtonStyle(),
                       child: Text("Common Training"),
                     ),
                   ),
                   const SizedBox(),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.45,
+                    
+                    height: MediaQuery.of(context).size.height * 0.2,
                     child: OutlinedButton(
                       onPressed: ()
                       {
 
                       },
+                      style: applicationButtonStyle(),
                       child: Text("User library training"),
                     ),
                   ),

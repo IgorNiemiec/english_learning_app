@@ -167,3 +167,16 @@ class AppStateIsInRegistrationView extends AppState
   );
 
 }
+
+@immutable
+class AppStateIsInTrainingChoiceView extends AppState
+{
+
+  final UserLibrary userLibrary;
+  
+  const AppStateIsInTrainingChoiceView({
+    required bool isLoading,
+    required this.userLibrary,
+    AuthError? authError}) : super(isLoading: isLoading,authError: authError);
+
+}
