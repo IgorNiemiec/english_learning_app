@@ -1,7 +1,9 @@
 
+import 'dart:collection';
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
@@ -93,6 +95,217 @@ class AppBloc extends Bloc<AppEvent,AppState>
         isLoading: false));
     },);
 
+    on<AppEventGoToTrainingView>((event, emit) {
+
+        List<Word> trainingList = _getTrainingList(event.userLibrary, event.difficultyLevel);
+
+        Random rnd = Random();
+
+        Word keyWord = trainingList[rnd.nextInt(trainingList.length)];
+
+        late Word w1;
+        late Word w2;
+        late Word w3;
+
+        int keyWordIndex = rnd.nextInt(3)+1;
+
+        (Word fakeWord1, Word fakeWord2) fakeWords = _getFakeWords(keyWord: keyWord, level: event.difficultyLevel);
+
+        switch(keyWordIndex)
+        {
+          case 1:
+          w1 = keyWord;
+          w2 = fakeWords.$1;
+          w3 = fakeWords.$2;
+          case 2:
+          w1 = fakeWords.$1;
+          w2 = keyWord;
+          w3 = fakeWords.$2;
+          case 3:
+          w1 = fakeWords.$1;
+          w2 = fakeWords.$2;
+          w3 = keyWord;
+        }
+
+        emit(
+          AppStateIsInTrainingView(
+            markedIndex: 1,
+            keyWordIndex: keyWordIndex,
+            level: event.difficultyLevel,
+            userLibrary: event.userLibrary,
+            trainingList: trainingList,
+            keyWord: keyWord, 
+            firstWord: w1, 
+            secondWord: w2, 
+            thirdWord: w3,
+            round: 1,
+            mistakesCounter: 0,
+            isMistake: false,
+            isLoading: false
+            
+            )
+        );
+        
+    },);
+
+    on<AppEventUpdateTrainingView>((event, emit) 
+    {
+
+      if(event.isMistake)
+      {
+        emit(AppStateIsInTrainingView(
+          markedIndex: event.markedIndex,
+          keyWordIndex: event.keyWordIndex,
+          level: event.difficultyLevel,
+          userLibrary: event.userLibrary,
+          trainingList: event.trainingList,
+          keyWord: event.keyWord, 
+          firstWord: event.firstWord, 
+          secondWord: event.secondWord, 
+          thirdWord: event.thirdWord, 
+          round: event.round, 
+          mistakesCounter: event.mistakes, 
+          isMistake: true, 
+          isLoading: false));
+
+        List<Word> trainingList = event.trainingList;
+
+        trainingList.remove(event.keyWord);
+
+        Word updatedWord = Word.updatePoints(keyWord: event.keyWord, points: event.keyWord.points-1);
+
+        trainingList.add(updatedWord);
+
+        // ShowTime
+
+        // End of Showtime
+
+        Random rnd = Random();
+
+        Word keyWord = trainingList[rnd.nextInt(trainingList.length)];
+        late Word w1;
+        late Word w2;
+        late Word w3;
+
+         int keyWordIndex = rnd.nextInt(3)+1;
+
+        (Word fakeWord1, Word fakeWord2) fakeWords = _getFakeWords(keyWord: keyWord, level: event.difficultyLevel);
+
+        switch(keyWordIndex)
+        {
+          case 1:
+          w1 = keyWord;
+          w2 = fakeWords.$1;
+          w3 = fakeWords.$2;
+          case 2:
+          w1 = fakeWords.$1;
+          w2 = keyWord;
+          w3 = fakeWords.$2;
+          case 3:
+          w1 = fakeWords.$1;
+          w2 = fakeWords.$2;
+          w3 = keyWord;
+        }
+
+
+
+        emit(
+          AppStateIsInTrainingView(
+            markedIndex: event.markedIndex,
+            keyWordIndex: keyWordIndex,
+            level: event.difficultyLevel,
+            userLibrary: event.userLibrary,
+            trainingList: trainingList, 
+            keyWord: keyWord, 
+            firstWord: w1, 
+            secondWord: w2, 
+            thirdWord: w3, 
+            round: event.round+1, 
+            mistakesCounter: event.mistakes+1, 
+            isMistake: false, 
+            isLoading: false)
+        );
+
+      }
+      else
+      {
+
+        emit(
+          AppStateIsInTrainingView(
+            markedIndex: event.markedIndex,
+            keyWordIndex: event.keyWordIndex,
+            level: event.difficultyLevel,
+            userLibrary: event.userLibrary, 
+            trainingList: event.trainingList, 
+            keyWord: event.keyWord, 
+            firstWord: event.firstWord, 
+            secondWord: event.secondWord, 
+            thirdWord: event.thirdWord, 
+            round: event.round, 
+            mistakesCounter: event.mistakes, 
+            isLoading: false)
+        );
+
+        List<Word> trainingList = event.trainingList;
+
+        trainingList.remove(event.keyWord);
+
+        Word updatedWord = Word.updatePoints(keyWord: event.keyWord, points: event.keyWord.points+1);
+
+        trainingList.add(updatedWord);
+
+
+        Random rnd = Random();
+
+        Word keyWord = trainingList[rnd.nextInt(trainingList.length)];
+        late Word w1;
+        late Word w2;
+        late Word w3;
+
+         int keyWordIndex = rnd.nextInt(3)+1;
+
+        (Word fakeWord1, Word fakeWord2) fakeWords = _getFakeWords(keyWord: keyWord, level: event.difficultyLevel);
+
+        switch(keyWordIndex)
+        {
+          case 1:
+          w1 = keyWord;
+          w2 = fakeWords.$1;
+          w3 = fakeWords.$2;
+          case 2:
+          w1 = fakeWords.$1;
+          w2 = keyWord;
+          w3 = fakeWords.$2;
+          case 3:
+          w1 = fakeWords.$1;
+          w2 = fakeWords.$2;
+          w3 = keyWord;
+        }
+
+
+        emit(
+          AppStateIsInTrainingView(
+            markedIndex: 1,
+            keyWordIndex: keyWordIndex,
+            level: event.difficultyLevel,
+            userLibrary: event.userLibrary, 
+            trainingList: trainingList, 
+            keyWord: keyWord, 
+            firstWord: w1, 
+            secondWord: w2, 
+            thirdWord: w3, 
+            round: event.round+1, 
+            mistakesCounter: event.mistakes, 
+            isLoading: false)
+        );
+
+
+
+        
+      }
+
+      
+    },);
 
 
     on<AppEventLogIn>((event, emit) async {
@@ -416,11 +629,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
               AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: false, userLibrary: event.userLibrary)
             );
           }
-
-
-
-
-
          }
 
 
@@ -436,6 +644,9 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    },);
 
+   on<AppEventGoToCommonTrainingChoieView>((event, emit) {
+      emit(AppStateIsInCommonTrainingLevelChoiceView(userLibrary: event.userLibrary, isLoading: false));
+   },);
 
 
    on<AppEventAddWordOfTheDayToUserLibrary>((event, emit) async {
@@ -577,6 +788,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
   }
 
 
+
+
   Future<bool> isUserDocumentCreated(String userId) async
   {
       final userDoc =  await FirebaseFirestore.instance.collection("UserLibrary").doc(userId).get();
@@ -636,6 +849,169 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
   }
 
+  List<Word> _getTrainingList(UserLibrary userLibrary, DifficultyLevel level)
+  {
+    Random rnd = Random();
+    List<Word> trainingList = [];
+
+    List<Word> wordSource;
+
+    switch(level)
+    {
+      case DifficultyLevel.A:
+      wordSource = wordsA;
+      case DifficultyLevel.B:
+      wordSource = words;
+      case DifficultyLevel.C:
+      wordSource = wordsC;
+      case DifficultyLevel.MixedAB:
+      wordSource = wordsA + words;
+      case DifficultyLevel.MixedBC:
+      wordSource = words + wordsC;
+      case DifficultyLevel.MixedABC:
+      wordSource = words + wordsA + wordsC;
+      default:
+      wordSource = [];
+    }
+
+    int i =0;
+    int j = 0;
+
+    while(i<30)
+    {
+      Word word = wordSource[rnd.nextInt(wordSource.length)];
+      j++;
+
+      if(trainingList.contains(word)==false && userLibrary.words.contains(word)==false)
+      {
+        trainingList.add(word);
+        i++;
+      }
+
+      if(j>100)
+      {
+        break;
+      }
+
+
+    }
+
+    return trainingList;
+
+
+  }
+
+  (Word w1, Word w2) _getFakeWords({
+    required Word keyWord,
+    required DifficultyLevel level,
+  })
+  {
+
+    Random rnd = Random();
+
+    switch(level)
+    {
+      case DifficultyLevel.A:
+      return _getRandomWords(wordsA, rnd, keyWord);
+      case DifficultyLevel.B:
+      return _getRandomWords(words, rnd, keyWord);
+      case DifficultyLevel.C:
+      return _getRandomWords(wordsC, rnd, keyWord);
+      case DifficultyLevel.MixedAB:
+      return _getRandomWords(wordsA+words, rnd, keyWord);
+      case DifficultyLevel.MixedBC:
+      return _getRandomWords(words+wordsC, rnd, keyWord);
+      case DifficultyLevel.MixedABC:
+      return _getRandomWords(words+wordsA+wordsC, rnd, keyWord);
+    }
+
+
+  }
+
+
+  
+  (Word w1,Word w2) _getRandomWords(List<Word> listOfWords,Random rnd,Word keyWord)
+  {
+    Word word1 = listOfWords[rnd.nextInt(listOfWords.length)];
+    while(word1==keyWord)
+    {
+      word1 = listOfWords[rnd.nextInt(listOfWords.length)];
+    }
+
+    Word word2 = listOfWords[rnd.nextInt(listOfWords.length)];
+    while(word2==keyWord || word2==word1)
+    {
+      word2 = listOfWords[rnd.nextInt(listOfWords.length)];
+    }
+
+    return (word1,word2);
+  }
+
+  Word _getRandomKeyWord(List<Word> trainingList,Random rnd)
+  {
+      int randomToken = rnd.nextInt(100);
+      late List<Word> list = [];
+
+      while(list.isEmpty)
+      {
+
+        if(randomToken < 30)
+        {
+        list = trainingList.where((word) => word.points < 5).toList();
+        }
+        else if(randomToken >= 30 && randomToken < 50)
+        {
+          list = trainingList.where((word) => word.points >= 5 && word.points < 8).toList();
+        }
+        else if (randomToken >= 50 && randomToken < 60)
+        {
+          list = trainingList.where((word) => word.points >= 8 && word.points < 11).toList();
+        }
+        else if (randomToken >= 60 && randomToken < 69)
+        {
+          list = trainingList.where((word) => word.points >= 11 && word.points < 13).toList();
+        }
+        else if (randomToken >= 69 && randomToken < 77)
+        {
+          list = trainingList.where((word) => word.points >= 13 && word.points < 16).toList();
+        }
+        else if (randomToken >= 77 && randomToken < 83)
+        {
+          list = trainingList.where((word) => word.points >= 16 && word.points < 18).toList();
+        }
+        else if (randomToken >= 83 && randomToken < 88)
+        {
+          list = trainingList.where((word) => word.points >= 18 && word.points < 20).toList();
+        }
+        else if (randomToken >= 88 && randomToken < 92)
+        {
+          list = trainingList.where((word) => word.points >= 20 && word.points < 22).toList();
+        }
+        else if (randomToken >= 92 && randomToken < 95)
+        {
+          list = trainingList.where((word) => word.points >= 22 && word.points < 25).toList();
+        }
+        else if (randomToken >= 95 && randomToken < 97)
+        {
+          list = trainingList.where((word) => word.points >= 25 && word.points < 27).toList();
+        }
+        else if (randomToken >= 97 && randomToken < 99)
+        {
+          list = trainingList.where((word) => word.points >= 27 && word.points < 30).toList();
+        }
+        else 
+        {
+          list = trainingList.where((word) => word.points >= 30).toList();
+        }
+
+        
+
+
+      }
+
+     return list[rnd.nextInt(list.length)];
+
+  }
 
 
 

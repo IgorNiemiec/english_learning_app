@@ -7,11 +7,13 @@ import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/loading/loading_screen.dart';
 import 'package:english_learning_app/views/commonLibrary_view.dart';
 import 'package:english_learning_app/views/commonSingleWord_View.dart';
+import 'package:english_learning_app/views/commonTrainingLevelChoice_View.dart';
 import 'package:english_learning_app/views/login_view.dart';
 import 'package:english_learning_app/views/main_panel_view.dart';
 import 'package:english_learning_app/views/register_view.dart';
 import 'package:english_learning_app/views/singleWord_view.dart';
 import 'package:english_learning_app/views/trainingChoice_View.dart';
+import 'package:english_learning_app/views/training_view.dart';
 import 'package:english_learning_app/views/userLibrary_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,6 +85,24 @@ class MainApp extends StatelessWidget {
             else if(appState is AppStateIsInTrainingChoiceView)
             {
               return TrainingChoiceView(userLibrary: appState.userLibrary,);
+            }
+            else if (appState is AppStateIsInCommonTrainingLevelChoiceView)
+            {
+              return CommonTrainingLevelChoiceView(userLibrary: appState.userLibrary);
+            }
+            else if (appState is AppStateIsInTrainingView)
+            {
+              return TrainingView(
+                keyWordIndex: appState.keyWordIndex,
+                userLibrary: appState.userLibrary,
+                trainingList: appState.trainingList,
+                keyWord: appState.keyWord, 
+                round: appState.round,
+                mistakeCounter: appState.mistakesCounter,
+                difficultyLevel: appState.level,
+                firstWord: appState.firstWord, 
+                secondWord: appState.secondWord, 
+                thirdWord: appState.thirdWord);
             }
             else
             {

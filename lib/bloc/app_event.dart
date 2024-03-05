@@ -1,3 +1,4 @@
+import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:flutter/foundation.dart' show immutable;
@@ -203,4 +204,61 @@ class AppEventGoToTrainingChoiceView implements AppEvent
   
 }
 
+@immutable
+class AppEventGoToCommonTrainingChoieView implements AppEvent
+{
+  final UserLibrary userLibrary;
+
+  const AppEventGoToCommonTrainingChoieView({required this.userLibrary});
+
+}
+
+
+@immutable
+class AppEventGoToTrainingView implements AppEvent
+{
+
+  final UserLibrary userLibrary;
+  final DifficultyLevel difficultyLevel;
+
+  const AppEventGoToTrainingView({
+    required this.userLibrary,
+    required this.difficultyLevel,
+  });
+
+}
+
+@immutable
+class AppEventUpdateTrainingView implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final List<Word> trainingList;
+  final DifficultyLevel difficultyLevel;
+  final Word keyWord;
+  final Word firstWord;
+  final Word secondWord;
+  final Word thirdWord;
+  final int round;
+  final int mistakes;
+  final bool isMistake;
+  final int keyWordIndex;
+  final int markedIndex;
+
+  const AppEventUpdateTrainingView({
+    required this.userLibrary,
+    required this.trainingList,
+    required this.difficultyLevel,
+    required this.round,
+    required this.mistakes,
+    required this.isMistake,
+    required this.keyWordIndex,
+    required this.markedIndex,
+    required this.keyWord,
+    required this.firstWord,
+    required this.secondWord,
+    required this.thirdWord,
+  });
+
+
+}
 

@@ -94,9 +94,6 @@ const wordsC = [
     wordPl: "oświadczenie pod przysięgą", 
     points: 0, 
     wordLevel: "C"),
-
-
-
     
     Word(
     wordEn: "agitprop",
@@ -111,8 +108,8 @@ const wordsC = [
     wordLevel: "C"),
 
     Word(
-    wordEn: "oburęczny",
-    wordPl: "ambidextrous", 
+    wordEn: "ambidextrous",
+    wordPl: "oburęczny", 
     points: 0, 
     wordLevel: "C"),
 

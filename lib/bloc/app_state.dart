@@ -1,3 +1,4 @@
+import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
@@ -179,4 +180,52 @@ class AppStateIsInTrainingChoiceView extends AppState
     required this.userLibrary,
     AuthError? authError}) : super(isLoading: isLoading,authError: authError);
 
+}
+
+@immutable
+class AppStateIsInCommonTrainingLevelChoiceView extends AppState
+{
+  final UserLibrary userLibrary;
+
+  const AppStateIsInCommonTrainingLevelChoiceView({
+    required this.userLibrary,
+    required bool isLoading,
+    AuthError? authError,
+  }) : super(isLoading: isLoading , authError:authError );
+
+}
+
+@immutable
+class AppStateIsInTrainingView extends AppState
+{
+  final DifficultyLevel level;
+  final UserLibrary userLibrary;
+  final List<Word> trainingList;
+  final Word keyWord;
+  final Word firstWord;
+  final Word secondWord;
+  final Word thirdWord;
+  final int round;
+  final int mistakesCounter;
+  final bool? isMistake;
+  final int keyWordIndex;
+  final int markedIndex;
+
+  const AppStateIsInTrainingView({
+    required this.level,
+    required this.userLibrary,
+    required this.trainingList,
+    required this.keyWord,
+    required this.firstWord,
+    required this.secondWord,
+    required this.thirdWord,
+    required this.round,
+    required this.mistakesCounter,
+    this.isMistake,
+    required this.keyWordIndex,
+    required this.markedIndex,
+    required bool isLoading,
+    AuthError? authError,
+  }) : super(isLoading: isLoading,authError: authError);
+  
 }

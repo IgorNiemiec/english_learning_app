@@ -15,7 +15,24 @@ class Word
   required this.wordLevel,
  });
 
- 
+
+ factory Word.updatePoints({
+  required Word keyWord,
+  required int points, 
+ }) 
+ {
+  if (points<1)
+  {
+    points=0;
+  }
+
+ return Word(
+  wordEn: keyWord.wordEn, 
+  wordPl: keyWord.wordPl, 
+  points: points, 
+  wordLevel: keyWord.wordLevel);
+
+ } 
 
  
 

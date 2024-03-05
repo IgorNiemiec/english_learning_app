@@ -1,10 +1,13 @@
 
 
 
+import 'package:english_learning_app/bloc/app_bloc.dart';
+import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TrainingChoiceView extends StatelessWidget
 {
@@ -49,7 +52,9 @@ class TrainingChoiceView extends StatelessWidget
                     child: OutlinedButton(
                       onPressed: ()
                       {
-
+                        context.read<AppBloc>().add(
+                          AppEventGoToCommonTrainingChoieView(userLibrary: userLibrary)
+                        );
                       },
                       style: applicationButtonStyle(),
                       child: Text("Common Training"),
