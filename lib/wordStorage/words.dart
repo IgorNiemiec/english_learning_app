@@ -4,7 +4,27 @@ import 'package:english_learning_app/models/word.dart';
 
 const List<Word> words = [
 
+    Word(
+      wordEn: "overlap",
+      wordPl: "nachodzić na siebie",
+      points: 0,
+      wordLevel: "B",
+    ),
 
+    Word(
+      wordEn: "indentation",
+      wordPl: "wcięcie",
+      points: 0,
+      wordLevel: "B",
+    ),
+
+
+    Word(
+      wordEn: "makeshift",
+      wordPl: "prowizoryczny",
+      points: 0,
+      wordLevel: "B",
+    ),
 
     Word(
     wordEn: "amaze",

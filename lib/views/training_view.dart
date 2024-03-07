@@ -64,7 +64,7 @@ class TrainingView extends StatelessWidget
                   SizedBox(),
                   Container(
                     alignment: Alignment.center,
-                    child: Text("Round: ${round}",style: const TextStyle(color: applicationColor,fontSize: 15),),
+                    child: Text("Round: ${round}/50",style: const TextStyle(color: applicationColor,fontSize: 15),),
                   ),
                   SizedBox(),
                   Container(

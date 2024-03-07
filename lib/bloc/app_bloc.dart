@@ -151,8 +151,24 @@ class AppBloc extends Bloc<AppEvent,AppState>
     on<AppEventUpdateTrainingView>((event, emit) 
     {
 
-      if(event.isMistake)
+      if (event.round == 50)
       {
+
+        emit(
+          AppStateIsInTrainingFinalizationView(
+            trainingList: event.trainingList, 
+            correctCounter: event.round-event.mistakes, 
+            mistakesCounter: event.mistakes, 
+            isLoading: false)
+        );
+
+      }
+      else
+      {
+
+
+        if(event.isMistake)
+        {
         emit(AppStateIsInTrainingView(
           markedIndex: event.markedIndex,
           keyWordIndex: event.keyWordIndex,
@@ -303,6 +319,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         
       }
+
+
+
+      }
+
+      
 
       
     },);
@@ -736,6 +758,18 @@ class AppBloc extends Bloc<AppEvent,AppState>
         AppStateIsInUserLibraryView(
           userLibrary: event.userLibrary, 
           filteredWords: filteredWords,
+          isLoading: false)
+      );
+
+   },);
+
+   on<AppEventGoToTrainingFinalizationView>((event, emit) {
+
+      emit(
+        AppStateIsInTrainingFinalizationView(
+          trainingList: event.trainingList, 
+          correctCounter: event.correctCounter, 
+          mistakesCounter: event.mistakesCounter, 
           isLoading: false)
       );
 

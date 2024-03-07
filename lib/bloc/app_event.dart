@@ -262,3 +262,17 @@ class AppEventUpdateTrainingView implements AppEvent
 
 }
 
+
+@immutable
+class AppEventGoToTrainingFinalizationView implements AppEvent
+{
+  final List<Word> trainingList;
+  final int correctCounter;
+  final int mistakesCounter;
+
+  const AppEventGoToTrainingFinalizationView({
+    required this.trainingList,
+    required this.correctCounter,
+    required this.mistakesCounter,
+  });
+} 

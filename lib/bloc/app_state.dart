@@ -229,3 +229,21 @@ class AppStateIsInTrainingView extends AppState
   }) : super(isLoading: isLoading,authError: authError);
   
 }
+
+@immutable
+class AppStateIsInTrainingFinalizationView extends AppState
+{
+
+  final List<Word> trainingList;
+  final int correctCounter;
+  final int mistakesCounter;
+
+  const AppStateIsInTrainingFinalizationView({
+    required this.trainingList,
+    required this.correctCounter,
+    required this.mistakesCounter,
+    required bool isLoading,
+    AuthError? authError,
+  }) : super(isLoading: isLoading,authError: authError);
+
+}
