@@ -156,6 +156,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         emit(
           AppStateIsInTrainingFinalizationView(
+            userLibrary: event.userLibrary,
             trainingList: event.trainingList, 
             correctCounter: event.round-event.mistakes, 
             mistakesCounter: event.mistakes, 
@@ -767,6 +768,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       emit(
         AppStateIsInTrainingFinalizationView(
+          userLibrary: event.userLibrary,
           trainingList: event.trainingList, 
           correctCounter: event.correctCounter, 
           mistakesCounter: event.mistakesCounter, 
@@ -775,6 +777,59 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    },);
 
+   on<AppEventGoToTrainingWordsView>((event, emit) {
+
+    emit(AppStateIsInTrainingWordsView(trainingWords: event.trainingList, isLoading: false));
+
+   },);
+
+  on<AppEventSaveTrainingWordsInUserLibrary>((event, emit) async {
+
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if(user!= null)
+    {
+
+
+      try
+      { 
+
+        emit(AppStateIsInTrainingWordsView(trainingWords: event.trainingWords, isLoading: true));
+
+        UserLibrary newUserLibrary = event.userLibrary;
+
+        await _addTrainingWordsToUserLibrary(user.uid, event.trainingWords);
+
+        newUserLibrary.words.addAll(event.trainingWords);
+
+        emit(
+          AppStateLoggedIn(isLoading: false, user: user, userLibrary: newUserLibrary)
+        );
+
+      }
+      catch(ex)
+      {
+
+        emit(
+          AppStateIsInTrainingWordsView(trainingWords: event.trainingWords, isLoading: false, authError: AuthErrorUnknown())
+
+        );
+
+      }
+
+    }
+    else
+    {
+
+      emit(
+        const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
+      );
+
+    }
+
+  
+
+  },);
     
 
   }
@@ -868,6 +923,27 @@ class AppBloc extends Bloc<AppEvent,AppState>
     await collectionReference.doc(userId).update(userLibrary.toJson());
 
   }
+
+  Future<void> _addTrainingWordsToUserLibrary(String userId, List<Word> trainingWords) async
+  {
+
+     FirebaseFirestore database = FirebaseFirestore.instance;
+
+     CollectionReference collectionReference = database.collection("UserLibrary");
+
+     var words = [];
+
+     for(var word in trainingWords)
+     {
+      words.add(word.toJson());
+     }
+
+     await collectionReference.doc(userId).update({"words": FieldValue.arrayUnion(words)});
+
+  }
+
+  
+
 
   WordOfTheDay _generateWordOfTheDay()
   {

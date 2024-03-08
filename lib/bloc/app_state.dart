@@ -234,16 +234,30 @@ class AppStateIsInTrainingView extends AppState
 class AppStateIsInTrainingFinalizationView extends AppState
 {
 
+  final UserLibrary userLibrary;
   final List<Word> trainingList;
   final int correctCounter;
   final int mistakesCounter;
 
   const AppStateIsInTrainingFinalizationView({
+    required this.userLibrary,
     required this.trainingList,
     required this.correctCounter,
     required this.mistakesCounter,
     required bool isLoading,
     AuthError? authError,
   }) : super(isLoading: isLoading,authError: authError);
+
+}
+
+
+@immutable
+class AppStateIsInTrainingWordsView extends AppState 
+{
+    final List<Word> trainingWords;
+
+    const AppStateIsInTrainingWordsView({required this.trainingWords,
+    required bool isLoading,
+    AuthError? authError}) : super(isLoading: isLoading,authError: authError);
 
 }

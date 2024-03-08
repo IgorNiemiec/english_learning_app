@@ -14,6 +14,7 @@ import 'package:english_learning_app/views/register_view.dart';
 import 'package:english_learning_app/views/singleWord_view.dart';
 import 'package:english_learning_app/views/trainingChoice_View.dart';
 import 'package:english_learning_app/views/trainingFinalization_view.dart';
+import 'package:english_learning_app/views/trainingWords_view.dart';
 import 'package:english_learning_app/views/training_view.dart';
 import 'package:english_learning_app/views/userLibrary_view.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +111,12 @@ class MainApp extends StatelessWidget {
               return TrainingFinalizationView(
                 trainingList: appState.trainingList, 
                 correctCounter: appState.correctCounter, 
-                mistakesCounter: appState.mistakesCounter);
+                mistakesCounter: appState.mistakesCounter,
+                userLibrary: appState.userLibrary,);
+            }
+            else if (appState is AppStateIsInTrainingWordsView)
+            {
+              return TrainingWordsView(trainingWords: appState.trainingWords);
             }
             else
             {
