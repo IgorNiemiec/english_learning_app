@@ -2,7 +2,7 @@
 
 import 'package:english_learning_app/models/word.dart';
 
-const List<Word> words = [
+final List<Word> words = [
 
     Word(
       wordEn: "overlap",

@@ -3,7 +3,7 @@
 
 import 'package:english_learning_app/models/word.dart';
 
-const wordsA = [
+final wordsA = [
 
   Word(
     wordEn: "agresja",

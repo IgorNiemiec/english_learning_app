@@ -261,3 +261,20 @@ class AppStateIsInTrainingWordsView extends AppState
     AuthError? authError}) : super(isLoading: isLoading,authError: authError);
 
 }
+
+@immutable
+class AppStateIsInTrainingFinalizationLibraryView extends AppState
+{
+
+  final UserLibrary userLibrary;
+  final List<Word> trainingWords;
+
+  const AppStateIsInTrainingFinalizationLibraryView({
+    required this.userLibrary,
+    required this.trainingWords,
+    required bool isLoading,
+    AuthError? authError,
+  }) : super(isLoading: false, authError: authError);
+
+
+}

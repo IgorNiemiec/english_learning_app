@@ -70,6 +70,16 @@ class UserLibrary
     
   }
 
+  void mergeWords(List<Word> trainingList)
+  {
+
+    for(var word in trainingList)
+    {
+      this.words.remove(this.words.where((element) => element == word).first);
+      
+    }
+
+  }
 
   @override
   bool operator ==(covariant UserLibrary other) =>

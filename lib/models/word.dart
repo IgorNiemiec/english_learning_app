@@ -5,15 +5,17 @@ class Word
 
  final String wordEn;
  final String wordPl;
- final int points;
+ int points;
  final String wordLevel;
 
- const Word({
+ Word({
   required this.wordEn,
   required this.wordPl,
   required this.points,
   required this.wordLevel,
  });
+
+
 
 
  factory Word.updatePoints({
@@ -52,6 +54,11 @@ class Word
       "points" : points ,
       "wordLevel" : wordLevel,
     };
+  }
+
+  void setPoints(int points)
+  {
+    this.points = points;
   }
 
 

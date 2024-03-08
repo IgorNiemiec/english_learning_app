@@ -830,6 +830,62 @@ class AppBloc extends Bloc<AppEvent,AppState>
   
 
   },);
+
+  on<AppEventFinishLibraryTraining>((event, emit) async
+  {
+
+      emit(
+        AppStateIsInTrainingFinalizationLibraryView(
+          userLibrary: event.userLibrary, 
+          trainingWords: event.trainingWords, 
+          isLoading: true)
+      );
+    
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if(user!=null)
+    {
+
+  
+      UserLibrary newUserLibrary = event.userLibrary;
+
+      for(var word in event.trainingWords)
+      {
+  
+         newUserLibrary.words.where((element) => element==word).first.setPoints(word.points);
+  
+      }
+
+       await _updateUserLibrary(user.uid, newUserLibrary);
+
+       emit(
+        AppStateLoggedIn(
+          isLoading: false, 
+          user: user, 
+          userLibrary: newUserLibrary)
+       );
+
+    }
+    else
+    {
+
+
+      emit(
+        AppStateIsInTrainingFinalizationLibraryView(
+          userLibrary: event.userLibrary, 
+          trainingWords: event.trainingWords, 
+          isLoading: false)
+      );
+
+
+
+
+    }
+
+
+   
+
+  },);
     
 
   }
@@ -947,7 +1003,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
   WordOfTheDay _generateWordOfTheDay()
   {
-     Random random = Random();
+    
+    Random random = Random();
 
     int wotdIndex = random.nextInt(words.length);
 

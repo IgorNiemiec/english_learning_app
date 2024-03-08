@@ -303,3 +303,18 @@ class AppEventSaveTrainingWordsInUserLibrary implements AppEvent
     });
 
 }
+
+@immutable
+class AppEventFinishLibraryTraining implements AppEvent
+{
+
+  final UserLibrary userLibrary;
+  final List<Word> trainingWords;
+
+  const AppEventFinishLibraryTraining({
+    required this.trainingWords,
+    required this.userLibrary,
+  });
+
+
+}
