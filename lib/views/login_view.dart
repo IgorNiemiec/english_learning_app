@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LoginView extends StatelessWidget
 {
@@ -53,8 +54,9 @@ class LoginView extends StatelessWidget
                     ),
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
+                      height: MediaQuery.of(context).size.height * 0.08,
                       child:  TextField(
-                    style: applicationBlackTextStyle(20),
+                    style: applicationBlackTextStyle(25),
                     controller: emailController,
                     decoration: applicationInputDecoration(hintText: "Email",icon: Icons.email),
                     keyboardType: TextInputType.emailAddress,
@@ -74,9 +76,9 @@ class LoginView extends StatelessWidget
                     ),
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
+                      height: MediaQuery.of(context).size.height * 0.07,
                       child: TextField(
-                    style: applicationBlackTextStyle(20),
-                    strutStyle: StrutStyle.disabled,
+                    style: applicationBlackTextStyle(25),
                     controller: passwordController,
                     decoration: applicationInputDecoration(hintText: "Password",
                     icon: Icons.lock),
@@ -106,9 +108,12 @@ class LoginView extends StatelessWidget
                       },
                       style: applicationButtonStyle(),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Icon(Icons.g_mobiledata_outlined),
+                          SvgPicture.asset(
+                            'assets/google.svg',
+                            width: MediaQuery.of(context).size.width * 0.06,
+                          ),
                           Text("Sign in with Google",style: applicationTextStyle(20),)
                       ],)
                     ),
