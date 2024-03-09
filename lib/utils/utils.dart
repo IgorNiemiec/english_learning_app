@@ -27,17 +27,16 @@ ButtonStyle applicationRedButtonStyle()
 InputDecoration applicationInputDecoration({required String hintText})
 {
   return InputDecoration(
-    
     hintText: hintText,
     hintStyle: const TextStyle(
-      color: applicationColor,
+      color: Colors.black,
     ),
     hintFadeDuration: const Duration(milliseconds: 500),
     focusedBorder: const UnderlineInputBorder(
       borderSide: BorderSide(color: applicationColor,width: 2)
     ),
     enabledBorder:const UnderlineInputBorder(
-      borderSide: BorderSide(color: applicationColor,width: 2)
+      borderSide: BorderSide(color: Colors.black,width: 2)
     ),
   );
 }

@@ -37,7 +37,19 @@ class LoginView extends StatelessWidget
             ),
             Container(
               alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.6,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    applicationColor,
+                    Color.fromARGB(255, 200, 255, 0)
+                  ]
+                ),
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: Column(
                 children: <Widget>[
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
