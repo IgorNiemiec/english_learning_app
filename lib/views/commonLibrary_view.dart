@@ -77,7 +77,7 @@ class CommonLibraryView extends StatelessWidget
                   );
 
                 },
-                decoration: applicationInputDecoration(hintText: "Search word"),
+                decoration: applicationInputDecoration(hintText: "Search word", icon: Icons.search),
                ),
               ),
             ), 

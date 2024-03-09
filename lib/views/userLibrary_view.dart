@@ -77,7 +77,8 @@ class UserLibraryView extends StatelessWidget
                     AppEventFilterUserLibrary(wordName: word, userLibrary: userLibrary)
                   );
                 },
-                decoration: applicationInputDecoration(hintText: "Search word"),
+                decoration: applicationInputDecoration(hintText: "Search word",
+                icon: Icons.search),
                ),
               ),
             ), 

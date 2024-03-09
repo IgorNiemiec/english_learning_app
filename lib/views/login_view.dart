@@ -4,7 +4,9 @@ import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/utils/utils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginView extends StatelessWidget
@@ -26,82 +28,74 @@ class LoginView extends StatelessWidget
         color: Colors.black,
         child: Column(
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: Text("Login",textAlign: TextAlign.left,style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: applicationColor,
-              ),),
+              height: MediaQuery.of(context).size.height * 0.15,
+              child: Text("The Bloom",textAlign: TextAlign.left,style: applicationTextStyle(50)),
             ),
             Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.6,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [
-                    applicationColor,
-                    Color.fromARGB(255, 200, 255, 0)
-                  ]
-                ),
-                borderRadius: BorderRadius.circular(30),
-              ),
+              height: MediaQuery.of(context).size.height * 0.7,
               child: Column(
                 children: <Widget>[
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                  Container(
+                    alignment: Alignment.center,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.7,
-                    child:  TextField(
-                    style: TextStyle(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
                       color: applicationColor,
                     ),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child:  TextField(
+                    style: applicationBlackTextStyle(20),
                     controller: emailController,
-                    decoration: applicationInputDecoration(hintText: "Enter your email here..."),
+                    decoration: applicationInputDecoration(hintText: "Email",icon: Icons.email),
                     keyboardType: TextInputType.emailAddress,
                     keyboardAppearance: Brightness.dark,
+                    cursorColor: Colors.black,
                   ),
+                    ),
                   ),
-                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+                   Container(
+                    alignment: Alignment.center,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.7,
-                    child:   TextField(
-                    style: const TextStyle(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
                       color: applicationColor,
                     ),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: TextField(
+                    style: applicationBlackTextStyle(20),
+                    strutStyle: StrutStyle.disabled,
                     controller: passwordController,
-                    decoration: applicationInputDecoration(hintText: "Enter your password here..."),
+                    decoration: applicationInputDecoration(hintText: "Password",
+                    icon: Icons.lock),
                     obscureText: true,
                     obscuringCharacter: '*',
                     keyboardAppearance: Brightness.dark,
                   ),
-                   ),
-                   SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-                   SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      height: MediaQuery.of(context).size.height * 0.07,
-                      child: OutlinedButton(
-                        style: applicationButtonStyle(),
-                        onPressed: ()
-                        {
-                          context.read<AppBloc>().add(
-                            AppEventLogIn(email: emailController.text, password: passwordController.text)
-                          );
-                        },
-                        child: Text("Login"),
-                      ),
+                    ),
+                    
+                    
+                     
                    ),
                    SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
                    Container(
                     alignment: Alignment.center,
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.07,
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.7,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -110,19 +104,39 @@ class LoginView extends StatelessWidget
                         );
 
                       },
-                      child: Text("Sign in with Google",style: TextStyle(
-                        color: Colors.yellow
-                      ),),
+                      style: applicationButtonStyle(),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Icons.g_mobiledata_outlined),
+                          Text("Sign in with Google",style: applicationTextStyle(20),)
+                      ],)
                     ),
                    ),
-                   )
+                   ),
+                   
+                   SizedBox(height: MediaQuery.of(context).size.height * 0.15,),
+                   SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      child: OutlinedButton(
+                        style: signInButtonStyle(),
+                        onPressed: ()
+                        {
+                          context.read<AppBloc>().add(
+                            AppEventLogIn(email: emailController.text, password: passwordController.text)
+                          );
+                        },
+                        child: Icon(Icons.navigate_next,size: 60,),
+                      ),
+                   ),
+                   
                    
                 ],
               ),
             ),
              Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
               padding: const EdgeInsets.all(8.0),
               child: TextButton(
                 onPressed: ()
@@ -131,9 +145,7 @@ class LoginView extends StatelessWidget
                     AppEventGoToRegistration()
                   );
                 },
-                child: Text("Haven't account yet? Register",style: TextStyle(
-                  color: applicationColor
-                ),),
+                child: Text("Haven't account yet? Register",style: applicationTextStyle(19),),
               ),
             ),
           ],

@@ -27,4 +27,8 @@ flutter:
     - assets/BritishFlag.jpeg
     - assets/PolishFlag.jpeg
 
+  fonts:
+    - family: ProtestRiot
+      fonts:
+      - asset: fonts/ProtestRiot-Regular.ttf
 
