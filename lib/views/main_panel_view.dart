@@ -25,56 +25,44 @@ class MainPanelView extends StatelessWidget
         child: Column(
           children: <Widget>[
             Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: Text("Main Panel",style: TextStyle(
-                color: applicationColor,
-                fontSize: 30
-              ),),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.6,
+              height: MediaQuery.of(context).size.height * 0.8,
               child: Column(
                 children: [
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
                   Container(
                     alignment: Alignment.center,
                     height: MediaQuery.of(context).size.height * 0.2,
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(color: applicationColor,width: 2)
+                    ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
+                        const SizedBox(),
                         Container(
                           alignment: Alignment.center,
-                          child: const Text("WORD OF THE DAY",style: TextStyle(
-                            color: applicationColor,
-                            fontSize: 25
-                          ),
+                          child:  Text("WORD OF THE DAY",style: applicationTextStyle(30),
                           textAlign: TextAlign.center,),
-                        ),
-                        const SizedBox(
-                          height: 20,
                         ),
                         Container(
                           alignment: Alignment.center,
                           child: Text("${userLibrary.wordOfTheDay.wotd.wordEn} - ${userLibrary.wordOfTheDay.wotd.wordPl}",
-                          style: TextStyle(
-                            color: applicationColor,
-                            fontSize: 20
-                          ),
+                          style: applicationTextStyle(20),
                           textAlign: TextAlign.center,),
                         ),
+                        const SizedBox(),
                       ],
                     ),
                   ),
                   Container(
                     alignment: Alignment.center,
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.6,
                     child: Container(
                          alignment: Alignment.center,
                         width: MediaQuery.of(context).size.width * 0.9,
                         height: MediaQuery.of(context).size.height * 0.4,
-                        decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[ 
@@ -85,8 +73,8 @@ class MainPanelView extends StatelessWidget
                                 children: <Widget>[
                                   const SizedBox(),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.35,
-                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.4,
+                                    height: MediaQuery.of(context).size.height * 0.2,
                                     child: OutlinedButton(
                                       style: applicationButtonStyle(),
                                       onPressed: ()
@@ -97,17 +85,21 @@ class MainPanelView extends StatelessWidget
                                         );
                                         
                                       },
-                                      child: Text("ADD WORD",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                      ),),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          const SizedBox(),
+                                          Icon(Icons.add_box,size: 50,),
+                                          Text("Add WOTD",style: applicationTextStyle(20),),
+                                          const SizedBox(),
+                                        ],
+                                      )
                                     ),
                                   ),
-                                  
+                                  const SizedBox(),
                                   SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.35,
-                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.4,
+                                    height: MediaQuery.of(context).size.height * 0.2,
                                     child: OutlinedButton(
                                       style: applicationButtonStyle(),
                                       onPressed: ()
@@ -118,11 +110,15 @@ class MainPanelView extends StatelessWidget
                                         );
                                        
                                       },
-                                      child: Text("MY LIBRARY",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                      ),),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          const SizedBox(),
+                                          Icon(Icons.person,size: 50,),
+                                          Text("User library",style: applicationTextStyle(20),),
+                                          const SizedBox(),
+                                        ],
+                                      )
                                     ),
                                   ),
                                   const SizedBox(),
@@ -136,8 +132,8 @@ class MainPanelView extends StatelessWidget
                                 children: <Widget>[
                                   const SizedBox(),
                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.35,
-                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.4,
+                                    height: MediaQuery.of(context).size.height * 0.2,
                                     child: OutlinedButton(
                                       style: applicationButtonStyle(),
                                       onPressed: ()
@@ -148,16 +144,21 @@ class MainPanelView extends StatelessWidget
                                         );
 
                                       },
-                                      child: const Text("LIBRARY",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                      ),),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          const SizedBox(),
+                                          Icon(Icons.library_books,size: 40,),
+                                          Text("Library", style: applicationTextStyle(25),),
+                                          const SizedBox(),
+
+                                        ],
+                                      )
                                     ),
                                   ),
                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width * 0.35,
-                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.4,
+                                    height: MediaQuery.of(context).size.height * 0.2,
                                     child: OutlinedButton(
                                       style: applicationButtonStyle(),
                                       onPressed: ()
@@ -188,7 +189,7 @@ class MainPanelView extends StatelessWidget
             ),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.1,

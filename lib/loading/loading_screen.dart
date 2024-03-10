@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/loading/loading_screen_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -56,51 +57,14 @@ class LoadingScreen
     {
       return Material(
         color: Colors.black.withOpacity(0.8),
-        child: Center(
-          child: Container(
-            constraints: BoxConstraints(
-              maxWidth: size.width * 0.8,
-              maxHeight: size.height * 0.8,
-              minWidth: size.width * 0.5,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              border: Border.all(color: Colors.green,width: 3),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    const CircularProgressIndicator(color: Colors.green,),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    StreamBuilder<String>(stream: _text.stream, builder: (context,snapshot) 
-                    {
-                      if (snapshot.hasData)
-                      {
-                        return Text(snapshot.data!,textAlign: TextAlign.center,);
-                      }
-                      else
-                      {
-                        return Container();
-                      }
-                    })
-                  ],
-                ),
-              ),
-            ),
-          ),
+        child: const Center(
+          child: CircularProgressIndicator(color: applicationColor,),
         ),
       );
+
     });
+
+    
 
     state.insert(overlay);
 

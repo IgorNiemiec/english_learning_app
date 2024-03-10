@@ -17,6 +17,7 @@ import 'package:english_learning_app/views/trainingFinalization_view.dart';
 import 'package:english_learning_app/views/trainingWords_view.dart';
 import 'package:english_learning_app/views/training_view.dart';
 import 'package:english_learning_app/views/userLibrary_view.dart';
+import 'package:english_learning_app/views/userPanel_View.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -62,7 +63,7 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateLoggedIn)
             {
-              return  MainPanelView(userLibrary: appState.userLibrary,);
+              return UserPanelView(userLibrary: appState.userLibrary);
             }
             else if (appState is AppStateIsInRegistrationView)
             {

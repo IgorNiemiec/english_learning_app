@@ -110,11 +110,13 @@ class LoginView extends StatelessWidget
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
+                          const SizedBox(),
                           SvgPicture.asset(
                             'assets/google.svg',
                             width: MediaQuery.of(context).size.width * 0.06,
                           ),
-                          Text("Sign in with Google",style: applicationTextStyle(20),)
+                          Text("Sign in with Google",style: applicationTextStyle(20),),
+                          const SizedBox(),
                       ],)
                     ),
                    ),
