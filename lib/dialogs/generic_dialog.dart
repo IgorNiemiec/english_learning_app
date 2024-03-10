@@ -1,6 +1,7 @@
 
 
 import 'package:english_learning_app/constants/constants.dart';
+import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 typedef DialogOptionBuilder<T> = Map<String,T?> Function();
@@ -19,12 +20,12 @@ Future<T?> showGenericDialog<T>({
     builder: (context)
     {
       return AlertDialog(
-        backgroundColor: Colors.black,
-        title: Text(title,style: TextStyle(
-          color: applicationColor,
-        ),textAlign: TextAlign.center,),
+        backgroundColor: applicationColor,
+        title: Text(title,style: applicationBlackTextStyle(20), textAlign:  TextAlign.center,),
         content: Text(content,style: TextStyle(
-          color: applicationColor,
+          color: Colors.black,
+          fontFamily: 'ProtestRiot',
+          fontSize: 15,
         ),textAlign: TextAlign.center,),
         actions: options.keys.map((optionTitle)
         {
@@ -46,7 +47,7 @@ Future<T?> showGenericDialog<T>({
 
             },
              child: Text(optionTitle,style: const TextStyle(
-              color: applicationColor,
+              color: Colors.black,
              ),));
         }).toList(),
       );

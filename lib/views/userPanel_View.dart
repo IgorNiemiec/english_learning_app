@@ -85,13 +85,13 @@ class UserPanelView extends StatelessWidget
 
 
                               },
-                              style: applicationButtonStyle(),
+                              style: applicationGreenButtonStyle(),
                               child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           const SizedBox(),
                                           const Icon(Icons.add_box,size: 50,),
-                                          Text("Add WOTD",style: applicationTextStyle(20),),
+                                          Text("Add WOTD",style: applicationBlackTextStyle(20),),
                                           const SizedBox(),
                                         ],
                                       )
@@ -111,13 +111,13 @@ class UserPanelView extends StatelessWidget
                                         );
 
                               },
-                              style: applicationButtonStyle(),
+                              style: applicationGreenButtonStyle(),
                               child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           const SizedBox(),
                                           const Icon(Icons.person,size: 50,),
-                                          Text("User library",style: applicationTextStyle(20),),
+                                          Text("User library",style: applicationBlackTextStyle(20),),
                                           const SizedBox(),
                                         ],
                                       )
@@ -148,13 +148,13 @@ class UserPanelView extends StatelessWidget
 
 
                               },
-                              style: applicationButtonStyle(),
+                              style: applicationGreenButtonStyle(),
                               child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           const SizedBox(),
                                           const Icon(Icons.library_books,size: 50,),
-                                          Text("Dictionary",style: applicationTextStyle(20),),
+                                          Text("Dictionary",style: applicationBlackTextStyle(20),),
                                           const SizedBox(),
                                         ],
                                       )
@@ -174,13 +174,13 @@ class UserPanelView extends StatelessWidget
                                         );
 
                               },
-                              style: applicationButtonStyle(),
+                              style: applicationGreenButtonStyle(),
                               child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
                                           const SizedBox(),
                                           const Icon(Icons.logout,size: 50,),
-                                          Text("Logout",style: applicationTextStyle(20),),
+                                          Text("Logout",style: applicationBlackTextStyle(20),),
                                           const SizedBox(),
                                         ],
                                       )
@@ -202,7 +202,7 @@ class UserPanelView extends StatelessWidget
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.1,
               child: OutlinedButton(
-                style: applicationButtonStyle(),
+                style: applicationGreenButtonStyle(),
                 onPressed: ()
                 {
                   context.read<AppBloc>().add(
@@ -210,17 +210,11 @@ class UserPanelView extends StatelessWidget
                     );
 
                 },
-                child: const Text("Train",style: TextStyle(
-                    color: applicationColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30
-                  ),),
+                child: Text("Train",style: applicationBlackTextStyle(30)),
 
               ),
             ),
-            const SizedBox()
-
-
+            const SizedBox(),
           ],
         ),
       ),

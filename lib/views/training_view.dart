@@ -53,7 +53,7 @@ class TrainingView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.05,
-              child: const Text("Training",style: TextStyle(color: applicationColor,fontSize: 30),)
+              child: Text("Training",style: applicationTextStyle(30),)
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(
@@ -61,22 +61,40 @@ class TrainingView extends StatelessWidget
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  SizedBox(),
+                  const SizedBox(),
                   Container(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     alignment: Alignment.center,
-                    child: Text("Round: ${round}/50",style: const TextStyle(color: applicationColor,fontSize: 15),),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: applicationColor,width: 2),
+                      shape: BoxShape.circle
+                    ),
+                    child: Text("$round/50",style: applicationTextStyle(25),),
                   ),
-                  SizedBox(),
+                  const SizedBox(),
                   Container(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     alignment: Alignment.center,
-                    child: Text("Correct: ${round-mistakeCounter}", style: const TextStyle(color: applicationColor, fontSize: 15),),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: applicationColor,
+                    ),
+                    child: Text("${round-mistakeCounter-1}", style: applicationBlackTextStyle(30),),
                   ),
-                  SizedBox(),
+                  const SizedBox(),
                   Container(
+                     width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     alignment: Alignment.center,
-                    child: Text("Mistakes: ${mistakeCounter}",style: const TextStyle(color: applicationColor,fontSize: 15),),
+                    decoration:const  BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.red,
+                    ),
+                    child: Text("$mistakeCounter",style: applicationBlackTextStyle(30),),
                   ),
-                  SizedBox()
+                  const SizedBox()
                 ],
               ),
             ),
@@ -84,13 +102,13 @@ class TrainingView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,
-              child: Text(keyWord.wordPl,style: const TextStyle(color: applicationColor,fontSize: 30),),
+              child: Text(keyWord.wordPl,style: applicationTextStyle(40),),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.1,
-              child: const Text("Choose a right word",style: TextStyle(color: applicationColor,fontSize: 24),),
+              height: MediaQuery.of(context).size.height * 0.05,
+              child: Text("Choose a right word",style: applicationTextStyle(25),),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             Container(
@@ -145,8 +163,8 @@ class TrainingView extends StatelessWidget
 
 
                       },
-                      style: applicationButtonStyle(),
-                      child: Text(firstWord.wordEn,style: const TextStyle(color: applicationColor,fontSize: 25),),
+                      style: applicationGreenButtonStyle(),
+                      child: Text(firstWord.wordEn,style: applicationBlackTextStyle(30),),
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
@@ -199,8 +217,8 @@ class TrainingView extends StatelessWidget
                         }
 
                       },
-                      style: applicationButtonStyle(),
-                      child: Text(secondWord.wordEn,style: const TextStyle(color: applicationColor,fontSize: 25),),
+                      style: applicationGreenButtonStyle(),
+                      child: Text(secondWord.wordEn,style: applicationBlackTextStyle(30),),
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
@@ -249,8 +267,8 @@ class TrainingView extends StatelessWidget
                         }
 
                       },
-                      style: applicationButtonStyle(),
-                      child: Text(thirdWord.wordEn,style: const TextStyle(color: applicationColor,fontSize: 25),),
+                      style: applicationGreenButtonStyle(),
+                      child: Text(thirdWord.wordEn,style: applicationBlackTextStyle(30),),
                     ),
                   ),
 

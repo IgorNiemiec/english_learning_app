@@ -4,7 +4,9 @@ import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:english_learning_app/utils/utils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TrainingFinalizationView extends StatelessWidget
@@ -37,29 +39,44 @@ class TrainingFinalizationView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.05,
-              child: const Text("Training is finished",style: TextStyle(color: applicationColor,fontSize: 30),),
+              child: Text("Training is finished",style: applicationTextStyle(30),),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.15,),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.05,
+              height: MediaQuery.of(context).size.height * 0.1,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                 const SizedBox(),
-                SizedBox(
-                  child: Text("correct: $correctCounter", style: const TextStyle(color: applicationColor,fontSize: 24),),
+                Container(
+                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: applicationColor
+                  ),
+                  child: Text("correct: $correctCounter", style: applicationBlackTextStyle(20),),
                 ),
                 const SizedBox(),
-                SizedBox(
-                  child: Text("mistakes: $mistakesCounter", style: const TextStyle(color: Colors.red,fontSize: 24),),
+                Container(
+                  
+                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.red
+                  ),
+                  child: Text("mistakes: $mistakesCounter", style: applicationBlackTextStyle(20),),
                 ),
                 const SizedBox()
               ],),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
+              width: MediaQuery.of(context).size.width * 0.85,
               height: MediaQuery.of(context).size.height * 0.1,
               child: OutlinedButton(
                 onPressed: ()
@@ -68,13 +85,14 @@ class TrainingFinalizationView extends StatelessWidget
                     AppEventGoToTrainingWordsView(trainingList: trainingList)
                   );
                 },
-                style: applicationButtonStyle(),
-                child: const Text("Show training words",style: TextStyle(color: applicationColor,fontSize: 24),),
+                style: applicationGreenButtonStyle(),
+                child: Text("Show training words",style: applicationBlackTextStyle(30),),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.9,
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+           
+                  SizedBox(
+              width: MediaQuery.of(context).size.width * 0.85,
               height: MediaQuery.of(context).size.height * 0.1,
               child: OutlinedButton(
                 onPressed: ()
@@ -89,13 +107,13 @@ class TrainingFinalizationView extends StatelessWidget
 
 
                 },
-                style: applicationButtonStyle(),
-                child: const Text("Save training words in my library",style: TextStyle(color: applicationColor,fontSize: 20),),
+                style: applicationGreenButtonStyle(),
+                child: Text("Save training words in my library",style: applicationBlackTextStyle(18),),
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.9,
+              width: MediaQuery.of(context).size.width * 0.85,
               height: MediaQuery.of(context).size.height * 0.1,
               child: OutlinedButton(
                 onPressed: ()
@@ -106,13 +124,20 @@ class TrainingFinalizationView extends StatelessWidget
                   );
 
                 },
-                style: applicationButtonStyle(),
-                child: const Text("Leave without saving words in my library",style: TextStyle(color: applicationColor,fontSize: 20),),
+                style: applicationGreenButtonStyle(),
+                child: Text("Leave without saving words in my library",style: applicationBlackTextStyle(15),),
               ),
             ),
-          ],
-        ),
-      ),
+            const SizedBox(),
+                ],
+              ),
+            )
+            
+            
+            
+          
+        
+      
     );
   }
 

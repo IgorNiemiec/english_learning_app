@@ -42,6 +42,7 @@ class CommonLibraryView extends StatelessWidget
                   width: MediaQuery.of(context).size.width * 0.4,
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.35,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -50,26 +51,32 @@ class CommonLibraryView extends StatelessWidget
                         );
                         
                       },
-                      style: applicationButtonStyle(),
-                      child:const Text("Go Back",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
+                      style: roundedButtonStyle(),
+                      child: Icon(Icons.navigate_before,size: 50,),
                     ),
                   ),
                 ),
                 Container(
                   alignment: Alignment.center,
                   width: MediaQuery.of(context).size.width * 0.5,
-                  child: const Text("Library",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
+                  child: Text("Library",style: applicationTextStyle(40),textAlign: TextAlign.center,),
                 )
               ]),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.08,
+              width: MediaQuery.of(context).size.width * 0.8,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: applicationColor
+              ),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.7,
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: TextField(
+                  style: applicationBlackTextStyle(25),
                 onChanged: (word) {
                   
                   context.read<AppBloc>().add(
@@ -85,9 +92,14 @@ class CommonLibraryView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.5,
+              width: MediaQuery.of(context).size.width * 0.95,
+              decoration: BoxDecoration(
+                border: Border.all(color: applicationColor,width: 2),
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.45,
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: MediaQuery.of(context).size.height * 0.5,
                 child: Expanded(
                   child: ListView.builder(
                     itemCount: filteredWords.length,
@@ -108,8 +120,8 @@ class CommonLibraryView extends StatelessWidget
                                 );
 
                               },
-                              style: applicationButtonStyle(),
-                              child: Text("${word.wordEn} : ${word.wordPl}",style: TextStyle(color: applicationColor,fontSize: 20,overflow: TextOverflow.ellipsis),),
+                              style: applicationGreenButtonStyle(),
+                              child: Text("${word.wordEn} : ${word.wordPl}",style: applicationBlackTextStyle(18),),
                             ),
                           ),
                           SizedBox(height: MediaQuery.of(context).size.height * 0.02,)
@@ -130,17 +142,17 @@ class CommonLibraryView extends StatelessWidget
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
-
                         context.read<AppBloc>().add(
-                           AppEventFilterCommonLibraryByWordLevel(wordLevel: "A",userLibrary: userLibrary)
+                          AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "A")
                         );
 
                       },
-                      style: applicationButtonStyle(),
-                      child: const Text("A",style: TextStyle(color: applicationColor,fontSize: 20),),
+                      style: roundedButtonStyle(),
+                      child:  Text("A",style: applicationBlackTextStyle(50),),
                     ),
                   ),
                      SizedBox(
@@ -148,14 +160,13 @@ class CommonLibraryView extends StatelessWidget
                     child: OutlinedButton(
                       onPressed: ()
                       {
-                      
-                       context.read<AppBloc>().add(
-                           AppEventFilterCommonLibraryByWordLevel(wordLevel: "B",userLibrary: userLibrary)
+                        context.read<AppBloc>().add(
+                          AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "B")
                         );
 
                       },
-                      style: applicationButtonStyle(),
-                      child: const Text("B",style: TextStyle(color: applicationColor,fontSize: 20),),
+                      style: roundedButtonStyle(),
+                      child: Text("B",style: applicationBlackTextStyle(50),),
                     ),
                   ),
                      SizedBox(
@@ -163,14 +174,13 @@ class CommonLibraryView extends StatelessWidget
                     child: OutlinedButton(
                       onPressed: ()
                       {
-
-                         context.read<AppBloc>().add(
-                           AppEventFilterCommonLibraryByWordLevel(wordLevel: "C",userLibrary: userLibrary)
+                        context.read<AppBloc>().add(
+                          AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "C")
                         );
 
                       },
-                      style: applicationButtonStyle(),
-                      child: const Text("C",style: TextStyle(color: applicationColor,fontSize: 20),),
+                      style: roundedButtonStyle(),
+                      child: Text("C",style: applicationBlackTextStyle(50),),
                     ),
                   ),
                 ],

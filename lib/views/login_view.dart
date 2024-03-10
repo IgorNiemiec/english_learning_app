@@ -126,7 +126,7 @@ class LoginView extends StatelessWidget
                    SizedBox(
                       height: MediaQuery.of(context).size.height * 0.1,
                       child: OutlinedButton(
-                        style: signInButtonStyle(),
+                        style: roundedButtonStyle(),
                         onPressed: ()
                         {
                           context.read<AppBloc>().add(

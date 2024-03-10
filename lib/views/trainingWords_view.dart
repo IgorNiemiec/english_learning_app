@@ -27,7 +27,7 @@ class TrainingWordsView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,
-              child: const Text("Training words", style: TextStyle(color: applicationColor,fontSize: 30),),
+              child: Text("Training words", style: applicationTextStyle(40),),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(
@@ -36,7 +36,7 @@ class TrainingWordsView extends StatelessWidget
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                 border: Border.all(color: applicationColor,width: 2),
-                borderRadius: BorderRadius.circular(10)
+                borderRadius: BorderRadius.circular(30)
               ),
               child: ListView.builder(
                 itemCount: trainingWords.length,
@@ -49,20 +49,22 @@ class TrainingWordsView extends StatelessWidget
                         height: MediaQuery.of(context).size.height * 0.1,
                         
                         decoration: BoxDecoration(
-                          border: Border.all(color: applicationColor,width: 2),
-                          borderRadius: BorderRadius.circular(10),
+                          color: applicationColor,
+                          borderRadius: BorderRadius.circular(30),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
+                            const SizedBox(),
                             Container(
                               alignment: Alignment.center,
-                              child: Text(trainingWords[index].wordEn,style: const TextStyle(color: applicationColor,fontSize: 25),),
+                              child: Text(trainingWords[index].wordEn,style: applicationBlackTextStyle(20),),
                             ),
                             Container(
                               alignment: Alignment.center,
-                              child: Text("Points: ${trainingWords[index].points}",style: const TextStyle(color: applicationColor,fontSize: 24),)
+                              child: Text("Points: ${trainingWords[index].points}",style: applicationBlackTextStyle(20),)
                             ),
+                            const SizedBox(),
                           ],),
                       ),
                       

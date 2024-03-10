@@ -31,8 +31,9 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: Text("Choose level",style: TextStyle(color: applicationColor,fontSize: 26),),
+              child: Text("Choose level",style: applicationTextStyle(40),),
             ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
             Container(
               height: MediaQuery.of(context).size.height * 0.1,
               child: Row(
@@ -41,6 +42,7 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                   SizedBox(),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -49,13 +51,14 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                         );
 
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("A",style: TextStyle(color: applicationColor,fontSize: 25),),
+                      style: roundedButtonStyle(),
+                      child: Text("A",style: applicationBlackTextStyle(30),),
                     ),
                   ),
                   SizedBox(),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -63,13 +66,14 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                           AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.B)
                         );
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("B",style: TextStyle(color: applicationColor,fontSize: 25),),
+                      style: roundedButtonStyle(),
+                      child: Text("B",style: applicationBlackTextStyle(30),),
                     ),
                   ),
                   SizedBox(),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -77,8 +81,8 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                           AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.C)
                         );
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("C",style: TextStyle(color: applicationColor,fontSize: 25),),
+                      style: roundedButtonStyle(),
+                      child: Text("C",style: applicationBlackTextStyle(30),),
                     ),
                   ),
                   SizedBox()
@@ -90,9 +94,10 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  SizedBox(),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.1,),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -101,13 +106,14 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                         );
 
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("mixed A-B",style: TextStyle(color: applicationColor,fontSize: 25),),
+                      style: roundedButtonStyle(),
+                      child: Text("A-B",style: applicationBlackTextStyle(30),),
                     ),
                   ),
-                  SizedBox(),
+                
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -115,11 +121,11 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                           AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.MixedBC)
                         );
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("mixed B-C",style: TextStyle(color: applicationColor,fontSize: 25),),
+                      style: roundedButtonStyle(),
+                      child: Text("B-C",style:applicationBlackTextStyle(30),),
                     ),
                   ),
-                  SizedBox()
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.1,),
                 ],
               ),
             ),
@@ -128,6 +134,7 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
               height: MediaQuery.of(context).size.height * 0.1,
               child:  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
@@ -135,8 +142,8 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                           AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.MixedABC)
                         );
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("mixed A-B-C",style: TextStyle(color: applicationColor,fontSize: 25),),
+                      style: roundedButtonStyle(),
+                      child: Text("A-B-C",style: applicationBlackTextStyle(30),),
                     ),
                   ),
             ),

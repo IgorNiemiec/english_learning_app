@@ -16,7 +16,7 @@ ButtonStyle applicationButtonStyle()
   );
 }
 
-ButtonStyle signInButtonStyle()
+ButtonStyle roundedButtonStyle()
 {
   return ElevatedButton.styleFrom(
     backgroundColor: applicationColor,
@@ -26,11 +26,33 @@ ButtonStyle signInButtonStyle()
   );
 }
 
+ButtonStyle roundedButtonBlackStyle()
+{
+   return ElevatedButton.styleFrom(
+    backgroundColor: Colors.black,
+    foregroundColor: applicationColor,
+    side: const BorderSide(color: Colors.black),
+    shape: const CircleBorder(),
+  );
+}
+
+ButtonStyle applicationGreenButtonStyle()
+{
+  return ElevatedButton.styleFrom(
+    backgroundColor: applicationColor,
+    foregroundColor: Colors.black,
+
+    side: const BorderSide(color: Colors.black),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
+  );
+
+}
+
 ButtonStyle applicationRedButtonStyle()
 {
   return ElevatedButton.styleFrom(
-    backgroundColor: Colors.black,
-    foregroundColor: applicationColor,
+    backgroundColor: Colors.red,
+    foregroundColor: Colors.black,
     side: const BorderSide(color: Colors.red,width: 2),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
   );
@@ -46,12 +68,15 @@ TextStyle applicationTextStyle(double fontSize)
   );
 }
 
+
+
 TextStyle applicationBlackTextStyle(double fontSize)
 {
   return TextStyle(
     color: Colors.black,
     fontSize: fontSize,
     fontFamily: 'ProtestRiot',
+    overflow: TextOverflow.ellipsis,
   );
 }
 

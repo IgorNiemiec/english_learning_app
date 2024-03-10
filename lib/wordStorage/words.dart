@@ -670,5 +670,541 @@ final List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
+      Word(
+    wordEn: "dignity",
+    wordPl: "godność", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "diligently",
+    wordPl: "pilnie", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dilly-dally",
+    wordPl: "marudzić", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dilute",
+    wordPl: "rozcieńczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dilution",
+    wordPl: "roztwór", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dimension",
+    wordPl: "wymiar", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dimple",
+    wordPl: "dołek", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "din",
+    wordPl: "hałas", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dine",
+    wordPl: "jeść obiad", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dingy",
+    wordPl: "obskurny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "wgięcie",
+    wordPl: "dint", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dioxide",
+    wordPl: "dwutlenek", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "direct speech",
+    wordPl: "mowa niezależna", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disability",
+    wordPl: "niepełnosprawność", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disability payment",
+    wordPl: "renta inwalidzka", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disadvantage",
+    wordPl: "wada", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disarrange",
+    wordPl: "dezorganizować", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disarray",
+    wordPl: "nieład", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "discard",
+    wordPl: "odrzucać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "discern",
+    wordPl: "dostrzegać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disclaim",
+    wordPl: "zaprzeczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disclosure",
+    wordPl: "ujawnienie", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+  Word(
+    wordEn: "disconcert",
+    wordPl: "zbić z tropu", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "discourage",
+    wordPl: "zniechęcać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disease",
+    wordPl: "choroba", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disfavour",
+    wordPl: "dezaprobata", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disfigure",
+    wordPl: "zniekształcać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "hańba",
+    wordPl: "disgrace", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disgust",
+    wordPl: "obrzydzenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dishonest",
+    wordPl: "nieuczciwie", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disobedient",
+    wordPl: "nieposłuszny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disown",
+    wordPl: "wyrzekać się", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dispatch",
+    wordPl: "wysyłać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dispense",
+    wordPl: "rozdzielać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disquiet",
+    wordPl: "niepokój", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disrupt",
+    wordPl: "zakłócać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "distil",
+    wordPl: "destylować", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "distinct",
+    wordPl: "odmienny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "distress",
+    wordPl: "rozpacz", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "distrust",
+    wordPl: "nieufność", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "disturb",
+    wordPl: "przeszkadzać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "divergence",
+    wordPl: "rozbieżność", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "diverse",
+    wordPl: "różnorodny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "divert",
+    wordPl: "przekierować", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dizzily",
+    wordPl: "zawrotnie", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "do one's bit",
+    wordPl: "robić swoje", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "do something up",
+    wordPl: "zawiązywać coś", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dockyard",
+    wordPl: "stocznia", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "doe",
+    wordPl: "łania", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dog-tired",
+    wordPl: "zmordowany", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dogfight",
+    wordPl: "walka manewrowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dole",
+    wordPl: "zasiłek dla bezrobotnych", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "dome",
+    wordPl: "kopuła", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "bazgrać",
+    wordPl: "doodle", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "doorknob",
+    wordPl: "klamka", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "doubt",
+    wordPl: "wątpliwość", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "downfall",
+    wordPl: "klęska", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "downgrade",
+    wordPl: "zdegradować", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "downplay",
+    wordPl: "bagatelizować", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "downpour",
+    wordPl: "ulewa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "downside",
+    wordPl: "wada", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "draught",
+    wordPl: "przeciąg", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dreadful",
+    wordPl: "okropny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dreadlocks",
+    wordPl: "dredy (włosy)", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dreary",
+    wordPl: "smętny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dregs",
+    wordPl: "fusy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dresser",
+    wordPl: "komoda", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "drive sb up the wall",
+    wordPl: "doprowadzać kogoś do szału", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "drivel",
+    wordPl: "brednie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "driveway",
+    wordPl: "podjazd", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "drizzle",
+    wordPl: "mżawka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "drop a brick",
+    wordPl: "popełnić gafę", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "drop by",
+    wordPl: "wpaść do kogoś", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "droplet",
+    wordPl: "kropelka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "drought",
+    wordPl: "susza", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dumb down",
+    wordPl: "upraszczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "durable",
+    wordPl: "wytrzymały", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dustpan",
+    wordPl: "szufelka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "duvet",
+    wordPl: "kołdra", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "dyspepsia",
+    wordPl: "niestrawność", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "eclipse",
+    wordPl: "zaćmienie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "effusive",
+    wordPl: "wylewny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
 
 ];

@@ -31,13 +31,13 @@ class TrainingChoiceView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: const Text("Training mode",style: TextStyle(color: applicationColor,fontSize: 25),),
+              child: Text("Training mode",style: applicationTextStyle(40),),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: const Text("Choose training mode",style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.center,),
+              child: Text("Choose training mode",style: applicationTextStyle(20),textAlign: TextAlign.center,),
             ),
             Container(
               alignment: Alignment.center,
@@ -56,22 +56,37 @@ class TrainingChoiceView extends StatelessWidget
                           AppEventGoToCommonTrainingChoieView(userLibrary: userLibrary)
                         );
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("Common Training"),
+                      style: applicationGreenButtonStyle(),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          const SizedBox(),
+                          Icon(Icons.local_library_outlined,size: 40,),
+                          Text("Common training",style: applicationBlackTextStyle(15),textAlign: TextAlign.center,),
+                          const SizedBox(),
+                        ],
+                      )
                     ),
                   ),
                   const SizedBox(),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.45,
-                    
                     height: MediaQuery.of(context).size.height * 0.2,
                     child: OutlinedButton(
                       onPressed: ()
                       {
 
                       },
-                      style: applicationButtonStyle(),
-                      child: Text("User library training"),
+                      style: applicationGreenButtonStyle(),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          const SizedBox(),
+                          const Icon(Icons.person,size: 40,),
+                          Text("User library training",style: applicationBlackTextStyle(15),textAlign: TextAlign.center,),
+                          const SizedBox(),
+                        ],
+                      )
                     ),
                   ),
                   const SizedBox()

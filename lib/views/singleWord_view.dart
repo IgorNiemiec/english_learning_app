@@ -1,6 +1,3 @@
-
-
-
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
@@ -48,6 +45,7 @@ class SingleWordView extends StatelessWidget
                     height: MediaQuery.of(context).size.height * 0.1,
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.35,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       
                       child: OutlinedButton(
                         onPressed: ()
@@ -58,32 +56,46 @@ class SingleWordView extends StatelessWidget
                           );
 
                         },
-                        style: applicationButtonStyle(),
-                        child: const Text("Go Back",style: TextStyle(color: applicationColor,fontSize: 20),),
+                        style: roundedButtonStyle(),
+                        child: Icon(Icons.navigate_before,size: 50,),
                       ),
                     ),
                   ),
                   Container(
                     alignment: const Alignment(-0.3,0),
                     width: MediaQuery.of(context).size.width * 0.6,
-                    child: const Text("Word",style: TextStyle(color: applicationColor,fontSize: 30),),
+                    child: Text("Word",style: applicationTextStyle(50),),
                   )
                 ],
               ),
              ),
              SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
+              height: MediaQuery.of(context).size.height * 0.025,
              ),
              Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: Row(children: <Widget>[
+              width: MediaQuery.of(context).size.width* 0.9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: applicationColor,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                const SizedBox(),
                 Container(
                   alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width * 0.5,
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    decoration: const BoxDecoration(
+                    clipBehavior: Clip.antiAlias,
+                    
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
                       image: DecorationImage(image: AssetImage("assets/BritishFlag.jpeg"),
                       fit: BoxFit.scaleDown)
                     ),
@@ -91,21 +103,37 @@ class SingleWordView extends StatelessWidget
                 ),
                 Container(
                   alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Text(word.wordEn,style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
-                )
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  child: Text(word.wordEn,style: applicationBlackTextStyle(25),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                ),
+                const SizedBox(),
               ]),
              ),
+             SizedBox(height: MediaQuery.of(context).size.height * 0.025,),
              Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: Row(children: <Widget>[
+              width: MediaQuery.of(context).size.width* 0.9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: applicationColor,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                const SizedBox(),
                 Container(
                   alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width * 0.5,
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  height: MediaQuery.of(context).size.height * 0.12,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    decoration: const BoxDecoration(
+                    clipBehavior: Clip.antiAlias,
+                    
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
                       image: DecorationImage(image: AssetImage("assets/PolishFlag.jpeg"),
                       fit: BoxFit.scaleDown)
                     ),
@@ -113,14 +141,22 @@ class SingleWordView extends StatelessWidget
                 ),
                 Container(
                   alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Text(word.wordPl,style: TextStyle(color: applicationColor,fontSize: 20),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
-                )
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  child: Text(word.wordPl,style: applicationBlackTextStyle(25),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                ),
+                const SizedBox(),
               ]),
              ),
+             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+             
              Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.15,
+              height: MediaQuery.of(context).size.height * 0.1,
+              width: MediaQuery.of(context).size.width * 0.9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: applicationColor,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -129,19 +165,20 @@ class SingleWordView extends StatelessWidget
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     child: OutlinedButton(
                       onPressed: () async
                       {
                         await showPointExplanationDialog(context: context);
                       },
-                      style: applicationButtonStyle(),
+                      style: roundedButtonBlackStyle(),
                       child: const Icon(Icons.question_mark),
                     ),
                   ),
                   Container(
                     alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: Text("Word points: ${word.points}",style: TextStyle(fontSize: 25,color: applicationColor),),
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: Text("Word points: ${word.points}",style: applicationBlackTextStyle(25),),
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.05,
@@ -149,9 +186,15 @@ class SingleWordView extends StatelessWidget
                 ],
               ),
              ),
+             SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
               Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,
+              width: MediaQuery.of(context).size.width * 0.9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: applicationColor,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -160,19 +203,20 @@ class SingleWordView extends StatelessWidget
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     child: OutlinedButton(
                       onPressed: () async
                       {
                         await showWordLevelExplanation(context: context);
                       },
-                      style: applicationButtonStyle(),
+                      style: roundedButtonBlackStyle(),
                       child: const Icon(Icons.question_mark),
                     ),
                   ),
                   Container(
                     alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: Text("Word level: ${word.wordLevel}",style: const TextStyle(fontSize: 25,color: applicationColor),),
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: Text("Word level: ${word.wordLevel}",style: applicationBlackTextStyle(25),),
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.05,
@@ -185,9 +229,9 @@ class SingleWordView extends StatelessWidget
              ),
              Container(
                alignment: Alignment.center,
-               height: MediaQuery.of(context).size.height * 0.18,
+               height: MediaQuery.of(context).size.height * 0.15,
                child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.7,
+                width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.1,
                 child: OutlinedButton(
                   onPressed: () async
@@ -200,7 +244,7 @@ class SingleWordView extends StatelessWidget
                      }
                   },
                   style: applicationRedButtonStyle(),
-                  child: const Text("Remove word from my library",style: TextStyle(color: Colors.red,),textAlign: TextAlign.center,),
+                  child: Text("Remove word from my library",style:applicationBlackTextStyle(20),textAlign: TextAlign.center,),
                 ),
                )
              ),

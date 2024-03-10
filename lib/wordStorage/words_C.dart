@@ -114,6 +114,103 @@ final wordsC = [
     wordLevel: "C"),
 
 
+     Word(
+    wordEn: "diehard",
+    wordPl: "konserwatysta", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "digs",
+    wordPl: "stancja", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "dike",
+    wordPl: "rów", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "dilapidation",
+    wordPl: "ruina", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "dime",
+    wordPl: "dziesięciocentówka", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "dinghy",
+    wordPl: "łódka", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "disastrous",
+    wordPl: "fatalny", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "discontent",
+    wordPl: "niezadowolenie", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "disdain",
+    wordPl: "pogarda", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "ditty",
+    wordPl: "piosnka", 
+    points: 0, 
+    wordLevel: "C"),
+    
+      Word(
+    wordEn: "dowdy",
+    wordPl: "niemodny", 
+    points: 0, 
+    wordLevel: "C"),
+
+    
+      Word(
+    wordEn: "downcast",
+    wordPl: "przygnębiony", 
+    points: 0, 
+    wordLevel: "C"),
+
+    
+      Word(
+    wordEn: "downy",
+    wordPl: "puszysty", 
+    points: 0, 
+    wordLevel: "C"),
+
+    
+      Word(
+    wordEn: "ebullient",
+    wordPl: "energiczny", 
+    points: 0, 
+    wordLevel: "C"),
+
+
+    
+      Word(
+    wordEn: "eminently",
+    wordPl: "wybitnie", 
+    points: 0, 
+    wordLevel: "C"),
+
+
+
 
 
 
