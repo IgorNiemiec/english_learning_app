@@ -29,7 +29,7 @@ class UserPanelView extends StatelessWidget
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            const SizedBox(),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.2,
@@ -214,7 +214,7 @@ class UserPanelView extends StatelessWidget
 
               ),
             ),
-            const SizedBox(),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
           ],
         ),
       ),

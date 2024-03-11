@@ -1,3 +1,4 @@
+import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
@@ -134,58 +135,12 @@ class CommonLibraryView extends StatelessWidget
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-            Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "A")
-                        );
-
-                      },
-                      style: roundedButtonStyle(),
-                      child:  Text("A",style: applicationBlackTextStyle(50),),
-                    ),
-                  ),
-                     SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "B")
-                        );
-
-                      },
-                      style: roundedButtonStyle(),
-                      child: Text("B",style: applicationBlackTextStyle(50),),
-                    ),
-                  ),
-                     SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "C")
-                        );
-
-                      },
-                      style: roundedButtonStyle(),
-                      child: Text("C",style: applicationBlackTextStyle(50),),
-                    ),
-                  ),
-                ],
-              ),
-            )
+            levelChoiceBarContainer(
+            context: context, 
+            appEventA: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A), 
+            appEventB: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B), 
+            appEventC: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C),
+            appEventAll: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.ALL))
             
 
           ],

@@ -140,75 +140,12 @@ class UserLibraryView extends StatelessWidget
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-            Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A)
-                        );
-
-                      },
-                      style: roundedButtonStyle(),
-                      child:  Text("A",style: applicationBlackTextStyle(50),),
-                    ),
-                  ),
-                     SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B)
-                        );
-
-                      },
-                      style: roundedButtonStyle(),
-                      child: Text("B",style: applicationBlackTextStyle(50),),
-                    ),
-                  ),
-                     SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C)
-                        );
-
-                      },
-                      style: roundedButtonStyle(),
-                      child: Text("C",style: applicationBlackTextStyle(50),),
-                    ),
-                  ),
-                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.ALL)
-                        );
-
-                      },
-                      style: roundedButtonStyle(),
-                      child: Text("All",style: applicationBlackTextStyle(26),),
-                    ),
-                  ),
-                  const SizedBox(),
-                ],
-              ),
-            )
+            levelChoiceBarContainer(
+              context: context, 
+              appEventA: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A),
+              appEventB: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B),
+              appEventC: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C),
+              appEventAll: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.ALL),)
             
 
           ],

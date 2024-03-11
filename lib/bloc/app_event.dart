@@ -135,7 +135,7 @@ class AppEventFilterCommonLibrary implements AppEvent
 class AppEventFilterCommonLibraryByWordLevel implements AppEvent
 {
   final UserLibrary userLibrary;
-  final String wordLevel;
+  final WordLevelEnum wordLevel;
 
   const AppEventFilterCommonLibraryByWordLevel({
     required this.wordLevel,

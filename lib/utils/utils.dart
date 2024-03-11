@@ -2,8 +2,11 @@
 
 import 'dart:math';
 
+import 'package:english_learning_app/bloc/app_bloc.dart';
+import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 ButtonStyle applicationButtonStyle()
 {
@@ -92,5 +95,90 @@ InputDecoration applicationInputDecoration({required String hintText, required I
     focusedBorder: InputBorder.none,
     enabledBorder: InputBorder.none,
   );
+}
+
+Container levelChoiceBarContainer({
+  required BuildContext context,
+  required AppEvent appEventA,
+  required AppEvent appEventB,
+  required AppEvent appEventC,
+  required AppEvent appEventAll,
+}
+)
+{
+
+  return Container(
+              alignment: Alignment.center,
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          appEventA,
+                        );
+
+                      },
+                      style: roundedButtonStyle(),
+                      child:  Text("A",style: applicationBlackTextStyle(50),),
+                    ),
+                  ),
+                     SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          appEventB
+                        );
+
+                      },
+                      style: roundedButtonStyle(),
+                      child: Text("B",style: applicationBlackTextStyle(50),),
+                    ),
+                  ),
+                     SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          appEventC
+                        );
+
+                      },
+                      style: roundedButtonStyle(),
+                      child: Text("C",style: applicationBlackTextStyle(50),),
+                    ),
+                  ),
+                   SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          appEventAll
+                        );
+
+                      },
+                      style: roundedButtonStyle(),
+                      child: Text("All",style: applicationBlackTextStyle(26),),
+                    ),
+                  ),
+                  const SizedBox(),
+                ],
+              ),
+            );
+
+
 }
 

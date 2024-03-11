@@ -587,27 +587,57 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    on<AppEventFilterCommonLibraryByWordLevel>((event, emit) {
 
+      emit(
+        AppStateIsInCommonLibraryView(
+          filteredWords: [], 
+          isLoading: true, 
+          userLibrary: event.userLibrary)
+      );
 
+      switch(event.wordLevel)
+      {
+        case WordLevelEnum.A:
+        emit(
+          AppStateIsInCommonLibraryView(
+            filteredWords: wordsA, 
+            isLoading: false, 
+            userLibrary: event.userLibrary)
+        );
+        break;
+        case WordLevelEnum.B:
+         emit(
+          AppStateIsInCommonLibraryView(
+            filteredWords: words, 
+            isLoading: false, 
+            userLibrary: event.userLibrary)
+        );
+        break;
+        case WordLevelEnum.C:
+         emit(
+          AppStateIsInCommonLibraryView(
+            filteredWords: wordsC, 
+            isLoading: false, 
+            userLibrary: event.userLibrary)
+        );
+        break;
+        case WordLevelEnum.ALL:
+         emit(
+          AppStateIsInCommonLibraryView(
+            filteredWords: words + wordsA+ wordsC, 
+            isLoading: false, 
+            userLibrary: event.userLibrary)
+        );
+        break;
+        default:
+         emit(
+          AppStateIsInCommonLibraryView(
+            filteredWords: wordsA+words+wordsC, 
+            isLoading: false, 
+            userLibrary: event.userLibrary)
+        );
+        break;
+      }
 
-
-      if (event.wordLevel == "A")
-      {
-        emit(
-          AppStateIsInCommonLibraryView(filteredWords: wordsA, isLoading: false,userLibrary: event.userLibrary )
-        );
-      }
-      else if (event.wordLevel == "B")
-      {
-        emit(
-          AppStateIsInCommonLibraryView(filteredWords: words, isLoading: false,userLibrary: event.userLibrary )
-        );
-      }
-      else if (event.wordLevel == "C")
-      {
-        emit(
-          AppStateIsInCommonLibraryView(filteredWords: wordsC, isLoading: false,userLibrary: event.userLibrary)
-        );
-      }
    },);
 
    on<AppEventAddWordToUserLibrary>((event, emit) async {
@@ -657,16 +687,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
             );
           }
          }
-
-
-
-
-
-
-
-      
-
-     
 
 
    },);
@@ -782,9 +802,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
           filteredWords: filteredWords,
           isLoading: false));
    
-
-
-      
 
    },);
 

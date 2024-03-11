@@ -98,17 +98,17 @@ class TrainingView extends StatelessWidget
                 ],
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-            Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.1,
-              child: Text(keyWord.wordPl,style: applicationTextStyle(40),),
-            ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
             Container(
               alignment: Alignment.center,
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: Text(keyWord.wordPl,style: applicationTextStyle(35),textAlign: TextAlign.center,),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+            Container(
+              alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.05,
-              child: Text("Choose a right word",style: applicationTextStyle(25),),
+              child: Text("Choose a right word",style: applicationTextStyle(25),textAlign: TextAlign.center,),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             Container(
