@@ -13,6 +13,7 @@ import 'package:english_learning_app/views/main_panel_view.dart';
 import 'package:english_learning_app/views/register_view.dart';
 import 'package:english_learning_app/views/singleWord_view.dart';
 import 'package:english_learning_app/views/trainingChoice_View.dart';
+import 'package:english_learning_app/views/trainingFinalizationLibrary_view.dart';
 import 'package:english_learning_app/views/trainingFinalization_view.dart';
 import 'package:english_learning_app/views/trainingWords_view.dart';
 import 'package:english_learning_app/views/training_view.dart';
@@ -122,6 +123,12 @@ class MainApp extends StatelessWidget {
             else if (appState is AppStateIsInTrainingWordsView)
             {
               return TrainingWordsView(trainingWords: appState.trainingWords);
+            }
+            else if (appState is AppStateIsInTrainingFinalizationLibraryView)
+            {
+              return TrainingFinalizationLibraryView(
+                userLibrary: appState.userLibrary, 
+                trainingWords: appState.trainingWords);
             }
             else
             {

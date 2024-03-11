@@ -178,7 +178,8 @@ class AppStateIsInTrainingChoiceView extends AppState
   const AppStateIsInTrainingChoiceView({
     required bool isLoading,
     required this.userLibrary,
-    AuthError? authError}) : super(isLoading: isLoading,authError: authError);
+    AuthError? authError,
+    }) : super(isLoading: isLoading,authError: authError);
 
 }
 

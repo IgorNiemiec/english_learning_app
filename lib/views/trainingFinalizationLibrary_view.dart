@@ -35,7 +35,7 @@ class TrainingFinalizationLibraryView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,
-              child: const Text("Training words", style: TextStyle(color: applicationColor,fontSize: 30),),
+              child: Text("Training words", style: applicationTextStyle(35),),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(
@@ -44,7 +44,7 @@ class TrainingFinalizationLibraryView extends StatelessWidget
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                 border: Border.all(color: applicationColor,width: 2),
-                borderRadius: BorderRadius.circular(10)
+                borderRadius: BorderRadius.circular(30),
               ),
               child: ListView.builder(
                 itemCount: trainingWords.length,
@@ -55,21 +55,21 @@ class TrainingFinalizationLibraryView extends StatelessWidget
                         alignment: Alignment.center,
                         width: MediaQuery.of(context).size.width * 0.8,
                         height: MediaQuery.of(context).size.height * 0.1,
-                        
                         decoration: BoxDecoration(
                           border: Border.all(color: applicationColor,width: 2),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(30),
+                          color: applicationColor
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Container(
                               alignment: Alignment.center,
-                              child: Text(trainingWords[index].wordEn,style: const TextStyle(color: applicationColor,fontSize: 25),),
+                              child: Text(trainingWords[index].wordEn,style: applicationBlackTextStyle(24),),
                             ),
                             Container(
                               alignment: Alignment.center,
-                              child: Text("Points: ${trainingWords[index].points}",style: const TextStyle(color: applicationColor,fontSize: 24),)
+                              child: Text("Points: ${trainingWords[index].points}",style: applicationBlackTextStyle(24),)
                             ),
                           ],),
                       ),
