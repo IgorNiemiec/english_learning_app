@@ -148,7 +148,6 @@ class SingleWordView extends StatelessWidget
               ]),
              ),
              SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-             
              Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,

@@ -172,7 +172,7 @@ class AppEventGoToCommonSingleWord implements AppEvent
 class AppEventFilterUserLibraryByWordLevel implements AppEvent
 {
   final UserLibrary userLibrary;
-  final String wordLevel;
+  final WordLevelEnum wordLevel;
 
   const AppEventFilterUserLibraryByWordLevel({
     required this.userLibrary,

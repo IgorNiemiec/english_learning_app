@@ -586,6 +586,10 @@ class AppBloc extends Bloc<AppEvent,AppState>
    
 
    on<AppEventFilterCommonLibraryByWordLevel>((event, emit) {
+
+
+
+
       if (event.wordLevel == "A")
       {
         emit(
@@ -753,14 +757,34 @@ class AppBloc extends Bloc<AppEvent,AppState>
           isLoading: true)
       );
 
-      final filteredWords = event.userLibrary.words.where((word) => word.wordLevel.toLowerCase() == event.wordLevel.toLowerCase()).toList();
+      late List<Word> filteredWords;
 
-      emit(
-        AppStateIsInUserLibraryView(
+
+      
+      switch(event.wordLevel)
+      {
+        case WordLevelEnum.A:
+        filteredWords = event.userLibrary.words.where((word) => word.wordLevel == 'A').toList();
+        case WordLevelEnum.B:
+        filteredWords = event.userLibrary.words.where((word) => word.wordLevel == 'B').toList();
+        case WordLevelEnum.C:
+        filteredWords = event.userLibrary.words.where((word) => word.wordLevel == 'C').toList();
+        case WordLevelEnum.ALL:
+        filteredWords = event.userLibrary.words;
+        default:
+        filteredWords = event.userLibrary.words;
+      }
+
+
+        emit(
+             AppStateIsInUserLibraryView(
           userLibrary: event.userLibrary, 
           filteredWords: filteredWords,
-          isLoading: false)
-      );
+          isLoading: false));
+   
+
+
+      
 
    },);
 

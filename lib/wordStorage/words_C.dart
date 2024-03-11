@@ -202,7 +202,6 @@ final wordsC = [
     wordLevel: "C"),
 
 
-    
       Word(
     wordEn: "eminently",
     wordPl: "wybitnie", 

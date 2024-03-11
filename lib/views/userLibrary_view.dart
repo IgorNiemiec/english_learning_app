@@ -1,5 +1,6 @@
 
 
+import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
@@ -145,14 +146,15 @@ class UserLibraryView extends StatelessWidget
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  const SizedBox(),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.2,
                     height: MediaQuery.of(context).size.height * 0.1,
                     child: OutlinedButton(
                       onPressed: ()
                       {
                         context.read<AppBloc>().add(
-                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "A")
+                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A)
                         );
 
                       },
@@ -161,12 +163,12 @@ class UserLibraryView extends StatelessWidget
                     ),
                   ),
                      SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.2,
                     child: OutlinedButton(
                       onPressed: ()
                       {
                         context.read<AppBloc>().add(
-                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "B")
+                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B)
                         );
 
                       },
@@ -175,12 +177,12 @@ class UserLibraryView extends StatelessWidget
                     ),
                   ),
                      SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.2,
                     child: OutlinedButton(
                       onPressed: ()
                       {
                         context.read<AppBloc>().add(
-                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: "C")
+                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C)
                         );
 
                       },
@@ -188,6 +190,22 @@ class UserLibraryView extends StatelessWidget
                       child: Text("C",style: applicationBlackTextStyle(50),),
                     ),
                   ),
+                   SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+                        context.read<AppBloc>().add(
+                          AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.ALL)
+                        );
+
+                      },
+                      style: roundedButtonStyle(),
+                      child: Text("All",style: applicationBlackTextStyle(26),),
+                    ),
+                  ),
+                  const SizedBox(),
                 ],
               ),
             )

@@ -9,3 +9,12 @@ enum DifficultyLevel
   MixedBC,
   MixedABC,
 }
+
+
+enum WordLevelEnum
+{
+  A,
+  B,
+  C,
+  ALL,
+}
