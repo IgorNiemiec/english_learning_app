@@ -1,6 +1,7 @@
 
 
 
+import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
@@ -15,7 +16,7 @@ class TrainingChoiceView extends StatelessWidget
   final UserLibrary userLibrary;
 
   const TrainingChoiceView({Key? key,
-  required this.userLibrary}) : super(key: key);
+  required this.userLibrary,}) : super(key: key);
 
   @override
   Widget build(BuildContext context)
@@ -53,7 +54,9 @@ class TrainingChoiceView extends StatelessWidget
                       onPressed: ()
                       {
                         context.read<AppBloc>().add(
-                          AppEventGoToCommonTrainingChoieView(userLibrary: userLibrary)
+                          AppEventGoToCommonTrainingChoieView(
+                            userLibrary: userLibrary,
+                            trainingMode: TrainingModeEnum.COMMON_TRAINING)
                         );
                       },
                       style: applicationGreenButtonStyle(),
@@ -75,6 +78,12 @@ class TrainingChoiceView extends StatelessWidget
                     child: OutlinedButton(
                       onPressed: ()
                       {
+                        context.read<AppBloc>().add(
+                          AppEventGoToTrainingView(
+                            userLibrary: userLibrary, 
+                            difficultyLevel: DifficultyLevel.B, 
+                            trainingModeEnum: TrainingModeEnum.USER_LIBRARY_TRAINING)
+                        );
 
                       },
                       style: applicationGreenButtonStyle(),

@@ -71,7 +71,7 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateIsInUserLibraryView)
             {
-              return UserLibraryView(userLibrary: appState.userLibrary, filteredWors: appState.filteredWords,);
+              return UserLibraryView(userLibrary: appState.userLibrary, filteredWords: appState.filteredWords,);
             }
             else if (appState is AppStateIsInSingleWordView)
             {
@@ -91,11 +91,15 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateIsInCommonTrainingLevelChoiceView)
             {
-              return CommonTrainingLevelChoiceView(userLibrary: appState.userLibrary);
+              return CommonTrainingLevelChoiceView(
+                userLibrary: appState.userLibrary,
+                trainingModeEnum: appState.trainingMode,
+                );
             }
             else if (appState is AppStateIsInTrainingView)
             {
               return TrainingView(
+                trainingModeEnum: appState.trainingMode,
                 keyWordIndex: appState.keyWordIndex,
                 userLibrary: appState.userLibrary,
                 trainingList: appState.trainingList,

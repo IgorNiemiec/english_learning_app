@@ -11,7 +11,6 @@ abstract class AppState
   final bool isLoading;
   final AuthError? authError;
 
-
   const AppState({
     required this.isLoading,
     this.authError,
@@ -174,6 +173,7 @@ class AppStateIsInTrainingChoiceView extends AppState
 {
 
   final UserLibrary userLibrary;
+
   
   const AppStateIsInTrainingChoiceView({
     required bool isLoading,
@@ -186,9 +186,11 @@ class AppStateIsInTrainingChoiceView extends AppState
 class AppStateIsInCommonTrainingLevelChoiceView extends AppState
 {
   final UserLibrary userLibrary;
+  final TrainingModeEnum trainingMode;
 
   const AppStateIsInCommonTrainingLevelChoiceView({
     required this.userLibrary,
+    required this.trainingMode,
     required bool isLoading,
     AuthError? authError,
   }) : super(isLoading: isLoading , authError:authError );
@@ -200,6 +202,7 @@ class AppStateIsInTrainingView extends AppState
 {
   final DifficultyLevel level;
   final UserLibrary userLibrary;
+  final TrainingModeEnum trainingMode;
   final List<Word> trainingList;
   final Word keyWord;
   final Word firstWord;
@@ -214,6 +217,7 @@ class AppStateIsInTrainingView extends AppState
   const AppStateIsInTrainingView({
     required this.level,
     required this.userLibrary,
+    required this.trainingMode,
     required this.trainingList,
     required this.keyWord,
     required this.firstWord,

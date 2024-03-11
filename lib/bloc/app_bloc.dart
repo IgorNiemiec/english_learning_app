@@ -10,6 +10,7 @@ import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/dialogs/add_wotd_dialog.dart';
 import 'package:english_learning_app/dialogs/generic_dialog.dart';
 import 'package:english_learning_app/dialogs/show_auth_error.dart';
+import 'package:english_learning_app/extensions/extensions.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:english_learning_app/models/wotd.dart';
@@ -97,9 +98,33 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
     on<AppEventGoToTrainingView>((event, emit) {
 
-        List<Word> trainingList = _getTrainingList(event.userLibrary, event.difficultyLevel);
-
+        late List<Word> trainingList;
         Random rnd = Random();
+
+
+        if (event.trainingModeEnum == TrainingModeEnum.COMMON_TRAINING)
+        {
+              trainingList = _getTrainingList(event.userLibrary, event.difficultyLevel);
+        }
+        else if (event.trainingModeEnum == TrainingModeEnum.USER_LIBRARY_TRAINING)
+        {
+            if (event.userLibrary.words.length < 31)
+            {
+
+              // Should be Dialog concerning inappropriate length
+
+              emit(AppStateIsInTrainingChoiceView(
+                isLoading: false, 
+                userLibrary: event.userLibrary));
+
+              return;
+            }
+            
+              trainingList = _generateTrainingListFromUserLibrary(event.userLibrary, rnd);
+        }
+
+    
+        
 
         Word keyWord = trainingList[rnd.nextInt(trainingList.length)];
 
@@ -129,6 +154,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         emit(
           AppStateIsInTrainingView(
+            trainingMode: event.trainingModeEnum,
             markedIndex: 1,
             keyWordIndex: keyWordIndex,
             level: event.difficultyLevel,
@@ -154,7 +180,10 @@ class AppBloc extends Bloc<AppEvent,AppState>
       if (event.round == 50)
       {
 
-        emit(
+        if(event.trainingMode == TrainingModeEnum.COMMON_TRAINING)
+        {
+
+          emit(
           AppStateIsInTrainingFinalizationView(
             userLibrary: event.userLibrary,
             trainingList: event.trainingList, 
@@ -162,6 +191,19 @@ class AppBloc extends Bloc<AppEvent,AppState>
             mistakesCounter: event.mistakes, 
             isLoading: false)
         );
+
+        }
+        else
+        {
+          emit(
+            AppStateIsInTrainingFinalizationLibraryView(
+              userLibrary: event.userLibrary, 
+              trainingWords: event.trainingList, 
+              isLoading: false)
+          );
+        }
+
+        
 
       }
       else
@@ -171,6 +213,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
         if(event.isMistake)
         {
         emit(AppStateIsInTrainingView(
+          trainingMode: event.trainingMode,
           markedIndex: event.markedIndex,
           keyWordIndex: event.keyWordIndex,
           level: event.difficultyLevel,
@@ -228,6 +271,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         emit(
           AppStateIsInTrainingView(
+            trainingMode: event.trainingMode,
             markedIndex: event.markedIndex,
             keyWordIndex: keyWordIndex,
             level: event.difficultyLevel,
@@ -249,6 +293,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         emit(
           AppStateIsInTrainingView(
+            trainingMode: event.trainingMode,
             markedIndex: event.markedIndex,
             keyWordIndex: event.keyWordIndex,
             level: event.difficultyLevel,
@@ -302,6 +347,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         emit(
           AppStateIsInTrainingView(
+            trainingMode: event.trainingMode,
             markedIndex: 1,
             keyWordIndex: keyWordIndex,
             level: event.difficultyLevel,
@@ -692,7 +738,10 @@ class AppBloc extends Bloc<AppEvent,AppState>
    },);
 
    on<AppEventGoToCommonTrainingChoieView>((event, emit) {
-      emit(AppStateIsInCommonTrainingLevelChoiceView(userLibrary: event.userLibrary, isLoading: false));
+      emit(AppStateIsInCommonTrainingLevelChoiceView(
+        userLibrary: event.userLibrary, 
+        isLoading: false,
+        trainingMode: event.trainingMode));
    },);
 
 
@@ -761,9 +810,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
 
     on<AppEventGoToTrainingChoiceView>((event, emit) {
-  
       emit(AppStateIsInTrainingChoiceView(isLoading: false, userLibrary: event.userLibrary));
-  
     },);
 
 
@@ -807,14 +854,33 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    on<AppEventGoToTrainingFinalizationView>((event, emit) {
 
-      emit(
-        AppStateIsInTrainingFinalizationView(
-          userLibrary: event.userLibrary,
-          trainingList: event.trainingList, 
-          correctCounter: event.correctCounter, 
-          mistakesCounter: event.mistakesCounter, 
-          isLoading: false)
-      );
+      if(event.trainingMode == TrainingModeEnum.COMMON_TRAINING)
+      {
+           emit(
+           AppStateIsInTrainingFinalizationView(
+             userLibrary: event.userLibrary,
+             trainingList: event.trainingList, 
+             correctCounter: event.correctCounter, 
+             mistakesCounter: event.mistakesCounter, 
+             isLoading: false)
+             );
+      }
+      else if (event.trainingMode == TrainingModeEnum.USER_LIBRARY_TRAINING)
+      {
+
+           emit(
+             AppStateIsInTrainingFinalizationLibraryView(
+               userLibrary: event.userLibrary, 
+               trainingWords: event.trainingList, 
+               isLoading: false)
+           );
+
+      }
+
+
+
+
+      
 
    },);
 
@@ -1021,6 +1087,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
   }
 
+
+
   Future<void> _addTrainingWordsToUserLibrary(String userId, List<Word> trainingWords) async
   {
 
@@ -1155,77 +1223,82 @@ class AppBloc extends Bloc<AppEvent,AppState>
     return (word1,word2);
   }
 
-  Word _getRandomKeyWord(List<Word> trainingList,Random rnd)
+
+
+  List<Word> _generateTrainingListFromUserLibrary(UserLibrary userLibrary,Random rnd)
   {
+
+    Set<Word> list = {};
+
+    while(list.length<=30)
+    {
+
       int randomToken = rnd.nextInt(100);
-      late List<Word> list = [];
 
-      while(list.isEmpty)
-      {
+      late Word? word;
 
-        if(randomToken < 30)
+
+       if(randomToken < 30)
         {
-        list = trainingList.where((word) => word.points < 5).toList();
+          word = userLibrary.words.where((word) => word.points < 5).toList().getRandomElement(rnd);
         }
         else if(randomToken >= 30 && randomToken < 50)
         {
-          list = trainingList.where((word) => word.points >= 5 && word.points < 8).toList();
+          word = userLibrary.words.where((word) => word.points >= 5 && word.points < 8).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 50 && randomToken < 60)
         {
-          list = trainingList.where((word) => word.points >= 8 && word.points < 11).toList();
+          word = userLibrary.words.where((word) => word.points >= 8 && word.points < 11).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 60 && randomToken < 69)
         {
-          list = trainingList.where((word) => word.points >= 11 && word.points < 13).toList();
+          word = userLibrary.words.where((word) => word.points >= 11 && word.points < 13).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 69 && randomToken < 77)
         {
-          list = trainingList.where((word) => word.points >= 13 && word.points < 16).toList();
+          word = userLibrary.words.where((word) => word.points >= 13 && word.points < 16).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 77 && randomToken < 83)
         {
-          list = trainingList.where((word) => word.points >= 16 && word.points < 18).toList();
+          word = userLibrary.words.where((word) => word.points >= 16 && word.points < 18).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 83 && randomToken < 88)
         {
-          list = trainingList.where((word) => word.points >= 18 && word.points < 20).toList();
+          word = userLibrary.words.where((word) => word.points >= 18 && word.points < 20).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 88 && randomToken < 92)
         {
-          list = trainingList.where((word) => word.points >= 20 && word.points < 22).toList();
+          word = userLibrary.words.where((word) => word.points >= 20 && word.points < 22).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 92 && randomToken < 95)
         {
-          list = trainingList.where((word) => word.points >= 22 && word.points < 25).toList();
+          word = userLibrary.words.where((word) => word.points >= 22 && word.points < 25).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 95 && randomToken < 97)
         {
-          list = trainingList.where((word) => word.points >= 25 && word.points < 27).toList();
+          word = userLibrary.words.where((word) => word.points >= 25 && word.points < 27).toList().getRandomElement(rnd);
         }
         else if (randomToken >= 97 && randomToken < 99)
         {
-          list = trainingList.where((word) => word.points >= 27 && word.points < 30).toList();
+          word = userLibrary.words.where((word) => word.points >= 27 && word.points < 30).toList().getRandomElement(rnd);
         }
         else 
         {
-          list = trainingList.where((word) => word.points >= 30).toList();
+          word = userLibrary.words.where((word) => word.points >= 30).toList().getRandomElement(rnd);
         }
 
-        
+        if(word!= null)
+        {
+          
+        list.add(word);
+
+        }
 
 
-      }
+    }
 
-     return list[rnd.nextInt(list.length)];
+    return list.toList();
 
   }
-
-
-
-
-
-  
-
 
 }

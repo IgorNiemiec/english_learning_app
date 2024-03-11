@@ -16,6 +16,7 @@ class TrainingView extends StatelessWidget
   final UserLibrary userLibrary;
   final List<Word> trainingList;
   final DifficultyLevel difficultyLevel;
+  final TrainingModeEnum trainingModeEnum;
   final int round;
   final int mistakeCounter;
   final Word firstWord;
@@ -29,6 +30,7 @@ class TrainingView extends StatelessWidget
     Key? key,
     required this.userLibrary,
     required this.trainingList,
+    required this.trainingModeEnum,
     required this.difficultyLevel,
     required this.keyWord,
     required this.firstWord,
@@ -101,10 +103,10 @@ class TrainingView extends StatelessWidget
             SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
             Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.12,
               child: Text(keyWord.wordPl,style: applicationTextStyle(35),textAlign: TextAlign.center,),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.05,
@@ -126,6 +128,7 @@ class TrainingView extends StatelessWidget
                         {
                           context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
+                              trainingMode: trainingModeEnum,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -145,6 +148,7 @@ class TrainingView extends StatelessWidget
 
                           context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
+                              trainingMode: trainingModeEnum,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -180,6 +184,7 @@ class TrainingView extends StatelessWidget
 
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
+                              trainingMode: trainingModeEnum,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -200,6 +205,7 @@ class TrainingView extends StatelessWidget
 
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
+                              trainingMode: trainingModeEnum,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -233,6 +239,7 @@ class TrainingView extends StatelessWidget
                         {
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
+                              trainingMode: trainingModeEnum,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -251,6 +258,7 @@ class TrainingView extends StatelessWidget
                         {
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
+                              trainingMode: trainingModeEnum,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 

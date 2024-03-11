@@ -15,8 +15,11 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
 {
   
   UserLibrary userLibrary;
+  final TrainingModeEnum trainingModeEnum;
 
-  CommonTrainingLevelChoiceView({Key? key, required this.userLibrary}) : super(key: key);
+  CommonTrainingLevelChoiceView({Key? key, 
+  required this.userLibrary,
+  required this.trainingModeEnum}) : super(key: key);
 
   @override
   Widget build(BuildContext context)
@@ -47,7 +50,11 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                       onPressed: ()
                       {
                         context.read<AppBloc>().add(
-                          AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.A)
+                          AppEventGoToTrainingView(
+                            userLibrary: userLibrary, 
+                            difficultyLevel: DifficultyLevel.A,
+                            trainingModeEnum: trainingModeEnum,
+                            )
                         );
 
                       },
@@ -63,7 +70,10 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                       onPressed: ()
                       {
                          context.read<AppBloc>().add(
-                          AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.B)
+                          AppEventGoToTrainingView(
+                            userLibrary: userLibrary, 
+                            difficultyLevel: DifficultyLevel.B,
+                            trainingModeEnum: trainingModeEnum)
                         );
                       },
                       style: roundedButtonStyle(),
@@ -78,7 +88,10 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                       onPressed: ()
                       {
                          context.read<AppBloc>().add(
-                          AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.C)
+                          AppEventGoToTrainingView(
+                            userLibrary: userLibrary, 
+                            difficultyLevel: DifficultyLevel.C,
+                            trainingModeEnum: trainingModeEnum)
                         );
                       },
                       style: roundedButtonStyle(),
@@ -102,7 +115,10 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                       onPressed: ()
                       {
                          context.read<AppBloc>().add(
-                          AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.MixedAB)
+                          AppEventGoToTrainingView(
+                            userLibrary: userLibrary, 
+                            difficultyLevel: DifficultyLevel.MixedAB,
+                            trainingModeEnum: trainingModeEnum)
                         );
 
                       },
@@ -118,7 +134,10 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                       onPressed: ()
                       {
                          context.read<AppBloc>().add(
-                          AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.MixedBC)
+                          AppEventGoToTrainingView(
+                            userLibrary: userLibrary, 
+                            difficultyLevel: DifficultyLevel.MixedBC,
+                            trainingModeEnum: trainingModeEnum,)
                         );
                       },
                       style: roundedButtonStyle(),
@@ -139,7 +158,10 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                       onPressed: ()
                       {
                          context.read<AppBloc>().add(
-                          AppEventGoToTrainingView(userLibrary: userLibrary, difficultyLevel: DifficultyLevel.MixedABC)
+                          AppEventGoToTrainingView(
+                            userLibrary: userLibrary, 
+                            difficultyLevel: DifficultyLevel.MixedABC,
+                            trainingModeEnum: trainingModeEnum,)
                         );
                       },
                       style: roundedButtonStyle(),

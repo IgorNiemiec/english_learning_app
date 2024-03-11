@@ -208,8 +208,11 @@ class AppEventGoToTrainingChoiceView implements AppEvent
 class AppEventGoToCommonTrainingChoieView implements AppEvent
 {
   final UserLibrary userLibrary;
+  final TrainingModeEnum trainingMode;
 
-  const AppEventGoToCommonTrainingChoieView({required this.userLibrary});
+  const AppEventGoToCommonTrainingChoieView({
+    required this.userLibrary,
+    required this.trainingMode});
 
 }
 
@@ -220,10 +223,12 @@ class AppEventGoToTrainingView implements AppEvent
 
   final UserLibrary userLibrary;
   final DifficultyLevel difficultyLevel;
+  final TrainingModeEnum trainingModeEnum;
 
   const AppEventGoToTrainingView({
     required this.userLibrary,
     required this.difficultyLevel,
+    required this.trainingModeEnum,
   });
 
 }
@@ -232,6 +237,7 @@ class AppEventGoToTrainingView implements AppEvent
 class AppEventUpdateTrainingView implements AppEvent
 {
   final UserLibrary userLibrary;
+  final TrainingModeEnum trainingMode;
   final List<Word> trainingList;
   final DifficultyLevel difficultyLevel;
   final Word keyWord;
@@ -246,6 +252,7 @@ class AppEventUpdateTrainingView implements AppEvent
 
   const AppEventUpdateTrainingView({
     required this.userLibrary,
+    required this.trainingMode,
     required this.trainingList,
     required this.difficultyLevel,
     required this.round,
@@ -267,17 +274,21 @@ class AppEventUpdateTrainingView implements AppEvent
 class AppEventGoToTrainingFinalizationView implements AppEvent
 {
   final UserLibrary userLibrary;
+  final TrainingModeEnum trainingMode;
   final List<Word> trainingList;
   final int correctCounter;
   final int mistakesCounter;
 
   const AppEventGoToTrainingFinalizationView({
     required this.userLibrary,
+    required this.trainingMode,
     required this.trainingList,
     required this.correctCounter,
     required this.mistakesCounter,
   });
 } 
+
+
 
 
 @immutable
@@ -315,6 +326,4 @@ class AppEventFinishLibraryTraining implements AppEvent
     required this.trainingWords,
     required this.userLibrary,
   });
-
-
 }

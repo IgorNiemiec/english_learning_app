@@ -14,12 +14,12 @@ class UserLibraryView extends StatelessWidget
 {
 
   UserLibrary userLibrary;
-  List<Word> filteredWors;
+  List<Word> filteredWords;
 
   UserLibraryView({
     Key? key,
     required this.userLibrary,
-    required this.filteredWors}) : super(key: key);
+    required this.filteredWords}) : super(key: key);
 
 
   @override
@@ -110,10 +110,11 @@ class UserLibraryView extends StatelessWidget
                 ),
                 child: Expanded(
                   child: ListView.builder(
-                    itemCount: filteredWors.length,
+                    itemCount: filteredWords.length,
                     itemBuilder: (context, index) {
-                      final word = filteredWors[index];
-                      return Column(
+                      final word = filteredWords[index];
+                      
+                        return Column(
                         children: <Widget>[
 
                           SizedBox(
@@ -133,6 +134,7 @@ class UserLibraryView extends StatelessWidget
                           SizedBox(height: MediaQuery.of(context).size.height * 0.02,)
                         ],
                       );
+                      
                     },
                   ),
                 ),

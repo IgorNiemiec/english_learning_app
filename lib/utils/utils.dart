@@ -103,8 +103,7 @@ Container levelChoiceBarContainer({
   required AppEvent appEventB,
   required AppEvent appEventC,
   required AppEvent appEventAll,
-}
-)
+})
 {
 
   return Container(

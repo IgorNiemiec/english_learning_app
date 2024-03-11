@@ -18,3 +18,9 @@ enum WordLevelEnum
   C,
   ALL,
 }
+
+enum TrainingModeEnum
+{
+  COMMON_TRAINING,
+  USER_LIBRARY_TRAINING,
+}
