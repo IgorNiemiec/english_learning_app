@@ -80,7 +80,6 @@ TextStyle applicationBlackTextStyle(double fontSize)
     color: Colors.black,
     fontSize: fontSize,
     fontFamily: 'ProtestRiot',
-    overflow: TextOverflow.ellipsis,
   );
 }
 

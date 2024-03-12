@@ -1,6 +1,3 @@
-
-
-
 import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
@@ -8,7 +5,6 @@ import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CommonTrainingLevelChoiceView extends StatelessWidget
@@ -34,7 +30,31 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: Text("Choose level",style: applicationTextStyle(40),),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  const SizedBox(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.25,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+
+                        context.read<AppBloc>().add(
+                          AppEventGoToTrainingChoiceView(userLibrary: userLibrary)
+                        );
+
+
+                      },
+                      style: roundedButtonStyle(),
+                      child: const Icon(Icons.navigate_before,size: 50,),
+                    ),
+                  ),
+                  Text("Choose level",style: applicationTextStyle(40),),
+                  const SizedBox(),
+                ],
+              ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
             Container(

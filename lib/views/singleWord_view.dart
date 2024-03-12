@@ -103,8 +103,9 @@ class SingleWordView extends StatelessWidget
                 ),
                 Container(
                   alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width * 0.45,
-                  child: Text(word.wordEn,style: applicationBlackTextStyle(25),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.14,
+                  child: Text(word.wordEn,style: applicationBlackTextStyle(20),textAlign: TextAlign.center,),
                 ),
                 const SizedBox(),
               ]),
@@ -131,7 +132,6 @@ class SingleWordView extends StatelessWidget
                   ),
                   child: Container(
                     clipBehavior: Clip.antiAlias,
-                    
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       image: DecorationImage(image: AssetImage("assets/PolishFlag.jpeg"),
@@ -141,8 +141,9 @@ class SingleWordView extends StatelessWidget
                 ),
                 Container(
                   alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width * 0.45,
-                  child: Text(word.wordPl,style: applicationBlackTextStyle(25),textAlign: TextAlign.left,overflow: TextOverflow.ellipsis,),
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.14,
+                  child: Text(word.wordPl,style: applicationBlackTextStyle(20),textAlign: TextAlign.center,),
                 ),
                 const SizedBox(),
               ]),

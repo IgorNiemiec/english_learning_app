@@ -128,7 +128,7 @@ class UserLibraryView extends StatelessWidget
                                 );
                               },
                               style: applicationGreenButtonStyle(),
-                              child: Text("${word.wordEn} : ${word.wordPl}",style: applicationBlackTextStyle(18)),
+                              child: Text("${word.wordEn} : ${word.wordPl}",style: applicationBlackTextStyle(18),overflow: TextOverflow.ellipsis,),
                             ),
                           ),
                           SizedBox(height: MediaQuery.of(context).size.height * 0.02,)

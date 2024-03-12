@@ -834,8 +834,8 @@ final List<Word> words = [
     wordLevel: "B"),
 
       Word(
-    wordEn: "hańba",
-    wordPl: "disgrace", 
+    wordEn: "disgrace",
+    wordPl: "hańba", 
     points: 0, 
     wordLevel: "B"),
 
@@ -990,8 +990,8 @@ final List<Word> words = [
     wordLevel: "B"),
 
       Word(
-    wordEn: "bazgrać",
-    wordPl: "doodle", 
+    wordEn: "doodle",
+    wordPl: "bazgrać", 
     points: 0, 
     wordLevel: "B"),
 
