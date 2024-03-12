@@ -1,17 +1,14 @@
 
 import 'dart:collection';
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
-import 'package:english_learning_app/dialogs/add_wotd_dialog.dart';
-import 'package:english_learning_app/dialogs/generic_dialog.dart';
-import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/dialogs/wotd_isAlreadyInLibrary_Dialog.dart';
 import 'package:english_learning_app/extensions/extensions.dart';
+import 'package:english_learning_app/models/training_unit.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:english_learning_app/models/wotd.dart';
@@ -55,7 +52,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
           final userLibrary = await _getUserLibrary(user.uid);
 
           final wotd = await _updateWordOfTheDay(user.uid, userLibrary!.wordOfTheDay);
-
 
           emit(AppStateLoggedIn(
             isLoading: false, 
@@ -156,6 +152,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
         emit(
           AppStateIsInTrainingView(
             trainingMode: event.trainingModeEnum,
+            trainingUnits: [],
             markedIndex: 1,
             keyWordIndex: keyWordIndex,
             level: event.difficultyLevel,
@@ -178,196 +175,134 @@ class AppBloc extends Bloc<AppEvent,AppState>
     on<AppEventUpdateTrainingView>((event, emit) 
     {
 
-      if (event.round == 50)
-      {
+        List<TrainingUnit> trainingUnits = event.trainingUnits;
+        List<Word> trainingList = event.trainingList;
+        final Word updatedWord;
+        int mistakesCounter = event.mistakes;
 
-        if(event.trainingMode == TrainingModeEnum.COMMON_TRAINING)
+        if(event.isMistake)
         {
-
-          emit(
-          AppStateIsInTrainingFinalizationView(
-            userLibrary: event.userLibrary,
-            trainingList: event.trainingList, 
-            correctCounter: event.round-event.mistakes, 
-            mistakesCounter: event.mistakes, 
-            isLoading: false)
-        );
-
+          trainingUnits.add(TrainingUnit(word: event.keyWord, isPointGained: false));
+          updatedWord = Word.updatePoints(keyWord: event.keyWord, points: event.keyWord.points-1);
+          mistakesCounter++;
         }
         else
         {
-          emit(
-            AppStateIsInTrainingFinalizationLibraryView(
-              userLibrary: event.userLibrary, 
-              trainingWords: event.trainingList, 
-              isLoading: false)
-          );
+          trainingUnits.add(TrainingUnit(word: event.keyWord, isPointGained: true));
+          updatedWord = Word.updatePoints(keyWord: event.keyWord, points: event.keyWord.points+1);
+          mistakesCounter--;
         }
 
-        
+         trainingList.remove(event.keyWord);
+         trainingList.add(updatedWord);
 
-      }
-      else
-      {
+
+        if(event.round==50)
+        {
+
+          if(event.trainingMode == TrainingModeEnum.COMMON_TRAINING)
+          {
+
+             emit(
+              AppStateIsInTrainingFinalizationView(
+                userLibrary: event.userLibrary, 
+                trainingUnits: trainingUnits, 
+                trainingList: trainingList, 
+                correctCounter: 50-mistakesCounter, 
+                mistakesCounter: mistakesCounter, 
+                isLoading: false)
+             );
+
+          }
+          else if (event.trainingMode == TrainingModeEnum.USER_LIBRARY_TRAINING)
+          {
+
+              emit(
+                AppStateIsInTrainingFinalizationLibraryView(
+                  mistakeCounter: event.mistakes,
+                  trainingUnits: event.trainingUnits,
+                  userLibrary: event.userLibrary, 
+                  trainingWords: event.trainingList, 
+                  isLoading: false)
+              );
+
+          }
+
+          return;
+
+        }
+
+        Random rnd = Random();
+
+        Word keyWord = trainingList[rnd.nextInt(trainingList.length)];
+        late Word w1;
+        late Word w2;
+        late Word w3;
+
+        int keyWordIndex = rnd.nextInt(3)+1;
+
+        (Word fakeWord1, Word fakeWord2) fakeWords = _getFakeWords(keyWord: keyWord, level: event.difficultyLevel);
+
+        switch(keyWordIndex)
+        {
+          case 1:
+          w1 = keyWord;
+          w2 = fakeWords.$1;
+          w3 = fakeWords.$2;
+          case 2:
+          w1 = fakeWords.$1;
+          w2 = keyWord;
+          w3 = fakeWords.$2;
+          case 3:
+          w1 = fakeWords.$1;
+          w2 = fakeWords.$2;
+          w3 = keyWord;
+        }
 
 
         if(event.isMistake)
         {
-        emit(AppStateIsInTrainingView(
-          trainingMode: event.trainingMode,
-          markedIndex: event.markedIndex,
-          keyWordIndex: event.keyWordIndex,
-          level: event.difficultyLevel,
-          userLibrary: event.userLibrary,
-          trainingList: event.trainingList,
-          keyWord: event.keyWord, 
-          firstWord: event.firstWord, 
-          secondWord: event.secondWord, 
-          thirdWord: event.thirdWord, 
-          round: event.round, 
-          mistakesCounter: event.mistakes, 
-          isMistake: true, 
-          isLoading: false));
 
-        List<Word> trainingList = event.trainingList;
+           emit(
+             AppStateIsInTrainingView(
+               trainingMode: event.trainingMode,
+               trainingUnits: trainingUnits,
+               markedIndex: event.markedIndex,
+               keyWordIndex: keyWordIndex,
+               level: event.difficultyLevel,
+               userLibrary: event.userLibrary,
+               trainingList: trainingList, 
+               keyWord: keyWord, 
+               firstWord: w1, 
+               secondWord: w2, 
+               thirdWord: w3, 
+               round: event.round+1, 
+               mistakesCounter: event.mistakes+1, 
+               isMistake: false, 
+               isLoading: false));
 
-        trainingList.remove(event.keyWord);
-
-        Word updatedWord = Word.updatePoints(keyWord: event.keyWord, points: event.keyWord.points-1);
-
-        trainingList.add(updatedWord);
-
-        // ShowTime
-
-        // End of Showtime
-
-        Random rnd = Random();
-
-        Word keyWord = trainingList[rnd.nextInt(trainingList.length)];
-        late Word w1;
-        late Word w2;
-        late Word w3;
-
-         int keyWordIndex = rnd.nextInt(3)+1;
-
-        (Word fakeWord1, Word fakeWord2) fakeWords = _getFakeWords(keyWord: keyWord, level: event.difficultyLevel);
-
-        switch(keyWordIndex)
-        {
-          case 1:
-          w1 = keyWord;
-          w2 = fakeWords.$1;
-          w3 = fakeWords.$2;
-          case 2:
-          w1 = fakeWords.$1;
-          w2 = keyWord;
-          w3 = fakeWords.$2;
-          case 3:
-          w1 = fakeWords.$1;
-          w2 = fakeWords.$2;
-          w3 = keyWord;
         }
-
-
-
-        emit(
-          AppStateIsInTrainingView(
-            trainingMode: event.trainingMode,
-            markedIndex: event.markedIndex,
-            keyWordIndex: keyWordIndex,
-            level: event.difficultyLevel,
-            userLibrary: event.userLibrary,
-            trainingList: trainingList, 
-            keyWord: keyWord, 
-            firstWord: w1, 
-            secondWord: w2, 
-            thirdWord: w3, 
-            round: event.round+1, 
-            mistakesCounter: event.mistakes+1, 
-            isMistake: false, 
-            isLoading: false)
-        );
-
-      }
-      else
-      {
-
-        emit(
-          AppStateIsInTrainingView(
-            trainingMode: event.trainingMode,
-            markedIndex: event.markedIndex,
-            keyWordIndex: event.keyWordIndex,
-            level: event.difficultyLevel,
-            userLibrary: event.userLibrary, 
-            trainingList: event.trainingList, 
-            keyWord: event.keyWord, 
-            firstWord: event.firstWord, 
-            secondWord: event.secondWord, 
-            thirdWord: event.thirdWord, 
-            round: event.round, 
-            mistakesCounter: event.mistakes, 
-            isLoading: false)
-        );
-
-        List<Word> trainingList = event.trainingList;
-
-        trainingList.remove(event.keyWord);
-
-        Word updatedWord = Word.updatePoints(keyWord: event.keyWord, points: event.keyWord.points+1);
-
-        trainingList.add(updatedWord);
-
-
-        Random rnd = Random();
-
-        Word keyWord = trainingList[rnd.nextInt(trainingList.length)];
-        late Word w1;
-        late Word w2;
-        late Word w3;
-
-         int keyWordIndex = rnd.nextInt(3)+1;
-
-        (Word fakeWord1, Word fakeWord2) fakeWords = _getFakeWords(keyWord: keyWord, level: event.difficultyLevel);
-
-        switch(keyWordIndex)
+        else
         {
-          case 1:
-          w1 = keyWord;
-          w2 = fakeWords.$1;
-          w3 = fakeWords.$2;
-          case 2:
-          w1 = fakeWords.$1;
-          w2 = keyWord;
-          w3 = fakeWords.$2;
-          case 3:
-          w1 = fakeWords.$1;
-          w2 = fakeWords.$2;
-          w3 = keyWord;
+
+          emit(
+            AppStateIsInTrainingView(
+              trainingMode: event.trainingMode,
+              trainingUnits: trainingUnits,
+              markedIndex: 1,
+              keyWordIndex: keyWordIndex,
+              level: event.difficultyLevel,
+              userLibrary: event.userLibrary, 
+              trainingList: trainingList, 
+              keyWord: keyWord, 
+              firstWord: w1, 
+              secondWord: w2, 
+              thirdWord: w3, 
+              round: event.round+1, 
+              mistakesCounter: event.mistakes, 
+              isLoading: false));
+
         }
-
-
-        emit(
-          AppStateIsInTrainingView(
-            trainingMode: event.trainingMode,
-            markedIndex: 1,
-            keyWordIndex: keyWordIndex,
-            level: event.difficultyLevel,
-            userLibrary: event.userLibrary, 
-            trainingList: trainingList, 
-            keyWord: keyWord, 
-            firstWord: w1, 
-            secondWord: w2, 
-            thirdWord: w3, 
-            round: event.round+1, 
-            mistakesCounter: event.mistakes, 
-            isLoading: false)
-        );
-
-
-      }
-
-
-      }
 
     },);
 
@@ -378,14 +313,14 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       try
       {
+
         final email = event.email;
+
         final password = event.password;
 
         final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
 
         final user = userCredential.user!;
-
-        
 
         final userLibrary = await _getUserLibrary(user.uid);
 
@@ -684,7 +619,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
    on<AppEventAddWordToUserLibrary>((event, emit) async {
 
     
-
          final user = FirebaseAuth.instance.currentUser;
 
          if (user== null)
@@ -744,6 +678,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
      if (_isWordInUserLibrary(event.userLibrary.wordOfTheDay.wotd, event.userLibrary))
      {
+
+      showWotdIsCurrentlyInLibraryDialog(context: event.context);
 
 
      }
@@ -853,6 +789,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
            emit(
            AppStateIsInTrainingFinalizationView(
              userLibrary: event.userLibrary,
+             trainingUnits: event.trainingUnits,
              trainingList: event.trainingList, 
              correctCounter: event.correctCounter, 
              mistakesCounter: event.mistakesCounter, 
@@ -864,6 +801,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
            emit(
              AppStateIsInTrainingFinalizationLibraryView(
+              mistakeCounter: event.mistakesCounter,
+              trainingUnits: event.trainingUnits,
                userLibrary: event.userLibrary, 
                trainingWords: event.trainingList, 
                isLoading: false)
@@ -937,6 +876,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       emit(
         AppStateIsInTrainingFinalizationLibraryView(
+          mistakeCounter: event.mistakeCounter,
+          trainingUnits: event.trainingUnits,
           userLibrary: event.userLibrary, 
           trainingWords: event.trainingWords, 
           isLoading: true)
@@ -973,6 +914,8 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       emit(
         AppStateIsInTrainingFinalizationLibraryView(
+          mistakeCounter: event.mistakeCounter,
+          trainingUnits: event.trainingUnits,
           userLibrary: event.userLibrary, 
           trainingWords: event.trainingWords, 
           isLoading: false)
@@ -998,7 +941,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
       else
       {
         emit(
-         const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
+          const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
         );
       }
 

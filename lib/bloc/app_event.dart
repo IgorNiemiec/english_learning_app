@@ -1,7 +1,9 @@
 import 'package:english_learning_app/appEnum/appEnum.dart';
+import 'package:english_learning_app/models/training_unit.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:flutter/material.dart';
 
 @immutable
 abstract class AppEvent
@@ -239,6 +241,7 @@ class AppEventUpdateTrainingView implements AppEvent
   final UserLibrary userLibrary;
   final TrainingModeEnum trainingMode;
   final List<Word> trainingList;
+  final List<TrainingUnit> trainingUnits;
   final DifficultyLevel difficultyLevel;
   final Word keyWord;
   final Word firstWord;
@@ -252,6 +255,7 @@ class AppEventUpdateTrainingView implements AppEvent
 
   const AppEventUpdateTrainingView({
     required this.userLibrary,
+    required this.trainingUnits,
     required this.trainingMode,
     required this.trainingList,
     required this.difficultyLevel,
@@ -276,11 +280,13 @@ class AppEventGoToTrainingFinalizationView implements AppEvent
   final UserLibrary userLibrary;
   final TrainingModeEnum trainingMode;
   final List<Word> trainingList;
+  final List<TrainingUnit> trainingUnits;
   final int correctCounter;
   final int mistakesCounter;
 
   const AppEventGoToTrainingFinalizationView({
     required this.userLibrary,
+    required this.trainingUnits,
     required this.trainingMode,
     required this.trainingList,
     required this.correctCounter,
@@ -319,10 +325,14 @@ class AppEventFinishLibraryTraining implements AppEvent
 {
 
   final UserLibrary userLibrary;
+  final List<TrainingUnit> trainingUnits;
   final List<Word> trainingWords;
+  final int mistakeCounter;
 
   const AppEventFinishLibraryTraining({
+    required this.mistakeCounter,
     required this.trainingWords,
+    required this.trainingUnits,
     required this.userLibrary,
   });
 }

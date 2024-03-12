@@ -55,6 +55,14 @@ class MainApp extends StatelessWidget {
               {
                 showAuthError(context: context, authError: authError);
               }
+
+              final appDialog = appState.appDialog;
+              
+
+
+
+
+
           },
           builder: (context, appState) {
 
@@ -104,6 +112,7 @@ class MainApp extends StatelessWidget {
                 keyWordIndex: appState.keyWordIndex,
                 userLibrary: appState.userLibrary,
                 trainingList: appState.trainingList,
+                trainingUnits: appState.trainingUnits,
                 keyWord: appState.keyWord, 
                 round: appState.round,
                 mistakeCounter: appState.mistakesCounter,
@@ -115,9 +124,10 @@ class MainApp extends StatelessWidget {
             else if (appState is AppStateIsInTrainingFinalizationView)
             {
               return TrainingFinalizationView(
+                trainingUnits: appState.trainingUnits,
                 trainingList: appState.trainingList, 
                 correctCounter: appState.correctCounter, 
-                mistakesCounter: appState.mistakesCounter,
+                mistakeCounter: appState.mistakesCounter,
                 userLibrary: appState.userLibrary,);
             }
             else if (appState is AppStateIsInTrainingWordsView)
@@ -127,7 +137,10 @@ class MainApp extends StatelessWidget {
             else if (appState is AppStateIsInTrainingFinalizationLibraryView)
             {
               return TrainingFinalizationLibraryView(
+                mistakeCounter: appState.mistakeCounter,
+                correctCounter: 50-appState.mistakeCounter,
                 userLibrary: appState.userLibrary, 
+                trainingUnits: appState.trainingUnits,
                 trainingWords: appState.trainingWords);
             }
             else

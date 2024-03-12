@@ -5,6 +5,7 @@ import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/constants/constants.dart';
+import 'package:english_learning_app/models/training_unit.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:english_learning_app/utils/utils.dart';
@@ -15,6 +16,7 @@ class TrainingView extends StatelessWidget
 {
   final UserLibrary userLibrary;
   final List<Word> trainingList;
+  final List<TrainingUnit> trainingUnits;
   final DifficultyLevel difficultyLevel;
   final TrainingModeEnum trainingModeEnum;
   final int round;
@@ -29,6 +31,7 @@ class TrainingView extends StatelessWidget
   TrainingView({
     Key? key,
     required this.userLibrary,
+    required this.trainingUnits,
     required this.trainingList,
     required this.trainingModeEnum,
     required this.difficultyLevel,
@@ -129,6 +132,7 @@ class TrainingView extends StatelessWidget
                           context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
                               trainingMode: trainingModeEnum,
+                              trainingUnits: trainingUnits,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -149,6 +153,7 @@ class TrainingView extends StatelessWidget
                           context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
                               trainingMode: trainingModeEnum,
+                              trainingUnits: trainingUnits,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -185,6 +190,7 @@ class TrainingView extends StatelessWidget
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
                               trainingMode: trainingModeEnum,
+                              trainingUnits: trainingUnits,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -206,6 +212,7 @@ class TrainingView extends StatelessWidget
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
                               trainingMode: trainingModeEnum,
+                              trainingUnits: trainingUnits,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -240,6 +247,7 @@ class TrainingView extends StatelessWidget
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
                               trainingMode: trainingModeEnum,
+                              trainingUnits: trainingUnits,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 
@@ -259,6 +267,7 @@ class TrainingView extends StatelessWidget
                            context.read<AppBloc>().add(
                             AppEventUpdateTrainingView(
                               trainingMode: trainingModeEnum,
+                              trainingUnits: trainingUnits,
                               userLibrary: userLibrary, 
                               trainingList: trainingList, 
                               difficultyLevel: difficultyLevel, 

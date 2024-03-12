@@ -1,5 +1,7 @@
 import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/auth/auth_error.dart';
+import 'package:english_learning_app/dialogs/app_dialogs.dart';
+import 'package:english_learning_app/models/training_unit.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,10 +12,12 @@ abstract class AppState
 {
   final bool isLoading;
   final AuthError? authError;
+  final AppDialog? appDialog;
 
   const AppState({
     required this.isLoading,
     this.authError,
+    this.appDialog,
   });
 
 }
@@ -205,6 +209,7 @@ class AppStateIsInTrainingView extends AppState
   final UserLibrary userLibrary;
   final TrainingModeEnum trainingMode;
   final List<Word> trainingList;
+  final List<TrainingUnit> trainingUnits;
   final Word keyWord;
   final Word firstWord;
   final Word secondWord;
@@ -218,6 +223,7 @@ class AppStateIsInTrainingView extends AppState
   const AppStateIsInTrainingView({
     required this.level,
     required this.userLibrary,
+    required this.trainingUnits,
     required this.trainingMode,
     required this.trainingList,
     required this.keyWord,
@@ -240,12 +246,14 @@ class AppStateIsInTrainingFinalizationView extends AppState
 {
 
   final UserLibrary userLibrary;
+  final List<TrainingUnit> trainingUnits;
   final List<Word> trainingList;
   final int correctCounter;
   final int mistakesCounter;
 
   const AppStateIsInTrainingFinalizationView({
     required this.userLibrary,
+    required this.trainingUnits,
     required this.trainingList,
     required this.correctCounter,
     required this.mistakesCounter,
@@ -272,13 +280,18 @@ class AppStateIsInTrainingFinalizationLibraryView extends AppState
 {
 
   final UserLibrary userLibrary;
+  final List<TrainingUnit> trainingUnits;
   final List<Word> trainingWords;
+  final int mistakeCounter;
 
   const AppStateIsInTrainingFinalizationLibraryView({
     required this.userLibrary,
+    required this.mistakeCounter,
+    required this.trainingUnits,
     required this.trainingWords,
     required bool isLoading,
     AuthError? authError,
+
   }) : super(isLoading: false, authError: authError);
 
 
