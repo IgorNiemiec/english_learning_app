@@ -113,7 +113,7 @@ class UserLibraryView extends StatelessWidget
                     itemCount: filteredWords.length,
                     itemBuilder: (context, index) {
                       final word = filteredWords[index];
-                      
+
                         return Column(
                         children: <Widget>[
 

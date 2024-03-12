@@ -32,7 +32,30 @@ class TrainingChoiceView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: Text("Training mode",style: applicationTextStyle(40),),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  const SizedBox(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: OutlinedButton(
+                      onPressed: ()
+                      {
+
+                        context.read<AppBloc>().add(
+                          AppEventGoToUserPanelView(userLibrary: userLibrary)
+                        );
+
+                      },
+                      style: roundedButtonStyle(),
+                      child: const Icon(Icons.navigate_before,size: 50,),
+                    ),
+                  ),
+                  Text("Training mode",style: applicationTextStyle(35),),
+                  const SizedBox(),
+                ],
+              ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             Container(

@@ -57,12 +57,12 @@ class UserPanelView extends StatelessWidget
                       ],
                     ),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
               Container(
                 alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.5,
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     const SizedBox(),
                     Container(
@@ -113,7 +113,6 @@ class UserPanelView extends StatelessWidget
 
                 )
               ),
-              const SizedBox(),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.1,
@@ -126,7 +125,7 @@ class UserPanelView extends StatelessWidget
                     );
 
                 },
-                child: Text("Train",style: applicationBlackTextStyle(30)),
+                child: Text("Start training",style: applicationBlackTextStyle(30)),
 
               ),
             ),

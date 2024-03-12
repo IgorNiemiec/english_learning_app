@@ -10,6 +10,7 @@ import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/dialogs/add_wotd_dialog.dart';
 import 'package:english_learning_app/dialogs/generic_dialog.dart';
 import 'package:english_learning_app/dialogs/show_auth_error.dart';
+import 'package:english_learning_app/dialogs/wotd_isAlreadyInLibrary_Dialog.dart';
 import 'package:english_learning_app/extensions/extensions.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
@@ -363,17 +364,11 @@ class AppBloc extends Bloc<AppEvent,AppState>
         );
 
 
-
-        
       }
-
 
 
       }
 
-      
-
-      
     },);
 
 
@@ -750,7 +745,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
      if (_isWordInUserLibrary(event.userLibrary.wordOfTheDay.wotd, event.userLibrary))
      {
 
-      
 
      }
      else
@@ -985,17 +979,36 @@ class AppBloc extends Bloc<AppEvent,AppState>
       );
 
 
-
-
     }
 
 
-   
-
   },);
+
+
+   on<AppEventGoToUserPanelView>((event, emit) {
+     
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user!=null)
+      {
+        emit(
+          AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary)
+        );
+      }
+      else
+      {
+        emit(
+         const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
+        );
+      }
+
+
+   },);
     
 
   }
+
+
 
 
 

@@ -312,7 +312,6 @@ class AppEventSaveTrainingWordsInUserLibrary implements AppEvent
     required this.trainingWords,
     required this.userLibrary,
     });
-
 }
 
 @immutable
@@ -326,4 +325,12 @@ class AppEventFinishLibraryTraining implements AppEvent
     required this.trainingWords,
     required this.userLibrary,
   });
+}
+
+@immutable
+class AppEventGoToUserPanelView implements AppEvent
+{
+  final UserLibrary userLibrary;
+
+  const AppEventGoToUserPanelView({required this.userLibrary});
 }
