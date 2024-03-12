@@ -71,59 +71,17 @@ class UserPanelView extends StatelessWidget
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           const SizedBox(),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            child: OutlinedButton(
-                              onPressed: ()
-                              {
-
-
-                                  context.read<AppBloc>().add(
-                                          AppEventAddWordOfTheDayToUserLibrary(userLibrary: userLibrary)
-                                        );
-
-
-                              },
-                              style: applicationGreenButtonStyle(),
-                              child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          const SizedBox(),
-                                          const Icon(Icons.add_box,size: 50,),
-                                          Text("Add WOTD",style: applicationBlackTextStyle(20),),
-                                          const SizedBox(),
-                                        ],
-                                      )
-
-                            ),
-                          ),
+                          userPanelViewButton(
+                            context: context, 
+                            appEvent:   AppEventAddWordOfTheDayToUserLibrary(userLibrary: userLibrary), 
+                            icon: const Icon(Icons.add_box,size: 50,), 
+                            title: "Add WOTD"),
                           const SizedBox(),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            child: OutlinedButton(
-                              onPressed: ()
-                              {
-
-                                  context.read<AppBloc>().add(
-                                          AppEventGoToUserLibraryView(userLibrary: userLibrary)
-                                        );
-
-                              },
-                              style: applicationGreenButtonStyle(),
-                              child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          const SizedBox(),
-                                          const Icon(Icons.person,size: 50,),
-                                          Text("User library",style: applicationBlackTextStyle(20),),
-                                          const SizedBox(),
-                                        ],
-                                      )
-
-                            ),
-                          ),
+                          userPanelViewButton(
+                            context: context, 
+                            appEvent: AppEventGoToUserLibraryView(userLibrary: userLibrary), 
+                            icon: const Icon(Icons.person,size: 50,), 
+                            title: "User library"),
                           const SizedBox(),
                         ],
                       ),
@@ -134,59 +92,17 @@ class UserPanelView extends StatelessWidget
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           const SizedBox(),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            child: OutlinedButton(
-                              onPressed: ()
-                              {
-
-
-                                    context.read<AppBloc>().add(
-                                          AppEventGoToCommonLibrary(userLibrary: userLibrary)
-                                        );
-
-
-                              },
-                              style: applicationGreenButtonStyle(),
-                              child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          const SizedBox(),
-                                          const Icon(Icons.library_books,size: 50,),
-                                          Text("Dictionary",style: applicationBlackTextStyle(20),),
-                                          const SizedBox(),
-                                        ],
-                                      )
-
-                            ),
-                          ),
+                          userPanelViewButton(
+                            context: context, 
+                            appEvent: AppEventGoToCommonLibrary(userLibrary: userLibrary), 
+                            icon: const Icon(Icons.library_books,size: 50,), 
+                            title: "Dictionary"),
                           const SizedBox(),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            child: OutlinedButton(
-                              onPressed: ()
-                              {
-
-                                context.read<AppBloc>().add(
-                                          const AppEventLogOut()
-                                        );
-
-                              },
-                              style: applicationGreenButtonStyle(),
-                              child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          const SizedBox(),
-                                          const Icon(Icons.logout,size: 50,),
-                                          Text("Logout",style: applicationBlackTextStyle(20),),
-                                          const SizedBox(),
-                                        ],
-                                      )
-
-                            ),
-                          ),
+                          userPanelViewButton(
+                            context: context, 
+                            appEvent:  const AppEventLogOut(), 
+                            icon: const Icon(Icons.logout,size: 50,), 
+                            title: "Logout"),
                           const SizedBox(),
                         ],
                       ),

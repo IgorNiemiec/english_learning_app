@@ -6,6 +6,7 @@ import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 ButtonStyle applicationButtonStyle()
@@ -178,6 +179,37 @@ Container levelChoiceBarContainer({
               ),
             );
 
+
+}
+
+SizedBox userPanelViewButton({
+  required BuildContext context,
+  required AppEvent appEvent,
+  required Icon icon,
+  required String title,
+})
+{
+  return   SizedBox(
+      width: MediaQuery.of(context).size.width * 0.4,
+      height: MediaQuery.of(context).size.height * 0.2,
+      child: OutlinedButton(
+        onPressed: ()
+        {
+            context.read<AppBloc>().add(appEvent);
+        },
+        style: applicationGreenButtonStyle(),
+        child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    const SizedBox(),
+                    icon,
+                    Text(title,style: applicationBlackTextStyle(20),),
+                    const SizedBox(),
+                 ],
+                )
+
+      ),
+   );
 
 }
 

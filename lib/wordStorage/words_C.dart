@@ -208,6 +208,71 @@ final wordsC = [
     points: 0, 
     wordLevel: "C"),
 
+     Word(
+    wordEn: "flippancy",
+    wordPl: "nanszalancja", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "fossil",
+    wordPl: "skamielina", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "fungicide",
+    wordPl: "środek grzybobójczy", 
+    points: 0, 
+    wordLevel: "C"),
+    
+    Word(
+    wordEn: "gibbet",
+    wordPl: "szubienica", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "gland",
+    wordPl: "gruczoł", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "glitzy",
+    wordPl: "ostentacyjny", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "grasshopper",
+    wordPl: "pasikonik", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "hard of hearing",
+    wordPl: "przygłuchawy", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "hardiness",
+    wordPl: "odporność", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "hardship",
+    wordPl: "trudność", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "harrowing",
+    wordPl: "koszmarny", 
+    points: 0, 
+    wordLevel: "C"),
 
 
 

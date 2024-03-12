@@ -410,28 +410,183 @@ final wordsA = [
     wordEn: "elevator",
     wordPl: "winda", 
     points: 0, 
-    wordLevel: "B"),
+    wordLevel: "A"),
+
+
+  
+      Word(
+    wordEn: "flight",
+    wordPl: "lot", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "flower",
+    wordPl: "kwiat", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "flu",
+    wordPl: "grypa", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "flyer",
+    wordPl: "ulotka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "foam",
+    wordPl: "piana", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "fog",
+    wordPl: "mgła", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "food",
+    wordPl: "jedzenie", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "foot",
+    wordPl: "stopa", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "forest",
+    wordPl: "las", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "fork",
+    wordPl: "widelec", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "fox",
+    wordPl: "lis", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "fridge",
+    wordPl: "lodówka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "fruit",
+    wordPl: "owoc", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "funeral",
+    wordPl: "pogrzeb", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "garden",
+    wordPl: "ogród", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "garlic",
+    wordPl: "czosnek", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "ghost",
+    wordPl: "duch", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "gift",
+    wordPl: "prezent", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "giveaway",
+    wordPl: "podarunek", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "glad",
+    wordPl: "zadowolony", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "glass",
+    wordPl: "szkło", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "glue",
+    wordPl: "klej", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "goose",
+    wordPl: "gęś", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "gospel",
+    wordPl: "ewangelia", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "grape",
+    wordPl: "winogrono", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "habit",
+    wordPl: "nawyk", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "harm",
+    wordPl: "krzywda", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "haunt",
+    wordPl: "nawiedziać", 
+    points: 0, 
+    wordLevel: "A"),
+
+
 
     
-      Word(
-    wordEn: "embarrass",
-    wordPl: "wprawiać w zakłopotanie", 
-    points: 0, 
-    wordLevel: "B"),
-
     
-      Word(
-    wordEn: "embassy",
-    wordPl: "ambasada", 
-    points: 0, 
-    wordLevel: "B"),
-
-    
-      Word(
-    wordEn: "emerge",
-    wordPl: "wyłaniać się", 
-    points: 0, 
-    wordLevel: "B"),
+   
 
 
 

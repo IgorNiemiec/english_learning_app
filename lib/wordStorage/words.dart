@@ -1189,6 +1189,358 @@ final List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
+       Word(
+    wordEn: "embarrass",
+    wordPl: "wprawiać w zakłopotanie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "embassy",
+    wordPl: "ambasada", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "emerge",
+    wordPl: "wyłaniać się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "flinch",
+    wordPl: "wzdrygnąć się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "flipper",
+    wordPl: "płetwa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "flour",
+    wordPl: "mąka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "fluffy",
+    wordPl: "puszysty", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "fob-bound",
+    wordPl: "unieruchomiony przez mgłę", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "for heaven's sake",
+    wordPl: "na miłość boską!", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "for keeps",
+    wordPl: "na zawsze", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "fossil fuel",
+    wordPl: "paliwo kopalne", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "frogman",
+    wordPl: "płetwonurek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "frostbite",
+    wordPl: "odmrożenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "galvanize",
+    wordPl: "zmobilizować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "gumble",
+    wordPl: "uprawiać hazard", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "gang up with",
+    wordPl: "spiknąć się z", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "gargle",
+    wordPl: "płukać gardło", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "gear somebody up",
+    wordPl: "przygotowywać kogoś", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ankward",
+    wordPl: "niezręczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "get clean away",
+    wordPl: "uciec, zbiec", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "get cracking",
+    wordPl: "ruszać z kopyta", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "get into your stride",
+    wordPl: "złapać właściwy rytm", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "get out of hand",
+    wordPl: "wymknąć się spod kontroli", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "gibberish",
+    wordPl: "bełkot", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "giggle",
+    wordPl: "chichotać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ginger",
+    wordPl: "imbir", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "gingerbread",
+    wordPl: "piernik", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "give the slip",
+    wordPl: "wymknąć się", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "give the game away",
+    wordPl: "zdradzić się", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "glamorize",
+    wordPl: "idealizować", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "go to any lengths",
+    wordPl: "posunąć się do ostateczności", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "go to pot",
+    wordPl: "schodzić na psy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "go up in smoke",
+    wordPl: "pójść z dymem", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "go with a swing",
+    wordPl: "iść gładko", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "goodness gracious",
+    wordPl: "wielkie nieba!", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grab at",
+    wordPl: "rzucać się na", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grain",
+    wordPl: "ziarno", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "granary",
+    wordPl: "spichlerz", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grater",
+    wordPl: "tarka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grave",
+    wordPl: "grób", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "gravedigger",
+    wordPl: "grabarz", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "gravel",
+    wordPl: "żwir", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "graveyard",
+    wordPl: "cmentarz", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grease",
+    wordPl: "smar", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "greed",
+    wordPl: "chciwość", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grievance",
+    wordPl: "pretensja", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grind somebody down",
+    wordPl: "przygnębiać kogoś", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "groan",
+    wordPl: "jęczeć", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "growl",
+    wordPl: "warczenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "grumpy",
+    wordPl: "zrzędny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "gushing",
+    wordPl: "wylewny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "haggle",
+    wordPl: "targować się", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "handyman",
+    wordPl: "złota rączka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "harsh",
+    wordPl: "surowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "harvest",
+    wordPl: "żniwa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hasty",
+    wordPl: "pochopny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "have a soft spot for",
+    wordPl: "mieć słabość do", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hawk",
+    wordPl: "jastrząb", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+
     
 
     
