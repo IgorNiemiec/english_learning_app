@@ -30,6 +30,16 @@ ButtonStyle roundedButtonStyle()
   );
 }
 
+ButtonStyle roundedButtonRedStyle()
+{
+  return ElevatedButton.styleFrom(
+    backgroundColor: Colors.red,
+    foregroundColor: Colors.black,
+    side: const BorderSide(color: Colors.black),
+    shape: const CircleBorder(),
+  );
+}
+
 ButtonStyle roundedButtonBlackStyle()
 {
    return ElevatedButton.styleFrom(

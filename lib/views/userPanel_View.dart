@@ -79,7 +79,9 @@ class UserPanelView extends StatelessWidget
                           const SizedBox(),
                           userPanelViewButton(
                             context: context, 
-                            appEvent: AppEventGoToUserLibraryView(userLibrary: userLibrary), 
+                            appEvent: AppEventGoToUserLibraryView(
+                              userLibrary: userLibrary,
+                              filteredList: userLibrary.words), 
                             icon: const Icon(Icons.person,size: 50,), 
                             title: "User library"),
                           const SizedBox(),

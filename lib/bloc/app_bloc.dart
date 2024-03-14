@@ -6,6 +6,7 @@ import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
+import 'package:english_learning_app/dialogs/app_dialogs.dart';
 import 'package:english_learning_app/dialogs/wotd_isAlreadyInLibrary_Dialog.dart';
 import 'package:english_learning_app/extensions/extensions.dart';
 import 'package:english_learning_app/models/training_unit.dart';
@@ -421,13 +422,23 @@ class AppBloc extends Bloc<AppEvent,AppState>
       if(event.userLibrary.words.contains(event.word))
       {
         emit(
-          AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: true,userLibrary: event.userLibrary)
+          AppStateIsInCommonSingleWordView(
+            word: event.word, 
+            isLoading: false, 
+            isWordInUserLibrary: true,
+            filteredWords: event.filteredList,
+            userLibrary: event.userLibrary)
         );
       }
       else
       {
         emit(
-          AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: false, userLibrary: event.userLibrary)
+          AppStateIsInCommonSingleWordView(
+            word: event.word, 
+            isLoading: false, 
+            isWordInUserLibrary: false, 
+            filteredWords: event.filteredList,
+            userLibrary: event.userLibrary)
         );
       }
 
@@ -444,11 +455,20 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         if(event.isInSingleWordView)
         {       
-         emit(AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: true));
+         emit(AppStateIsInSingleWordView(
+          userLibrary: event.userLibrary, 
+          filteredWords: event.filteredWords,
+          word: event.word, 
+          isLoading: true));
         }
         else
         {
-          emit(AppStateIsInCommonSingleWordView(word: event.word, isLoading: true, isWordInUserLibrary: true, userLibrary: event.userLibrary));
+          emit(AppStateIsInCommonSingleWordView(
+            word: event.word, 
+            isLoading: true, 
+            isWordInUserLibrary: true, 
+            filteredWords: event.filteredWords,
+            userLibrary: event.userLibrary));
         }
 
 
@@ -464,14 +484,23 @@ class AppBloc extends Bloc<AppEvent,AppState>
         }
         else
         {
-          emit(AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: false, userLibrary: newLibrary));
+          emit(AppStateIsInCommonSingleWordView(
+            word: event.word, 
+            isLoading: false, 
+            isWordInUserLibrary: false, 
+            filteredWords: event.filteredWords,
+            userLibrary: newLibrary));
         }
 
 
       }
       catch(ex)
       {
-             emit(AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: false,
+             emit(AppStateIsInSingleWordView(
+              userLibrary: event.userLibrary, 
+              word: event.word, 
+              isLoading: false,
+              filteredWords: event.filteredWords,
              authError: const AuthErrorUnknown()));
       }
        
@@ -480,7 +509,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
     },);
 
     on<AppEventGoToSingleWordView>((event, emit) {
-      emit( AppStateIsInSingleWordView(userLibrary: event.userLibrary, word: event.word, isLoading: false));
+
+      emit( AppStateIsInSingleWordView(
+        userLibrary: event.userLibrary, 
+        filteredWords: event.filteredWords,
+        word: event.word, 
+        isLoading: false));
     },);
 
     on<AppEventRegister>((event, emit) async {
@@ -632,7 +666,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
 
             emit(
-            AppStateIsInCommonSingleWordView(word: event.word, isLoading: true, isWordInUserLibrary: false, userLibrary: event.userLibrary)
+            AppStateIsInCommonSingleWordView(
+              word: event.word, 
+              isLoading: true, 
+              isWordInUserLibrary: false, 
+              filteredWords: event.filteredWords,
+              userLibrary: event.userLibrary)
            );
 
           try
@@ -645,7 +684,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
             await _updateUserLibrary(user.uid, newUserLibrary);
 
             emit(
-              AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: true, userLibrary: newUserLibrary)
+              AppStateIsInCommonSingleWordView(
+                word: event.word, 
+                isLoading: false, 
+                isWordInUserLibrary: true, 
+                filteredWords: event.filteredWords,
+                userLibrary: newUserLibrary)
             );
 
           }
@@ -658,7 +702,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
           on FirebaseException catch (e)
           {
             emit(
-              AppStateIsInCommonSingleWordView(word: event.word, isLoading: false, isWordInUserLibrary: false, userLibrary: event.userLibrary)
+              AppStateIsInCommonSingleWordView(
+                word: event.word, 
+                isLoading: false, 
+                isWordInUserLibrary: false, 
+                filteredWords: event.filteredWords,
+                userLibrary: event.userLibrary)
             );
           }
          }
@@ -676,26 +725,19 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    on<AppEventAddWordOfTheDayToUserLibrary>((event, emit) async {
 
-     if (_isWordInUserLibrary(event.userLibrary.wordOfTheDay.wotd, event.userLibrary))
-     {
-
-      showWotdIsCurrentlyInLibraryDialog(context: event.context);
-
-
-     }
-     else
-     {
-
-        
       final user = FirebaseAuth.instance.currentUser;
 
-      if (user!= null)
+      if (user != null)
       {
 
-         emit(
-          AppStateLoggedIn(isLoading: true, user: user, userLibrary: event.userLibrary)
-        );
+        if(_isWordInUserLibrary(event.userLibrary.wordOfTheDay.wotd, event.userLibrary))
+        {
+            emit(AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog: const AppDialogWordOfTheDayIsCurrentlyInUserLibrary()));
+        }
+        else
+        {
 
+            emit(AppStateLoggedIn(isLoading: true, user: user, userLibrary: event.userLibrary));
 
         try
         {
@@ -707,7 +749,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
           await _updateUserLibrary(user.uid, newUserLibrary);
         
           emit(
-            AppStateLoggedIn(isLoading: false, user: FirebaseAuth.instance.currentUser!, userLibrary: newUserLibrary)
+            AppStateLoggedIn(isLoading: false, user: FirebaseAuth.instance.currentUser!, userLibrary: newUserLibrary,appDialog: const AppDialogWordOfTheDayHasBeenAddedToUserLibrary())
           );
 
   
@@ -724,17 +766,25 @@ class AppBloc extends Bloc<AppEvent,AppState>
             );
           }
 
-      
+
+        }
+
+
+
       }
       else
       {
-        emit(
-          const AppStateLoggedOut(isLoading: false,
-           authError: AuthErrorNoCurrentUser())
-        );
+
+        emit(const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser()));
+
       }
 
-     }
+
+
+
+
+    
+    
 
    },);
 
@@ -947,6 +997,38 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
 
    },);
+
+   // AppDialogsExperiment
+
+
+    on<AppEventShowWordPointsExplanation>((event, emit) {
+      
+      emit(AppStateIsInSingleWordView(
+        userLibrary: event.userLibrary, 
+        filteredWords: event.filteredWords,
+        word: event.word, 
+        isLoading: false,
+        appDialog: const AppDialogPointsExplanation()
+        ));
+
+    },);
+
+    on<AppEventShowWordLevelExplanation>((event, emit) {
+      
+      emit(
+        AppStateIsInSingleWordView(
+          userLibrary: event.userLibrary,
+          filteredWords: event.filteredWords, 
+          word: event.word, 
+          isLoading: false,
+          appDialog: const AppDialogWordLevelExplanation())
+      );
+
+    },);
+
+
+
+
     
 
   }

@@ -16,11 +16,13 @@ class CommonSingleWordView extends StatelessWidget
 {
   Word word;
   UserLibrary userLibrary;
+  List<Word> filteredWords;
   bool isWordInUserLibrary;
 
   CommonSingleWordView({
     required this.word,
     required this.isWordInUserLibrary,
+    required this.filteredWords,
     required this.userLibrary});
 
 
@@ -202,7 +204,11 @@ class CommonSingleWordView extends StatelessWidget
                     {
 
                         context.read<AppBloc>().add(
-                          AppEventRemoveWordFromUserLibrary(userLibrary: userLibrary, word: word, isInSingleWordView: false)
+                          AppEventRemoveWordFromUserLibrary(
+                            userLibrary: userLibrary, 
+                            filteredWords: filteredWords,
+                            word: word, 
+                            isInSingleWordView: false)
                         );
 
                     },
@@ -215,7 +221,10 @@ class CommonSingleWordView extends StatelessWidget
                     {
 
                       context.read<AppBloc>().add(
-                        AppEventAddWordToUserLibrary(userLibrary: userLibrary, word: word)
+                        AppEventAddWordToUserLibrary(
+                          filteredWords: filteredWords,
+                          userLibrary: userLibrary, 
+                          word: word)
                       );
 
                     },

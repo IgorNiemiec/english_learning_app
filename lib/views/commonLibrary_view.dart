@@ -53,7 +53,7 @@ class CommonLibraryView extends StatelessWidget
                         
                       },
                       style: roundedButtonStyle(),
-                      child: Icon(Icons.navigate_before,size: 50,),
+                      child: const Icon(Icons.navigate_before,size: 50,),
                     ),
                   ),
                 ),
@@ -117,7 +117,10 @@ class CommonLibraryView extends StatelessWidget
                               {
 
                                 context.read<AppBloc>().add(
-                                  AppEventGoToCommonSingleWord(word: word, userLibrary: userLibrary)
+                                  AppEventGoToCommonSingleWord(
+                                    filteredList: filteredWords,
+                                    word: word, 
+                                    userLibrary: userLibrary)
                                 );
 
                               },

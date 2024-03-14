@@ -3,6 +3,7 @@ import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/constants/constants.dart';
+import 'package:english_learning_app/dialogs/show_appdialog.dart';
 import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/loading/loading_screen.dart';
 import 'package:english_learning_app/views/commonLibrary_view.dart';
@@ -36,7 +37,9 @@ class MainApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         home: BlocConsumer<AppBloc,AppState>(
-          listener: (context, appState) {
+          listener: (context, appState) async {
+
+            
 
               if (appState.isLoading)
               {
@@ -49,20 +52,26 @@ class MainApp extends StatelessWidget {
                 LoadingScreen.instance().hide();
               }
 
+
+             
+
+
+               final appDialog = appState.appDialog;
+
+              if (appDialog!=null)
+              {
+                showAppDialog(context: context, dialog: appDialog);
+              }
+
+              
               final authError = appState.authError;
 
               if (authError!=null)
               {
                 showAuthError(context: context, authError: authError);
               }
-
-              final appDialog = appState.appDialog;
               
-
-
-
-
-
+              
           },
           builder: (context, appState) {
 
@@ -84,7 +93,10 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateIsInSingleWordView)
             {
-              return SingleWordView(userLibrary: appState.userLibrary, word: appState.word);
+              return SingleWordView(
+                userLibrary: appState.userLibrary, 
+                filteredWords: appState.filteredWords,
+                word: appState.word,);
             }
             else if (appState is AppStateIsInCommonLibraryView)
             {
@@ -92,7 +104,12 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateIsInCommonSingleWordView)
             {
-              return CommonSingleWordView(word: appState.word, isWordInUserLibrary: appState.isWordInUserLibrary,userLibrary: appState.userLibrary,);
+              return CommonSingleWordView(
+                word: appState.word, 
+                filteredWords: appState.filteredWords,
+                isWordInUserLibrary: appState.isWordInUserLibrary,
+                userLibrary: appState.userLibrary,
+                );
             }
             else if(appState is AppStateIsInTrainingChoiceView)
             {

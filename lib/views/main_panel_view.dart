@@ -106,7 +106,9 @@ class MainPanelView extends StatelessWidget
                                       {
                                        
                                           context.read<AppBloc>().add(
-                                          AppEventGoToUserLibraryView(userLibrary: userLibrary)
+                                          AppEventGoToUserLibraryView(
+                                            userLibrary: userLibrary,
+                                            filteredList: userLibrary.words)
                                         );
                                        
                                       },

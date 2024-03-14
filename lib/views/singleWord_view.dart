@@ -14,12 +14,14 @@ class SingleWordView extends StatelessWidget
 {
 
   UserLibrary userLibrary;
+  List<Word> filteredWords;
   Word word;
 
 
    SingleWordView({
     Key? key,
     required this.userLibrary,
+    required this.filteredWords,
     required this.word}) : super(key: key);
 
   @override
@@ -52,7 +54,9 @@ class SingleWordView extends StatelessWidget
                         {
 
                           context.read<AppBloc>().add(
-                            AppEventGoToUserLibraryView(userLibrary: userLibrary)
+                            AppEventGoToUserLibraryView(
+                              filteredList: filteredWords,
+                              userLibrary: userLibrary)
                           );
 
                         },
@@ -167,9 +171,16 @@ class SingleWordView extends StatelessWidget
                     width: MediaQuery.of(context).size.width * 0.2,
                     height: MediaQuery.of(context).size.height * 0.08,
                     child: OutlinedButton(
-                      onPressed: () async
+                      onPressed: ()
                       {
-                        await showPointExplanationDialog(context: context);
+
+                         context.read<AppBloc>().add(
+                          AppEventShowWordPointsExplanation(
+                            userLibrary: userLibrary, 
+                            word: word,
+                            filteredWords: filteredWords)
+                         );
+
                       },
                       style: roundedButtonBlackStyle(),
                       child: const Icon(Icons.question_mark),
@@ -205,9 +216,16 @@ class SingleWordView extends StatelessWidget
                     width: MediaQuery.of(context).size.width * 0.2,
                     height: MediaQuery.of(context).size.height * 0.08,
                     child: OutlinedButton(
-                      onPressed: () async
+                      onPressed: () 
                       {
-                        await showWordLevelExplanation(context: context);
+
+                        context.read<AppBloc>().add(
+                          AppEventShowWordLevelExplanation(
+                            userLibrary: userLibrary, 
+                            filteredWords: filteredWords,
+                            word: word)
+                        );
+                     
                       },
                       style: roundedButtonBlackStyle(),
                       child: const Icon(Icons.question_mark),
@@ -239,7 +257,11 @@ class SingleWordView extends StatelessWidget
                      if (await showRemoveWordDialog(context: context))
                      {
                         context.read<AppBloc>().add(
-                          AppEventRemoveWordFromUserLibrary(userLibrary: userLibrary, word: word,isInSingleWordView: true)
+                          AppEventRemoveWordFromUserLibrary(
+                            userLibrary: userLibrary, 
+                            filteredWords: filteredWords,
+                            word: word,
+                            isInSingleWordView: true)
                         );
                      }
                   },

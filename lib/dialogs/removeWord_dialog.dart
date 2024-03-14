@@ -17,7 +17,7 @@ Future<bool> showRemoveWordDialog(
     content: "Are you sure you want to delete this word from your library?", 
     optionBuilder: () =>
     {
-      "Delete" : true,
+      "Remove" : true,
       "Cancel" : false,
     }
     ).then((value) => value ?? false);

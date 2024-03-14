@@ -81,18 +81,23 @@ class AppEventInitialize implements AppEvent
 class AppEventGoToUserLibraryView implements AppEvent
 {
   final UserLibrary userLibrary;
+  final List<Word> filteredList;
 
-  const AppEventGoToUserLibraryView({required this.userLibrary});
+  const AppEventGoToUserLibraryView({
+    required this.userLibrary,
+    required this.filteredList});
 }
 
 @immutable
 class AppEventGoToSingleWordView implements AppEvent
 {
   final UserLibrary userLibrary;
+  final List<Word> filteredWords;
   final Word word;
 
   const AppEventGoToSingleWordView({
     required this.userLibrary,
+    required this.filteredWords,
     required this.word,
   });
  
@@ -103,11 +108,13 @@ class AppEventRemoveWordFromUserLibrary implements AppEvent
 {
 
   final UserLibrary userLibrary;
+  final List<Word> filteredWords;
   final Word word;
   final bool isInSingleWordView;
 
   const AppEventRemoveWordFromUserLibrary({
     required this.userLibrary,
+    required this.filteredWords,
     required this.word,
     required this.isInSingleWordView,
   });
@@ -163,9 +170,11 @@ class AppEventGoToCommonSingleWord implements AppEvent
 {
 
   final Word word;
+  final List<Word> filteredList;
   final UserLibrary userLibrary;
 
   const AppEventGoToCommonSingleWord({
+    required this.filteredList,
     required this.word,
     required this.userLibrary});
 }
@@ -187,9 +196,11 @@ class AppEventFilterUserLibraryByWordLevel implements AppEvent
 class AppEventAddWordToUserLibrary implements AppEvent
 {
   final Word word;
+  final List<Word> filteredWords;
   final UserLibrary userLibrary;
 
   const AppEventAddWordToUserLibrary({
+    required this.filteredWords,
     required this.userLibrary,
     required this.word,
   });
@@ -344,3 +355,29 @@ class AppEventGoToUserPanelView implements AppEvent
 
   const AppEventGoToUserPanelView({required this.userLibrary});
 }
+
+
+// AppDialogsExperiment
+
+@immutable
+class AppEventShowWordPointsExplanation implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final List<Word> filteredWords;
+  final Word word;
+
+  const AppEventShowWordPointsExplanation({required this.userLibrary, required this.word,required this.filteredWords});
+} 
+
+@immutable
+class AppEventShowWordLevelExplanation implements AppEvent
+{
+  final UserLibrary userLibrary;
+  final List<Word> filteredWords;
+  final Word word;
+
+  const AppEventShowWordLevelExplanation({required this.userLibrary, required this.word,required this.filteredWords});
+
+}
+
+

@@ -124,7 +124,10 @@ class UserLibraryView extends StatelessWidget
                               onPressed: ()
                               {
                                 context.read<AppBloc>().add(
-                                  AppEventGoToSingleWordView(userLibrary: userLibrary, word: word)
+                                  AppEventGoToSingleWordView(
+                                    userLibrary: userLibrary, 
+                                    filteredWords: filteredWords,
+                                    word: word)
                                 );
                               },
                               style: applicationGreenButtonStyle(),
