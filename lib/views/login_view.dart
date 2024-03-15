@@ -35,7 +35,14 @@ class LoginView extends StatelessWidget
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.15,
-              child: Text("The Bloom",textAlign: TextAlign.left,style: applicationTextStyle(50)),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.95,
+                height: MediaQuery.of(context).size.height * 0.15,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(image: AssetImage("assets/TheBlum.png"),
+                  fit: BoxFit.scaleDown)
+                ),
+              )
             ),
             Container(
               alignment: Alignment.center,

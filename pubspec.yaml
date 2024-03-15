@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.4
+  flutter_launcher_icons: ^0.13.1
   flutter_svg: ^2.0.10+1
   google_sign_in: ^6.2.1
 
@@ -28,6 +29,7 @@ flutter:
     - assets/BritishFlag.jpeg
     - assets/PolishFlag.jpeg
     - assets/google.svg
+    - assets/TheBlum.png
 
   fonts:
     - family: ProtestRiot
