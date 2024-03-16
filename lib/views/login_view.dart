@@ -102,31 +102,7 @@ class LoginView extends StatelessWidget
                    Container(
                     alignment: Alignment.center,
                     height: MediaQuery.of(context).size.height * 0.08,
-                    child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.08,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: OutlinedButton(
-                      onPressed: ()
-                      {
-                        context.read<AppBloc>().add(
-                          const AppEventLogInWithGoogleAuth()
-                        );
-
-                      },
-                      style: applicationButtonStyle(),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          const SizedBox(),
-                          SvgPicture.asset(
-                            'assets/google.svg',
-                            width: MediaQuery.of(context).size.width * 0.06,
-                          ),
-                          Text("Sign in with Google",style: applicationTextStyle(20),),
-                          const SizedBox(),
-                      ],)
-                    ),
-                   ),
+                    child: applicationGoogleButton(context, "Sign in with Google"),
                    ),
                    
                    SizedBox(height: MediaQuery.of(context).size.height * 0.15,),

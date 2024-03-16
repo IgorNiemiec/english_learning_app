@@ -4,13 +4,11 @@ import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/constants/constants.dart';
 import 'package:english_learning_app/dialogs/show_appdialog.dart';
-import 'package:english_learning_app/dialogs/show_auth_error.dart';
 import 'package:english_learning_app/loading/loading_screen.dart';
 import 'package:english_learning_app/views/commonLibrary_view.dart';
 import 'package:english_learning_app/views/commonSingleWord_View.dart';
 import 'package:english_learning_app/views/commonTrainingLevelChoice_View.dart';
 import 'package:english_learning_app/views/login_view.dart';
-import 'package:english_learning_app/views/main_panel_view.dart';
 import 'package:english_learning_app/views/register_view.dart';
 import 'package:english_learning_app/views/singleWord_view.dart';
 import 'package:english_learning_app/views/trainingChoice_View.dart';
@@ -63,13 +61,7 @@ class MainApp extends StatelessWidget {
                 showAppDialog(context: context, dialog: appDialog);
               }
 
-              
-              final authError = appState.authError;
-
-              if (authError!=null)
-              {
-                showAuthError(context: context, authError: authError);
-              }
+             
               
               
           },
@@ -89,7 +81,9 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateIsInUserLibraryView)
             {
-              return UserLibraryView(userLibrary: appState.userLibrary, filteredWords: appState.filteredWords,);
+              return UserLibraryView(
+                userLibrary: appState.userLibrary, 
+                filteredWords: appState.filteredWords);
             }
             else if (appState is AppStateIsInSingleWordView)
             {

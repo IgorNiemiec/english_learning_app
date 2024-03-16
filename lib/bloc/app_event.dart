@@ -61,11 +61,13 @@ class AppEventRegister implements AppEvent
 {
   final String email;
   final String password;
+  final String confirmPassword;
 
 
   const AppEventRegister({
     required this.email,
     required this.password,
+    required this.confirmPassword,
   });
 
 
@@ -366,7 +368,10 @@ class AppEventShowWordPointsExplanation implements AppEvent
   final List<Word> filteredWords;
   final Word word;
 
-  const AppEventShowWordPointsExplanation({required this.userLibrary, required this.word,required this.filteredWords});
+  const AppEventShowWordPointsExplanation({
+    required this.userLibrary, 
+    required this.word,
+    required this.filteredWords,});
 } 
 
 @immutable
@@ -376,7 +381,10 @@ class AppEventShowWordLevelExplanation implements AppEvent
   final List<Word> filteredWords;
   final Word word;
 
-  const AppEventShowWordLevelExplanation({required this.userLibrary, required this.word,required this.filteredWords});
+  const AppEventShowWordLevelExplanation({
+    required this.userLibrary, 
+    required this.word,
+    required this.filteredWords,});
 
 }
 

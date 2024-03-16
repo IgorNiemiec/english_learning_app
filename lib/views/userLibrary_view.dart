@@ -19,7 +19,7 @@ class UserLibraryView extends StatelessWidget
   UserLibraryView({
     Key? key,
     required this.userLibrary,
-    required this.filteredWords}) : super(key: key);
+    required this.filteredWords,}) : super(key: key);
 
 
   @override
@@ -147,9 +147,9 @@ class UserLibraryView extends StatelessWidget
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             levelChoiceBarContainer(
               context: context, 
-              appEventA: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A),
-              appEventB: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B),
-              appEventC: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C),
+              appEventA: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A,),
+              appEventB: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B,),
+              appEventC: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C,),
               appEventAll: AppEventFilterUserLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.ALL),)
             
 

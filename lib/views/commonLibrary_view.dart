@@ -14,11 +14,13 @@ class CommonLibraryView extends StatelessWidget
   final UserLibrary userLibrary;
   final List<Word> filteredWords;
 
-  const CommonLibraryView({
+   const CommonLibraryView({
   Key? key,
   required this.filteredWords,
   required this.userLibrary}) : super(key: key);
 
+
+  
 
   @override
   Widget build(BuildContext context)
@@ -81,7 +83,7 @@ class CommonLibraryView extends StatelessWidget
                 onChanged: (word) {
                   
                   context.read<AppBloc>().add(
-                    AppEventFilterCommonLibrary(wordName: word,userLibrary: userLibrary)
+                    AppEventFilterCommonLibrary(wordName: word,userLibrary: userLibrary,)
                   );
 
                 },
@@ -140,10 +142,10 @@ class CommonLibraryView extends StatelessWidget
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
             levelChoiceBarContainer(
             context: context, 
-            appEventA: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A), 
-            appEventB: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B), 
-            appEventC: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C),
-            appEventAll: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.ALL))
+            appEventA: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.A,), 
+            appEventB: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.B,), 
+            appEventC: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.C,),
+            appEventAll: AppEventFilterCommonLibraryByWordLevel(userLibrary: userLibrary, wordLevel: WordLevelEnum.ALL,))
             
 
           ],

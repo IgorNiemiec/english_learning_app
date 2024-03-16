@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 class RegisterView extends StatelessWidget
 {
@@ -37,14 +38,12 @@ class RegisterView extends StatelessWidget
               height: MediaQuery.of(context).size.height * 0.15,
               child: Text("Register",textAlign: TextAlign.left,style: applicationTextStyle(50)),
             ),
-            Form(
-              key: formKey,
-              child: Container(
+             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.7,
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
                   Container(
                     alignment: Alignment.center,
                     height: MediaQuery.of(context).size.height * 0.08,
@@ -79,8 +78,6 @@ class RegisterView extends StatelessWidget
                       child: TextFormField(
                     style: applicationBlackTextStyle(25),
                     controller: passwordController,
-                    validator: (value) => (value!.isEmpty || value.length < 8) ? "at least 8 characters" : null,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: applicationInputDecoration(hintText: "Password",
                     icon: Icons.lock),
                     obscureText: true,
@@ -104,8 +101,6 @@ class RegisterView extends StatelessWidget
                       child: TextFormField(
                     style: applicationBlackTextStyle(22),
                     controller: passwordConfirmationController,
-                    validator: (value) => (value != passwordController.text) ? "Password is incorrect" : null,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: applicationInputDecoration(hintText: "Confirm password",
                     icon: Icons.lock),
                     obscureText: true,
@@ -116,9 +111,8 @@ class RegisterView extends StatelessWidget
                     ),
                    ),
                    SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.05,
                    ),
-
                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.7,
                       height: MediaQuery.of(context).size.height * 0.08,
@@ -127,25 +121,23 @@ class RegisterView extends StatelessWidget
                         onPressed: ()
                         {
 
-                          if(formKey.currentState!.validate())
-                          {
-                            
                             context.read<AppBloc>().add(
-                              AppEventRegister(email: emailController.text, password: passwordController.text)
+                              AppEventRegister(
+                                email: emailController.text, 
+                                password: passwordController.text,
+                                confirmPassword: passwordConfirmationController.text)
                             );
-
-                          }
 
                         },
                         child: Text("Register",style: applicationTextStyle(30),),
                       ),
                    ),
                    SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-                
+                   applicationGoogleButton(context, "Sign up with Google"),
                 ],
               ),
              ),
-            ),
+            
             Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.1,

@@ -8,6 +8,7 @@ import 'package:english_learning_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 ButtonStyle applicationButtonStyle()
 {
@@ -18,6 +19,34 @@ ButtonStyle applicationButtonStyle()
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))
     
   );
+}
+
+SizedBox applicationGoogleButton(BuildContext context, String text)
+{
+  return SizedBox(
+        height: MediaQuery.of(context).size.height * 0.08,
+        width: MediaQuery.of(context).size.width * 0.7,
+        child: OutlinedButton(
+          onPressed: ()
+          {
+            context.read<AppBloc>().add(
+              const AppEventLogInWithGoogleAuth());
+      
+          },
+          style: applicationButtonStyle(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              const SizedBox(),
+              SvgPicture.asset(
+                'assets/google.svg',
+                width: MediaQuery.of(context).size.width * 0.06,
+              ),
+              Text(text,style: applicationTextStyle(20),),
+              const SizedBox(),
+          ],)
+        ),
+       );
 }
 
 ButtonStyle roundedButtonStyle()

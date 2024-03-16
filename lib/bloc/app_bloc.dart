@@ -3,7 +3,6 @@ import 'dart:collection';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_learning_app/appEnum/appEnum.dart';
-import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/dialogs/app_dialogs.dart';
@@ -65,13 +64,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
         {
 
           emit(AppStateLoggedOut(isLoading: false,
-          authError: AuthError.from(e)));
+          appDialog: AppDialog.fromError(e)));
 
         }
         on FirebaseException catch (e)
         {
           emit(const AppStateLoggedOut(isLoading: false,
-          authError: AuthErrorUnknown()));
+          appDialog: AppDialogUnknownError()));
         }
 
       
@@ -90,7 +89,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
     on<AppEventGoToUserLibraryView>((event, emit) {
       emit( AppStateIsInUserLibraryView(
         userLibrary: event.userLibrary, 
-        filteredWords: event.userLibrary.words,
+        filteredWords: event.filteredList,
         isLoading: false));
     },);
 
@@ -341,14 +340,14 @@ class AppBloc extends Bloc<AppEvent,AppState>
       {
         emit(
           AppStateLoggedOut(isLoading: false,
-          authError: AuthError.from(e))
+          appDialog: AppDialog.fromError(e))
         );
       }
       on FirebaseException catch(e)
       {
         emit(
           const  AppStateLoggedOut(isLoading: false,
-          authError: AuthErrorUnknown())
+          appDialog: AppDialogUnknownError())
         );
       }
 
@@ -401,13 +400,13 @@ class AppBloc extends Bloc<AppEvent,AppState>
         on FirebaseAuthException catch(e)
         {
           emit(AppStateLoggedOut(isLoading: false,
-          authError: AuthError.from(e)));
+          appDialog: AppDialog.fromError(e)));
         }
         on FirebaseException catch(e)
         {
           emit(
             const  AppStateLoggedOut(isLoading: false,
-            authError: AuthErrorUnknown())
+            appDialog: AppDialogUnknownError())
           );
         }
 
@@ -480,7 +479,10 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
         if(event.isInSingleWordView)
         { 
-          emit(AppStateIsInUserLibraryView(userLibrary: newLibrary, filteredWords: newLibrary.words, isLoading: false));
+          emit(AppStateIsInUserLibraryView(
+            userLibrary: newLibrary, 
+            filteredWords: newLibrary.words, 
+            isLoading: false));
         }
         else
         {
@@ -501,7 +503,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
               word: event.word, 
               isLoading: false,
               filteredWords: event.filteredWords,
-             authError: const AuthErrorUnknown()));
+             appDialog: const AppDialogUnknownError()));
       }
        
 
@@ -523,32 +525,48 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       final email = event.email;
       final password = event.password;
+      final confirmPassword = event.confirmPassword;
 
-      try
+      if (password != confirmPassword)
       {
-        final credentials = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
 
-        WordOfTheDay wordOfTheDay = _generateWordOfTheDay();
-
-
-        _createUserLibrary(credentials.user!.uid,wordOfTheDay);
-
-
-        
-
-
-        emit(AppStateLoggedIn(
-          isLoading: false, 
-          user: credentials.user!,
-          userLibrary: UserLibrary(words: [],wordOfTheDay: wordOfTheDay)));
+          emit(
+           const AppStateIsInRegistrationView(isLoading: false,appDialog: AppDialogConfirmPasswordIsDifferent())
+          );
 
       }
-      on FirebaseAuthException catch (e)
+      else
       {
-        emit(AppStateIsInRegistrationView(
-        isLoading: false,
-        authError: AuthError.from(e)));
+
+             try
+           {
+             final credentials = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+      
+             WordOfTheDay wordOfTheDay = _generateWordOfTheDay();
+      
+      
+             _createUserLibrary(credentials.user!.uid,wordOfTheDay);
+      
+      
+             
+      
+      
+             emit(AppStateLoggedIn(
+               isLoading: false, 
+               user: credentials.user!,
+               userLibrary: UserLibrary(words: [],wordOfTheDay: wordOfTheDay)));
+      
+           }
+           on FirebaseAuthException catch (e)
+           {
+             emit(AppStateIsInRegistrationView(
+             isLoading: false,
+             appDialog: AppDialog.fromError(e),));
+           }
+       
       }
+
+      
 
     },);
 
@@ -588,7 +606,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
      wordsC.where((word) => word.wordEn.contains(event.wordName) || word.wordPl.contains(event.wordName)).toList();
 
      emit(
-      AppStateIsInCommonLibraryView(filteredWords: filteredList, isLoading: false,userLibrary: event.userLibrary)
+      AppStateIsInCommonLibraryView(filteredWords: filteredList, isLoading: false,userLibrary: event.userLibrary,)
      );
      
    },);
@@ -601,7 +619,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
         AppStateIsInCommonLibraryView(
           filteredWords: [], 
           isLoading: true, 
-          userLibrary: event.userLibrary)
+          userLibrary: event.userLibrary,)
       );
 
       switch(event.wordLevel)
@@ -611,7 +629,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
           AppStateIsInCommonLibraryView(
             filteredWords: wordsA, 
             isLoading: false, 
-            userLibrary: event.userLibrary)
+            userLibrary: event.userLibrary,)
         );
         break;
         case WordLevelEnum.B:
@@ -619,7 +637,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
           AppStateIsInCommonLibraryView(
             filteredWords: words, 
             isLoading: false, 
-            userLibrary: event.userLibrary)
+            userLibrary: event.userLibrary,)
         );
         break;
         case WordLevelEnum.C:
@@ -627,7 +645,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
           AppStateIsInCommonLibraryView(
             filteredWords: wordsC, 
             isLoading: false, 
-            userLibrary: event.userLibrary)
+            userLibrary: event.userLibrary,)
         );
         break;
         case WordLevelEnum.ALL:
@@ -635,7 +653,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
           AppStateIsInCommonLibraryView(
             filteredWords: words + wordsA+ wordsC, 
             isLoading: false, 
-            userLibrary: event.userLibrary)
+            userLibrary: event.userLibrary,)
         );
         break;
         default:
@@ -658,7 +676,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
          if (user== null)
          {
            emit(
-            const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
+            const AppStateLoggedOut(isLoading: false, appDialog: AppDialogNoCurrentUser())
            );
          }
          else
@@ -696,7 +714,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
           on FirebaseAuthException catch(e)
           {
             emit(
-             AppStateLoggedOut(isLoading: false,authError: AuthError.from(e))
+             AppStateLoggedOut(isLoading: false,appDialog: AppDialog.fromError(e))
            );
           }
           on FirebaseException catch (e)
@@ -757,12 +775,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
           on FirebaseAuthException catch(e)
           {
             emit(AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,
-            authError: AuthError.from(e)));
+            appDialog: AppDialog.fromError(e)));
           }
           on FirebaseAuth catch(e)
           {
             emit(
-              AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,authError: const AuthErrorUnknown())
+              AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog: const AppDialogUnknownError())
             );
           }
 
@@ -775,7 +793,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
       else
       {
 
-        emit(const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser()));
+        emit(const AppStateLoggedOut(isLoading: false,appDialog: AppDialogNoCurrentUser()));
 
       }
 
@@ -901,7 +919,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
       {
 
         emit(
-          AppStateIsInTrainingWordsView(trainingWords: event.trainingWords, isLoading: false, authError: AuthErrorUnknown())
+          AppStateIsInTrainingWordsView(trainingWords: event.trainingWords, isLoading: false,appDialog: const AppDialogUnknownError())
 
         );
 
@@ -912,7 +930,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
     {
 
       emit(
-        const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
+        const AppStateLoggedOut(isLoading: false,appDialog: AppDialogNoCurrentUser())
       );
 
     }
@@ -991,7 +1009,7 @@ class AppBloc extends Bloc<AppEvent,AppState>
       else
       {
         emit(
-          const AppStateLoggedOut(isLoading: false,authError: AuthErrorNoCurrentUser())
+          const AppStateLoggedOut(isLoading: false,appDialog: AppDialogNoCurrentUser())
         );
       }
 

@@ -1,22 +1,22 @@
 import 'package:english_learning_app/appEnum/appEnum.dart';
-import 'package:english_learning_app/auth/auth_error.dart';
 import 'package:english_learning_app/dialogs/app_dialogs.dart';
 import 'package:english_learning_app/models/training_unit.dart';
 import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show immutable;
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 @immutable
 abstract class AppState
 {
   final bool isLoading;
-  final AuthError? authError;
   final AppDialog? appDialog;
 
   const AppState({
     required this.isLoading,
-    this.authError,
     this.appDialog,
   });
 
@@ -32,12 +32,11 @@ class AppStateLoggedIn extends AppState
    const AppStateLoggedIn(
     {
       required bool isLoading,
-      AuthError? authError,
       AppDialog? appDialog,
       required this.user,
       required this.userLibrary,
     }
-   ) : super (isLoading: isLoading, authError: authError);
+   ) : super (isLoading: isLoading, appDialog: appDialog);
 
 
   @override
@@ -72,13 +71,12 @@ class AppStateLoggedOut extends AppState
 
   const AppStateLoggedOut({
       required bool isLoading,
-      AuthError? authError,
       AppDialog? appDialog,
     }
-  ) : super(isLoading: isLoading,authError: authError,appDialog: appDialog);
+  ) : super(isLoading: isLoading,appDialog: appDialog);
 
   @override
-  String toString() => "AppStateLogOut, isLoading = $isLoading, authError = $authError";
+  String toString() => "AppStateLogOut, isLoading = $isLoading, appDialog = $appDialog";
 
 
 }
@@ -93,9 +91,8 @@ class AppStateIsInUserLibraryView extends AppState
     required this.userLibrary,
     required this.filteredWords,
     required bool isLoading,
-    AuthError? authError,
     AppDialog? appDialog,
-   }) : super(isLoading: isLoading, authError: authError,appDialog: appDialog);
+   }) : super(isLoading: isLoading,appDialog: appDialog);
 
 }
 
@@ -112,9 +109,8 @@ class AppStateIsInSingleWordView extends AppState
     required this.filteredWords,
     required this.word,
     required bool isLoading,
-    AuthError? authError,
     AppDialog? appDialog,
-  }) : super(isLoading: isLoading, authError: authError,appDialog: appDialog);
+  }) : super(isLoading: isLoading,appDialog: appDialog);
 
 }
 
@@ -133,11 +129,9 @@ class AppStateIsInCommonSingleWordView extends AppState
     required this.isWordInUserLibrary,
     required this.filteredWords,
     required this.userLibrary,
-    AuthError? authError,
     AppDialog? appDialog,
   }) : super(
     isLoading: isLoading,
-    authError: authError,
     appDialog: appDialog);
 
 }
@@ -156,14 +150,12 @@ class AppStateIsInCommonLibraryView extends AppState
       required this.filteredWords,
       required bool isLoading,
       required this.userLibrary,
-      AuthError? authError,
       AppDialog? appDialog,
     }
   ) 
   
   : super(
     isLoading: isLoading, 
-    authError: authError,
     appDialog: appDialog);
 }
 
@@ -175,12 +167,10 @@ class AppStateIsInRegistrationView extends AppState
   const AppStateIsInRegistrationView(
     {
       required bool isLoading,
-      AuthError? authError,
       AppDialog? appDialog,
     }
   ) : super(
     isLoading: isLoading,
-    authError: authError,
     appDialog: appDialog
   );
 
@@ -196,9 +186,8 @@ class AppStateIsInTrainingChoiceView extends AppState
   const AppStateIsInTrainingChoiceView({
     required bool isLoading,
     required this.userLibrary,
-    AuthError? authError,
     AppDialog? appDialog,
-    }) : super(isLoading: isLoading,authError: authError,appDialog: appDialog);
+    }) : super(isLoading: isLoading,appDialog: appDialog);
 
 }
 
@@ -212,9 +201,8 @@ class AppStateIsInCommonTrainingLevelChoiceView extends AppState
     required this.userLibrary,
     required this.trainingMode,
     required bool isLoading,
-    AuthError? authError,
     AppDialog? appDialog,
-  }) : super(isLoading: isLoading , authError:authError, appDialog: appDialog);
+  }) : super(isLoading: isLoading, appDialog: appDialog);
 
 }
 
@@ -252,9 +240,8 @@ class AppStateIsInTrainingView extends AppState
     required this.keyWordIndex,
     required this.markedIndex,
     required bool isLoading,
-    AuthError? authError,
     AppDialog? appDialog,
-  }) : super(isLoading: isLoading,authError: authError, appDialog: appDialog);
+  }) : super(isLoading: isLoading, appDialog: appDialog);
   
 }
 
@@ -275,9 +262,8 @@ class AppStateIsInTrainingFinalizationView extends AppState
     required this.correctCounter,
     required this.mistakesCounter,
     required bool isLoading,
-    AuthError? authError,
     AppDialog? appDialog,
-  }) : super(isLoading: isLoading,authError: authError,appDialog: appDialog);
+  }) : super(isLoading: isLoading,appDialog: appDialog);
 
 }
 
@@ -289,8 +275,7 @@ class AppStateIsInTrainingWordsView extends AppState
 
     const AppStateIsInTrainingWordsView({required this.trainingWords,
     required bool isLoading,
-    AuthError? authError,
-    AppDialog? appDialog,}) : super(isLoading: isLoading,authError: authError,appDialog: appDialog);
+    AppDialog? appDialog,}) : super(isLoading: isLoading,appDialog: appDialog);
 
 }
 
@@ -309,10 +294,9 @@ class AppStateIsInTrainingFinalizationLibraryView extends AppState
     required this.trainingUnits,
     required this.trainingWords,
     required bool isLoading,
-    AuthError? authError,
     AppDialog? appDialog,
 
-  }) : super(isLoading: false, authError: authError,appDialog: appDialog);
+  }) : super(isLoading: false,appDialog: appDialog);
 
 
 }
