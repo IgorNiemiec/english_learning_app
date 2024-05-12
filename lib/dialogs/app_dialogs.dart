@@ -133,3 +133,10 @@ class AppDialogNoCurrentUser extends AppDialog
 {
   const AppDialogNoCurrentUser() : super(dialogTitle: "Problem with user",dialogContent: "We cannot find user. You are probably logged out");
 }
+
+@immutable
+class AppDialogNoNetworkConnection extends AppDialog
+{
+  const AppDialogNoNetworkConnection() : super(dialogTitle: "Network connection",dialogContent: "There is no network connection");
+}
+

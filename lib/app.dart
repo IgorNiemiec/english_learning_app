@@ -143,7 +143,13 @@ class MainApp extends StatelessWidget {
             }
             else if (appState is AppStateIsInTrainingWordsView)
             {
-              return TrainingWordsView(trainingWords: appState.trainingWords);
+              return TrainingWordsView(
+                trainingWords: appState.trainingWords,
+                trainingMode: appState.trainingMode,
+                userLibrary: appState.userLibrary,
+                correctCounter: appState.correctCounter,
+                trainingUnits: appState.trainingUnits,
+                );
             }
             else if (appState is AppStateIsInTrainingFinalizationLibraryView)
             {

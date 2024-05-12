@@ -1539,6 +1539,1757 @@ final List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
+    
+    Word(
+    wordEn: "headline",
+    wordPl: "nagłówek", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "headscarf",
+    wordPl: "chusta na głowe", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "headstone",
+    wordPl: "płyta nagrobkowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hedge",
+    wordPl: "żywopłot", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "helix",
+    wordPl: "spirala", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+    Word(
+    wordEn: "hearsay",
+    wordPl: "pogłoska", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "heartburn",
+    wordPl: "zgaga", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "heatwave",
+    wordPl: "fala upałów", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hedge",
+    wordPl: "żywopłot", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "helix",
+    wordPl: "spirala", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "helpline",
+    wordPl: "telefon zaufania", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "hemisphere",
+    wordPl: "półkula", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "herald",
+    wordPl: "zwiastować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "herbivore",
+    wordPl: "roślinożerca", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "herd",
+    wordPl: "stado", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "heron",
+    wordPl: "czapla", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "hiccup",
+    wordPl: "czkawka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "hideout",
+    wordPl: "kryjówka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "hijack",
+    wordPl: "uprowadzić", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "hilarious",
+    wordPl: "przezabawny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "hiss",
+    wordPl: "syczeć", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hit the jackpot",
+    wordPl: "rozbić bank", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hoe",
+    wordPl: "motyka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hog",
+    wordPl: "wieprz", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hogwash",
+    wordPl: "bzdura", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hole up",
+    wordPl: "zaszyć się", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "pay homage",
+    wordPl: "składać hołd", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "homesick",
+    wordPl: "tęsknota za domem", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "horizon",
+    wordPl: "horyzont", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hornet",
+    wordPl: "szerszeń", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "horseshoe",
+    wordPl: "podkowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hostage",
+    wordPl: "zakładnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hour hand",
+    wordPl: "wskazówka godzinowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hourglass",
+    wordPl: "klepsydra", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hovercraft",
+    wordPl: "poduszkowiec", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hue",
+    wordPl: "odcień, barwa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "huff",
+    wordPl: "dyszeć", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "humidity",
+    wordPl: "wilgotność", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "humiliating",
+    wordPl: "poniżający", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "humming bird",
+    wordPl: "koliber", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "hyperbole",
+    wordPl: "hiperbola", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ice rink",
+    wordPl: "lodowisko", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "iceberg",
+    wordPl: "góra lodowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "idle",
+    wordPl: "bezczynny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ignite",
+    wordPl: "zapalić (się)", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "illumination",
+    wordPl: "oświetlenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "imaginary number",
+    wordPl: "liczba urojona", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "imagine",
+    wordPl: "wyobrażać sobie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "immature",
+    wordPl: "niedojrzały", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "immediate",
+    wordPl: "natychmiastowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "immense",
+    wordPl: "ogromny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "immodest",
+    wordPl: "nieskromny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "in particular",
+    wordPl: "w szczególności", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "in vain",
+    wordPl: "na próżno", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "in-depth",
+    wordPl: "dogłębny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "inane",
+    wordPl: "idiotyczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "inborn",
+    wordPl: "wrodzony", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "incense",
+    wordPl: "kadzidło", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "inch",
+    wordPl: "cal (2,54 cm)", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "incomparably",
+    wordPl: "niezrównanie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "incorruptible",
+    wordPl: "nieprzekupny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "incredible",
+    wordPl: "niewiarygodny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "induce",
+    wordPl: "nakłaniać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "infallible",
+    wordPl: "nieomylny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "inflame",
+    wordPl: "rozpalać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "infrequency",
+    wordPl: "rzadkość", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ingest",
+    wordPl: "spożywać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "inherit",
+    wordPl: "odziedziczyć", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "injection",
+    wordPl: "zastrzyk", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "ink",
+    wordPl: "atrament", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "innocent",
+    wordPl: "niewinny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "insist",
+    wordPl: "nalegać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "insurgent",
+    wordPl: "buntowniczy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "intamgible",
+    wordPl: "nieuchwytny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "invisibility",
+    wordPl: "niewidzialność", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "jealous",
+    wordPl: "zazdrosny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "jellyfish",
+    wordPl: "meduza", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "jug",
+    wordPl: "dzbanek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "junk",
+    wordPl: "rupiecie, graty", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "junk food",
+    wordPl: "niezdrowa żywność", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "jupiter",
+    wordPl: "jowisz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "justice",
+    wordPl: "sprawiedliwość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "kerb",
+    wordPl: "krawężnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "kerosene",
+    wordPl: "nafta", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "kettle",
+    wordPl: "czajnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "kidnap",
+    wordPl: "porwać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "knock out",
+    wordPl: "znokautować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "lard",
+    wordPl: "smalec", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "laudable",
+    wordPl: "chwalebny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "lawmaker",
+    wordPl: "ustawodawca", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "lawyer",
+    wordPl: "prawnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "lay aside",
+    wordPl: "odłożyć na bok", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "layer",
+    wordPl: "warstwa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "layoff",
+    wordPl: "zwolnienie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "leadership",
+    wordPl: "przywództwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "lease",
+    wordPl: "dzierżawa", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "leash",
+    wordPl: "smycz", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "lecture",
+    wordPl: "wykład", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lens",
+    wordPl: "obiektyw", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "leopard",
+    wordPl: "pantera", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "let loose",
+    wordPl: "puścić wolno", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "liar",
+    wordPl: "kłamca", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lid",
+    wordPl: "pokrywka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lieutenant",
+    wordPl: "porucznik", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lifeboat",
+    wordPl: "szalupa ratunkowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "light bulb",
+    wordPl: "żarówka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lighter",
+    wordPl: "zapalniczka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lineage",
+    wordPl: "rodowód", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lipstick",
+    wordPl: "szminka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "liquor",
+    wordPl: "napój wysokoprocentowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lisp",
+    wordPl: "seplenienie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "literal",
+    wordPl: "dosłowny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "liver",
+    wordPl: "wątroba", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "loaf",
+    wordPl: "bochenek", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "loan",
+    wordPl: "pożyczka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lonely",
+    wordPl: "samotny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "look ahead",
+    wordPl: "myśleć o przyszłości", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lowland",
+    wordPl: "nizina", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lubricant",
+    wordPl: "smar", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "lung",
+    wordPl: "płuco", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "magnificent",
+    wordPl: "wspaniały", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "magpie",
+    wordPl: "sroka", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+      Word(
+    wordEn: "maid",
+    wordPl: "pokojówka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "malfunction",
+    wordPl: "awaria, defekt", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "malice",
+    wordPl: "złośliwość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "manpower",
+    wordPl: "siła robocza", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "manure",
+    wordPl: "obornik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "marble",
+    wordPl: "marmur", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "marriage",
+    wordPl: "małżeństwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "masterpiece",
+    wordPl: "arcydzieło", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mattress",
+    wordPl: "materac", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mayor",
+    wordPl: "burmistrz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "maze",
+    wordPl: "labirynt", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "meadow",
+    wordPl: "łąka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "measurement",
+    wordPl: "pomiar", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "medival",
+    wordPl: "średniowieczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "merchant",
+    wordPl: "kupiec", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "merciful",
+    wordPl: "litościwy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mercury",
+    wordPl: "rtęć", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mermaid",
+    wordPl: "syrena", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "microwave",
+    wordPl: "mikrofalówka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "midget",
+    wordPl: "karzeł", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mighty",
+    wordPl: "potężny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mileage",
+    wordPl: "przebieg", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mill",
+    wordPl: "młyn", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mint",
+    wordPl: "mięta", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "miracle",
+    wordPl: "cud", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "misgiving",
+    wordPl: "obawa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "missile",
+    wordPl: "pocisk rakietowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mist",
+    wordPl: "mgła", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mist over",
+    wordPl: "zaparować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mockery",
+    wordPl: "kpina", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "monk",
+    wordPl: "mnich", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "monument",
+    wordPl: "pomnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mood",
+    wordPl: "nastrój", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "moonlight",
+    wordPl: "światło księżyca", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "moor",
+    wordPl: "wrzosowisko", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "moose",
+    wordPl: "łoś", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mortar",
+    wordPl: "moździerz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mortgage",
+    wordPl: "kredyt hipoteczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mosquito",
+    wordPl: "komar", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "moss",
+    wordPl: "mech", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "moth",
+    wordPl: "ćma", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mother-in-law",
+    wordPl: "teściowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mountain ridge",
+    wordPl: "grzbiet górski", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mower",
+    wordPl: "kosiarka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mud",
+    wordPl: "błoto", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mudguard",
+    wordPl: "błotnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "multiply",
+    wordPl: "mnożyć", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "multitasking",
+    wordPl: "wielozadaniowość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "muscle",
+    wordPl: "mięsień", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "musket",
+    wordPl: "muszkiet", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "mysterious",
+    wordPl: "tajemniczy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nap",
+    wordPl: "drzemka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nape",
+    wordPl: "kark", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "napkin",
+    wordPl: "serwetka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "narrow",
+    wordPl: "wąski", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nearby",
+    wordPl: "w pobliżu", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "neat",
+    wordPl: "schludny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "necessary",
+    wordPl: "konieczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nephew",
+    wordPl: "siostrzeniec", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nest",
+    wordPl: "gniazdo", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "niece",
+    wordPl: "siostrzenica", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nightfall",
+    wordPl: "zmrok", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nightmare",
+    wordPl: "koszmar", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nimble",
+    wordPl: "zwinny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nosebleed",
+    wordPl: "krwawić z nosa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nun",
+    wordPl: "zakonnica", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nursery",
+    wordPl: "żłobek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nut",
+    wordPl: "orzech", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "nutrition",
+    wordPl: "odżywianie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "oak",
+    wordPl: "dąb", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "oar",
+    wordPl: "wiosło", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "oasis",
+    wordPl: "oaza", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "obedient",
+    wordPl: "posłuszny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "obligation",
+    wordPl: "obowiązek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "obnoxious",
+    wordPl: "okropny, wstrętny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "obsolete",
+    wordPl: "przestarzały", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "obstacle",
+    wordPl: "przeszkoda", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "obstinacy",
+    wordPl: "upór", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "obvious",
+    wordPl: "oczywisty", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "old-fashioned",
+    wordPl: "staromodny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "oracle",
+    wordPl: "wyrocznia", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ornament",
+    wordPl: "ozdoba", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "orphan",
+    wordPl: "sierota", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ostrich",
+    wordPl: "struś", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "outcast",
+    wordPl: "wyrzutek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "overcome",
+    wordPl: "przezwyciężać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "overcrowded",
+    wordPl: "zatłoczony", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "overdone",
+    wordPl: "rozgotowany", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "overdose",
+    wordPl: "przedawkowanie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "oversee",
+    wordPl: "nadzorować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "oversight",
+    wordPl: "przeoczenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "overtake",
+    wordPl: "wyprzedzać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "overwhelm",
+    wordPl: "przytłaczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "owl",
+    wordPl: "sowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pace",
+    wordPl: "tempo", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "padlock",
+    wordPl: "kłódka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pancake",
+    wordPl: "naleśnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pantry",
+    wordPl: "spiżarnia", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "parachute",
+    wordPl: "spadochron", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "parallel",
+    wordPl: "równoległy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "parrot",
+    wordPl: "papuga", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "participate",
+    wordPl: "uczestniczyć", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "particle",
+    wordPl: "cząsteczka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pass away",
+    wordPl: "umrzeć, odejść", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "patch up",
+    wordPl: "załatać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "patience",
+    wordPl: "cierpliwość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pattern",
+    wordPl: "wzór", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pavement",
+    wordPl: "chodnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "paw",
+    wordPl: "łapa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pawn",
+    wordPl: "pionek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pay check",
+    wordPl: "pensja", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "payday",
+    wordPl: "dzień wypłaty", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "payment",
+    wordPl: "zapłata", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "payroll",
+    wordPl: "lista płac", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "peaceful",
+    wordPl: "pokojowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "peach",
+    wordPl: "brzoskwinia", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "peanut",
+    wordPl: "orzeszek ziemny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "peasant",
+    wordPl: "chłop, wieśniak", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pebble",
+    wordPl: "kamyk", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "penalty",
+    wordPl: "kara", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "perceive",
+    wordPl: "postrzegać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "perseverance",
+    wordPl: "wytrwałość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "picturesque",
+    wordPl: "malowniczy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pigeon",
+    wordPl: "gołąb", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pigsty",
+    wordPl: "chlew", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pill",
+    wordPl: "tabletka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pineapple",
+    wordPl: "ananas", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pitiful",
+    wordPl: "żałosny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "plum",
+    wordPl: "śliwka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "plumber",
+    wordPl: "hydraulik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "plunder",
+    wordPl: "plądrować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pneumonia",
+    wordPl: "zapalenie płuc", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+     Word(
+    wordEn: "pointless",
+    wordPl: "bezcelowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "poison",
+    wordPl: "trucizna", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pollute",
+    wordPl: "zanieczyszczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pork",
+    wordPl: "wieprzowina", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "porridge",
+    wordPl: "owsianka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "possibility",
+    wordPl: "możliwość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "potion",
+    wordPl: "magiczny napój", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pottery",
+    wordPl: "garncarstwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "powder",
+    wordPl: "proszek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "praise",
+    wordPl: "chwalić", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prawn",
+    wordPl: "krewetka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "precious",
+    wordPl: "cenny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "predator",
+    wordPl: "drapieżnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "predict",
+    wordPl: "przewidywać", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+    
 
 
     

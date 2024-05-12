@@ -272,8 +272,17 @@ class AppStateIsInTrainingFinalizationView extends AppState
 class AppStateIsInTrainingWordsView extends AppState 
 {
     final List<Word> trainingWords;
+    final List<TrainingUnit> trainingUnits;
+    final UserLibrary userLibrary;
+    final int correctCounter;
+    final TrainingModeEnum trainingMode;
 
-    const AppStateIsInTrainingWordsView({required this.trainingWords,
+    const AppStateIsInTrainingWordsView({
+      required this.trainingWords,
+      required this.correctCounter,
+      required this.trainingUnits,
+      required this.userLibrary,
+      required this.trainingMode,
     required bool isLoading,
     AppDialog? appDialog,}) : super(isLoading: isLoading,appDialog: appDialog);
 

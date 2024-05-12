@@ -1,3 +1,4 @@
+import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/bloc/app_bloc.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/constants/constants.dart';
@@ -62,7 +63,12 @@ class TrainingFinalizationView extends StatelessWidget
                 onPressed: ()
                 {
                   context.read<AppBloc>().add(
-                    AppEventGoToTrainingWordsView(trainingList: trainingList)
+                    AppEventGoToTrainingWordsView(
+                      trainingList: trainingList,
+                      trainingMode: TrainingModeEnum.COMMON_TRAINING,
+                      trainingUnits: trainingUnits,
+                      mistakeCounter: mistakeCounter,
+                      userLibrary: userLibrary)
                   );
                 },
                 style: applicationGreenButtonStyle(),
@@ -83,8 +89,6 @@ class TrainingFinalizationView extends StatelessWidget
                       trainingWords: trainingList, 
                       userLibrary: userLibrary)
                   );
-
-
 
                 },
                 style: applicationGreenButtonStyle(),

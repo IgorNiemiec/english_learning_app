@@ -40,12 +40,9 @@ class CommonTrainingLevelChoiceView extends StatelessWidget
                     child: OutlinedButton(
                       onPressed: ()
                       {
-
                         context.read<AppBloc>().add(
                           AppEventGoToTrainingChoiceView(userLibrary: userLibrary)
                         );
-
-
                       },
                       style: roundedButtonStyle(),
                       child: const Icon(Icons.navigate_before,size: 50,),

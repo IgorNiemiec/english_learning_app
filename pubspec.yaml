@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   cloud_firestore: ^4.15.4
+  connectivity_plus: ^5.0.2
   firebase_auth: ^4.17.4
   firebase_core: ^2.25.4
   flutter:

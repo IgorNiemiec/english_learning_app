@@ -314,9 +314,17 @@ class AppEventGoToTrainingFinalizationView implements AppEvent
 class AppEventGoToTrainingWordsView implements AppEvent
 { 
   final List<Word> trainingList;
+  final UserLibrary userLibrary;
+  final List<TrainingUnit> trainingUnits;
+  final TrainingModeEnum trainingMode;
+  final int mistakeCounter;
 
   const AppEventGoToTrainingWordsView({
     required this.trainingList,
+    required this.userLibrary,
+    required this.mistakeCounter,
+    required this.trainingUnits,
+    required this.trainingMode,
   });
 
 }
@@ -359,7 +367,6 @@ class AppEventGoToUserPanelView implements AppEvent
 }
 
 
-// AppDialogsExperiment
 
 @immutable
 class AppEventShowWordPointsExplanation implements AppEvent

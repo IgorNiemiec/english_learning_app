@@ -1,16 +1,33 @@
 
 
 
+import 'package:english_learning_app/appEnum/appEnum.dart';
+import 'package:english_learning_app/bloc/app_bloc.dart';
+import 'package:english_learning_app/bloc/app_event.dart';
+import 'package:english_learning_app/bloc/app_state.dart';
 import 'package:english_learning_app/constants/constants.dart';
+import 'package:english_learning_app/models/training_unit.dart';
+import 'package:english_learning_app/models/user_library.dart';
 import 'package:english_learning_app/models/word.dart';
 import 'package:english_learning_app/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TrainingWordsView extends StatelessWidget
 {
   List<Word> trainingWords;
+  List<TrainingUnit> trainingUnits; 
+  UserLibrary userLibrary;
+  TrainingModeEnum trainingMode;
+  int correctCounter;
 
-  TrainingWordsView({Key? key, required this.trainingWords}) : super(key: key);
+
+  TrainingWordsView({Key? key,
+   required this.trainingWords,
+   required this.trainingMode,
+   required this.correctCounter,
+   required this.trainingUnits,
+   required this.userLibrary}) : super(key: key);
 
 
   @override
@@ -81,7 +98,9 @@ class TrainingWordsView extends StatelessWidget
               child: OutlinedButton(
                 onPressed: ()
                 {
-                    // Go Back to finalizationPage
+                  context.read<AppBloc>().add(
+                    AppEventGoToTrainingFinalizationView(userLibrary: userLibrary, trainingUnits: trainingUnits, trainingMode: trainingMode, trainingList: trainingWords, correctCounter: correctCounter, mistakesCounter:50-correctCounter)
+                  );
                 },
                 style: applicationButtonStyle(),
                 child: const Text("Go back",style: TextStyle(color: applicationColor,fontSize: 24),),

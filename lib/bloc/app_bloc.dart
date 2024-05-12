@@ -2,6 +2,7 @@
 import 'dart:collection';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:english_learning_app/appEnum/appEnum.dart';
 import 'package:english_learning_app/bloc/app_event.dart';
 import 'package:english_learning_app/bloc/app_state.dart';
@@ -33,22 +34,18 @@ class AppBloc extends Bloc<AppEvent,AppState>
     );
 
 
-    on<AppEventInitialize>((event, emit) async {
+    on<AppEventInitialize>((event, emit) async 
+    {
       
       final user = FirebaseAuth.instance.currentUser;
-
       if (user == null)
       {
         emit(const AppStateLoggedOut(isLoading: false));
       }
       else
       {
-
-        // Cache!!!!
-        
         try
         {
-
           final userLibrary = await _getUserLibrary(user.uid);
 
           final wotd = await _updateWordOfTheDay(user.uid, userLibrary!.wordOfTheDay);
@@ -57,8 +54,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
             isLoading: false, 
             user: user,
             userLibrary: UserLibrary(words: userLibrary!.words,wordOfTheDay: wotd)));
- 
-
         }
         on FirebaseAuthException catch (e)
         {
@@ -72,8 +67,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
           emit(const AppStateLoggedOut(isLoading: false,
           appDialog: AppDialogUnknownError()));
         }
-
-      
       }
 
 
@@ -311,45 +304,62 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       emit(const AppStateLoggedOut(isLoading: true));
 
-      try
+      bool isConnected = await checkConnection();
+
+      if (isConnected)
       {
 
-        final email = event.email;
+         try
+         {
 
-        final password = event.password;
+              final email = event.email;
 
-        final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+              final password = event.password;
 
-        final user = userCredential.user!;
+              final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
 
-        final userLibrary = await _getUserLibrary(user.uid);
+              final user = userCredential.user!;
 
-        final wotd = await _updateWordOfTheDay(user.uid, userLibrary!.wordOfTheDay);
+              final userLibrary = await _getUserLibrary(user.uid);
 
-        userLibrary.wordOfTheDay = wotd;
+              final wotd = await _updateWordOfTheDay(user.uid, userLibrary!.wordOfTheDay);
 
-        emit(AppStateLoggedIn(
-          isLoading: false,
-          user: user,
-          userLibrary: userLibrary!,
-          ));
+              userLibrary.wordOfTheDay = wotd;
 
+              emit(AppStateLoggedIn(
+                isLoading: false,
+                user: user,
+                userLibrary: userLibrary!,
+                ));
+
+
+            }
+            on FirebaseAuthException catch(e)
+            {
+              emit(
+                AppStateLoggedOut(isLoading: false,
+                appDialog: AppDialog.fromError(e))
+              );
+            }
+            on FirebaseException catch(e)
+            {
+              emit(
+                const  AppStateLoggedOut(isLoading: false,
+                appDialog: AppDialogUnknownError())
+              );
+        }
 
       }
-      on FirebaseAuthException catch(e)
+      else
       {
+
         emit(
-          AppStateLoggedOut(isLoading: false,
-          appDialog: AppDialog.fromError(e))
+          const AppStateLoggedOut(isLoading: false,appDialog: AppDialogNoNetworkConnection())
         );
+
       }
-      on FirebaseException catch(e)
-      {
-        emit(
-          const  AppStateLoggedOut(isLoading: false,
-          appDialog: AppDialogUnknownError())
-        );
-      }
+
+    
 
 
     },);
@@ -358,57 +368,76 @@ class AppBloc extends Bloc<AppEvent,AppState>
     on<AppEventLogInWithGoogleAuth>((event, emit) async {
         emit(const AppStateLoggedOut(isLoading: true));
 
-        try
-        {
-          await GoogleSignIn().signOut();
-          final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-          final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+        bool isConnected = await checkConnection();
 
-          final credential = GoogleAuthProvider.credential(
-            accessToken: googleAuth?.accessToken,
-            idToken: googleAuth?.idToken,
-          );
-
-         final userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
-
-         final user = userCredential.user!;
-
-         UserLibrary? userLibrary;
+        if (isConnected)
+        { 
 
 
-         if(await isUserDocumentCreated(user.uid))
-         {
-            userLibrary = await _getUserLibrary(user.uid);
-         }
-         else
-         {
-            WordOfTheDay wordOfTheDay = _generateWordOfTheDay();
+             try
+             {
+               await GoogleSignIn().signOut();
+               final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-            await _createUserLibrary(user.uid,wordOfTheDay);
+               final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
 
-      
-      
-            userLibrary = UserLibrary(words: [],wordOfTheDay: wordOfTheDay);
-         }
+               final credential = GoogleAuthProvider.credential(
+                 accessToken: googleAuth?.accessToken,
+                 idToken: googleAuth?.idToken,
+               );
+
+              final userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+              final user = userCredential.user!;
+
+              UserLibrary? userLibrary;
 
 
-         emit(AppStateLoggedIn(isLoading: false, user: user,userLibrary: userLibrary!));
-          
+              if(await isUserDocumentCreated(user.uid))
+              {
+                 userLibrary = await _getUserLibrary(user.uid);
+              }
+              else
+              {
+                 WordOfTheDay wordOfTheDay = _generateWordOfTheDay();
+
+                 await _createUserLibrary(user.uid,wordOfTheDay);
+
+           
+           
+                 userLibrary = UserLibrary(words: [],wordOfTheDay: wordOfTheDay);
+              }
+
+
+              emit(AppStateLoggedIn(isLoading: false, user: user,userLibrary: userLibrary!));
+               
+
+             }
+             on FirebaseAuthException catch(e)
+             {
+               emit(AppStateLoggedOut(isLoading: false,
+               appDialog: AppDialog.fromError(e)));
+             }
+             on FirebaseException catch(e)
+             {
+               emit(
+                 const  AppStateLoggedOut(isLoading: false,
+                 appDialog: AppDialogUnknownError())
+               );
+            }
+
+
 
         }
-        on FirebaseAuthException catch(e)
-        {
-          emit(AppStateLoggedOut(isLoading: false,
-          appDialog: AppDialog.fromError(e)));
-        }
-        on FirebaseException catch(e)
+        else
         {
           emit(
-            const  AppStateLoggedOut(isLoading: false,
-            appDialog: AppDialogUnknownError())
+            const AppStateLoggedOut(isLoading: false,appDialog: AppDialogNoNetworkConnection())
           );
         }
+
+      
 
     },);
 
@@ -447,66 +476,95 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
     on<AppEventRemoveWordFromUserLibrary>((event, emit) async {
 
-      try
+      bool isConnected = await checkConnection();
+
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (isConnected)
       {
 
-        final user = FirebaseAuth.instance.currentUser;
+              try
+            {
+      
+              
+      
+              if(event.isInSingleWordView)
+              {       
+               emit(AppStateIsInSingleWordView(
+                userLibrary: event.userLibrary, 
+                filteredWords: event.filteredWords,
+                word: event.word, 
+                isLoading: true));
+              }
+              else
+              {
+                emit(AppStateIsInCommonSingleWordView(
+                  word: event.word, 
+                  isLoading: true, 
+                  isWordInUserLibrary: true, 
+                  filteredWords: event.filteredWords,
+                  userLibrary: event.userLibrary));
+              }
+      
+      
+              UserLibrary newLibrary = event.userLibrary;
+      
+              newLibrary.words.remove(event.word);
+      
+              await _updateUserLibrary(user!.uid, newLibrary);
+      
+              if(event.isInSingleWordView)
+              { 
+                emit(AppStateIsInUserLibraryView(
+                  userLibrary: newLibrary, 
+                  filteredWords: newLibrary.words, 
+                  isLoading: false));
+              }
+              else
+              {
+                emit(AppStateIsInCommonSingleWordView(
+                  word: event.word, 
+                  isLoading: false, 
+                  isWordInUserLibrary: false, 
+                  filteredWords: event.filteredWords,
+                  userLibrary: newLibrary));
+              }
+      
+      
+            }
+            catch(ex)
+            {
+                   emit(AppStateIsInSingleWordView(
+                    userLibrary: event.userLibrary, 
+                    word: event.word, 
+                    isLoading: false,
+                    filteredWords: event.filteredWords,
+                   appDialog: const AppDialogUnknownError()));
+            }
+             
+      
 
-        if(event.isInSingleWordView)
-        {       
-         emit(AppStateIsInSingleWordView(
-          userLibrary: event.userLibrary, 
-          filteredWords: event.filteredWords,
-          word: event.word, 
-          isLoading: true));
+      }
+      else
+      {
+
+        if (user!=null)
+        {      
+           emit(
+             AppStateLoggedIn(isLoading: false, user: user , userLibrary: event.userLibrary)
+           );
         }
         else
         {
-          emit(AppStateIsInCommonSingleWordView(
-            word: event.word, 
-            isLoading: true, 
-            isWordInUserLibrary: true, 
-            filteredWords: event.filteredWords,
-            userLibrary: event.userLibrary));
+
+          emit(
+            const AppStateLoggedOut(isLoading: false,appDialog: AppDialogNoCurrentUser())
+          );
         }
-
-
-        UserLibrary newLibrary = event.userLibrary;
-
-        newLibrary.words.remove(event.word);
-
-        await _updateUserLibrary(user!.uid, newLibrary);
-
-        if(event.isInSingleWordView)
-        { 
-          emit(AppStateIsInUserLibraryView(
-            userLibrary: newLibrary, 
-            filteredWords: newLibrary.words, 
-            isLoading: false));
-        }
-        else
-        {
-          emit(AppStateIsInCommonSingleWordView(
-            word: event.word, 
-            isLoading: false, 
-            isWordInUserLibrary: false, 
-            filteredWords: event.filteredWords,
-            userLibrary: newLibrary));
-        }
-
 
       }
-      catch(ex)
-      {
-             emit(AppStateIsInSingleWordView(
-              userLibrary: event.userLibrary, 
-              word: event.word, 
-              isLoading: false,
-              filteredWords: event.filteredWords,
-             appDialog: const AppDialogUnknownError()));
-      }
-       
 
+      
 
     },);
 
@@ -682,52 +740,69 @@ class AppBloc extends Bloc<AppEvent,AppState>
          else
          {
 
+           bool isConnected = await checkConnection();
 
-            emit(
-            AppStateIsInCommonSingleWordView(
-              word: event.word, 
-              isLoading: true, 
-              isWordInUserLibrary: false, 
-              filteredWords: event.filteredWords,
-              userLibrary: event.userLibrary)
-           );
+           if(isConnected)
+           {
 
-          try
-          {
+                emit(
+                AppStateIsInCommonSingleWordView(
+                    word: event.word, 
+                    isLoading: true, 
+                    isWordInUserLibrary: false, 
+                    filteredWords: event.filteredWords,
+                    userLibrary: event.userLibrary)
+                 );
 
-            UserLibrary newUserLibrary = event.userLibrary;
+                try
+                {
 
-            newUserLibrary.words.add(event.word);
+                  UserLibrary newUserLibrary = event.userLibrary;
 
-            await _updateUserLibrary(user.uid, newUserLibrary);
+                  newUserLibrary.words.add(event.word);
 
-            emit(
-              AppStateIsInCommonSingleWordView(
-                word: event.word, 
-                isLoading: false, 
-                isWordInUserLibrary: true, 
-                filteredWords: event.filteredWords,
-                userLibrary: newUserLibrary)
-            );
+                  await _updateUserLibrary(user.uid, newUserLibrary);
 
-          }
-          on FirebaseAuthException catch(e)
-          {
-            emit(
-             AppStateLoggedOut(isLoading: false,appDialog: AppDialog.fromError(e))
-           );
-          }
-          on FirebaseException catch (e)
-          {
-            emit(
-              AppStateIsInCommonSingleWordView(
-                word: event.word, 
-                isLoading: false, 
-                isWordInUserLibrary: false, 
-                filteredWords: event.filteredWords,
-                userLibrary: event.userLibrary)
-            );
-          }
+                  emit(
+                    AppStateIsInCommonSingleWordView(
+                      word: event.word, 
+                      isLoading: false, 
+                      isWordInUserLibrary: true, 
+                      filteredWords: event.filteredWords,
+                      userLibrary: newUserLibrary)
+                  );
+
+                }
+                on FirebaseAuthException catch(e)
+                {
+                  emit(
+                   AppStateLoggedOut(isLoading: false,appDialog: AppDialog.fromError(e))
+                 );
+                }
+                on FirebaseException catch (e)
+                {
+                  emit(
+                    AppStateIsInCommonSingleWordView(
+                      word: event.word, 
+                      isLoading: false, 
+                      isWordInUserLibrary: false, 
+                      filteredWords: event.filteredWords,
+                      userLibrary: event.userLibrary)
+                  );
+                }
+
+           }
+           else
+           {  
+
+             emit(
+               const AppStateLoggedOut(isLoading: false,appDialog: AppDialogNoNetworkConnection())
+             );
+
+
+           }
+
+           
          }
 
 
@@ -748,45 +823,56 @@ class AppBloc extends Bloc<AppEvent,AppState>
       if (user != null)
       {
 
-        if(_isWordInUserLibrary(event.userLibrary.wordOfTheDay.wotd, event.userLibrary))
+        bool isConnected = await checkConnection();
+
+        if(isConnected)
         {
-            emit(AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog: const AppDialogWordOfTheDayIsCurrentlyInUserLibrary()));
+
+             if(_isWordInUserLibrary(event.userLibrary.wordOfTheDay.wotd, event.userLibrary))
+             {
+                 emit(AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog: const AppDialogWordOfTheDayIsCurrentlyInUserLibrary()));
+             }
+             else
+             {
+     
+                 emit(AppStateLoggedIn(isLoading: true, user: user, userLibrary: event.userLibrary));
+     
+                 try
+                 {
+         
+                   UserLibrary newUserLibrary = event.userLibrary;
+         
+                   newUserLibrary.words.add(event.userLibrary.wordOfTheDay.wotd);
+         
+                   await _updateUserLibrary(user.uid, newUserLibrary);
+                 
+                   emit(
+                     AppStateLoggedIn(isLoading: false, user: FirebaseAuth.instance.currentUser!, userLibrary: newUserLibrary,appDialog: const AppDialogWordOfTheDayHasBeenAddedToUserLibrary())
+                   );
+         
+           
+                   }
+                   on FirebaseAuthException catch(e)
+                   {
+                     emit(AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,
+                     appDialog: AppDialog.fromError(e)));
+                   }
+                   on FirebaseAuth catch(e)
+                   {
+                     emit(
+                       AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog: const AppDialogUnknownError())
+                     );
+                   }
+             }
         }
         else
         {
 
-            emit(AppStateLoggedIn(isLoading: true, user: user, userLibrary: event.userLibrary));
-
-        try
-        {
-
-          UserLibrary newUserLibrary = event.userLibrary;
-
-          newUserLibrary.words.add(event.userLibrary.wordOfTheDay.wotd);
-
-          await _updateUserLibrary(user.uid, newUserLibrary);
-        
           emit(
-            AppStateLoggedIn(isLoading: false, user: FirebaseAuth.instance.currentUser!, userLibrary: newUserLibrary,appDialog: const AppDialogWordOfTheDayHasBeenAddedToUserLibrary())
+            AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog: const AppDialogNoNetworkConnection())
           );
 
-  
-          }
-          on FirebaseAuthException catch(e)
-          {
-            emit(AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,
-            appDialog: AppDialog.fromError(e)));
-          }
-          on FirebaseAuth catch(e)
-          {
-            emit(
-              AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog: const AppDialogUnknownError())
-            );
-          }
-
-
         }
-
 
 
       }
@@ -887,9 +973,18 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
    on<AppEventGoToTrainingWordsView>((event, emit) {
 
-    emit(AppStateIsInTrainingWordsView(trainingWords: event.trainingList, isLoading: false));
+    emit(AppStateIsInTrainingWordsView(
+      trainingWords: event.trainingList,
+      trainingMode: event.trainingMode,
+      trainingUnits: event.trainingUnits,
+      userLibrary: event.userLibrary,
+      correctCounter: 50-event.mistakeCounter ,
+      isLoading: false,
+      
+      ));
 
    },);
+
 
   on<AppEventSaveTrainingWordsInUserLibrary>((event, emit) async {
 
@@ -898,31 +993,41 @@ class AppBloc extends Bloc<AppEvent,AppState>
     if(user!= null)
     {
 
+      bool isConnected = await checkConnection();
 
-      try
-      { 
-
-        emit(AppStateIsInTrainingWordsView(trainingWords: event.trainingWords, isLoading: true));
-
-        UserLibrary newUserLibrary = event.userLibrary;
-
-        await _addTrainingWordsToUserLibrary(user.uid, event.trainingWords);
-
-        newUserLibrary.words.addAll(event.trainingWords);
-
-        emit(
-          AppStateLoggedIn(isLoading: false, user: user, userLibrary: newUserLibrary)
-        );
+      if (isConnected)
+      {   
+        
+           try
+           { 
+     
+            
+     
+             UserLibrary newUserLibrary = event.userLibrary;
+     
+             await _addTrainingWordsToUserLibrary(user.uid, event.trainingWords);
+     
+             newUserLibrary.words.addAll(event.trainingWords);
+     
+             emit(
+               AppStateLoggedIn(isLoading: false, user: user, userLibrary: newUserLibrary)
+             );
+     
+           }
+           catch(ex)
+           {
+     
+     
+           }
 
       }
-      catch(ex)
+      else
       {
 
         emit(
-          AppStateIsInTrainingWordsView(trainingWords: event.trainingWords, isLoading: false,appDialog: const AppDialogUnknownError())
-
+          AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary, appDialog: const AppDialogNoNetworkConnection())
         );
-
+        
       }
 
     }
@@ -956,8 +1061,12 @@ class AppBloc extends Bloc<AppEvent,AppState>
     if(user!=null)
     {
 
-  
-      UserLibrary newUserLibrary = event.userLibrary;
+      bool isConnected = await checkConnection();
+
+      if (isConnected)
+      { 
+
+         UserLibrary newUserLibrary = event.userLibrary;
 
       for(var word in event.trainingWords)
       {
@@ -974,6 +1083,18 @@ class AppBloc extends Bloc<AppEvent,AppState>
           user: user, 
           userLibrary: newUserLibrary)
        );
+
+      }
+      else
+      {
+        
+        emit(
+          AppStateLoggedIn(isLoading: false, user: user, userLibrary: event.userLibrary,appDialog:const AppDialogNoNetworkConnection())
+        );
+        
+      }
+  
+     
 
     }
     else
@@ -1277,6 +1398,23 @@ class AppBloc extends Bloc<AppEvent,AppState>
     }
 
     return (word1,word2);
+  }
+
+  Future<bool> checkConnection() async
+  {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+
+    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+
+
+
   }
 
 

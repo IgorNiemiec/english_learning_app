@@ -118,7 +118,6 @@ class TrainingFinalizationLibraryView extends StatelessWidget
             )
         ],),
       ),
-
     );
   }
 
