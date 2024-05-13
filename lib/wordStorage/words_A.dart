@@ -1291,6 +1291,181 @@ final wordsA = [
     points: 0, 
     wordLevel: "A"),
 
+     Word(
+    wordEn: "price",
+    wordPl: "cena", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "print",
+    wordPl: "drukować", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "printer",
+    wordPl: "drukarka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "progress",
+    wordPl: "postęp", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "purple",
+    wordPl: "fioletowy", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "purse",
+    wordPl: "portmonetka", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "push",
+    wordPl: "pchać", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "question",
+    wordPl: "pytanie", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "quiet",
+    wordPl: "cichy", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "rabbit",
+    wordPl: "królik", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "race",
+    wordPl: "wyścig", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "railway",
+    wordPl: "linia kolejowa", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "rain",
+    wordPl: "deszcz", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "rain forest",
+    wordPl: "las tropikalny", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "raincoat",
+    wordPl: "płaszcz przeciwdeszczowy", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "raindrop",
+    wordPl: "kropla deszczu", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "rat",
+    wordPl: "szczur", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "read",
+    wordPl: "czytać", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "ready",
+    wordPl: "gotowy", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "reason",
+    wordPl: "powód, przyczyna", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "receipt",
+    wordPl: "paragon", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "receive",
+    wordPl: "otrzymywać", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "rectangle",
+    wordPl: "prostokąt", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "red",
+    wordPl: "czerwony", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "remember",
+    wordPl: "pamiętać", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "rent",
+    wordPl: "wynajmować", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "repair",
+    wordPl: "naprawiać", 
+    points: 0, 
+    wordLevel: "A"),
+
+    Word(
+    wordEn: "repeat",
+    wordPl: "powtarzać", 
+    points: 0, 
+    wordLevel: "A"),
+
+    
+    
+
+    
+
+
+
 
 
 

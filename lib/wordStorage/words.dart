@@ -3177,6 +3177,656 @@ final List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
+     Word(
+    wordEn: "preface",
+    wordPl: "przedmowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prefix",
+    wordPl: "przedrostek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prejudice",
+    wordPl: "uprzedzenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "presctiption",
+    wordPl: "recepta", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pretend",
+    wordPl: "udawać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prevent",
+    wordPl: "zapobiegać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "previous",
+    wordPl: "poprzedni", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prey",
+    wordPl: "ofiara", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pride",
+    wordPl: "duma", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "priest",
+    wordPl: "ksiądz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "primary",
+    wordPl: "podstawowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prime minister",
+    wordPl: "premier", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prime number",
+    wordPl: "liczba pierwsza", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prince",
+    wordPl: "książe", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "princess",
+    wordPl: "księżniczka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "principle",
+    wordPl: "zasada", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prison",
+    wordPl: "więzienie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prisoner",
+    wordPl: "więzień", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "privilege",
+    wordPl: "przywilej", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "probability",
+    wordPl: "prawdopodobieństwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "profitable",
+    wordPl: "opłacalny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prohibition",
+    wordPl: "zakaz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "promise",
+    wordPl: "obiecywać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pronounce",
+    wordPl: "wymawiać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "proof",
+    wordPl: "dowód", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "propeller",
+    wordPl: "śmigło", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "propensity",
+    wordPl: "skłonność", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "property",
+    wordPl: "nieruchomość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "propose",
+    wordPl: "proponować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "protect",
+    wordPl: "chronić", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "proud",
+    wordPl: "dumny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "prove",
+    wordPl: "udowodnić", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "proverb",
+    wordPl: "przysłowie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "puddle",
+    wordPl: "kałuża", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "pumpkin",
+    wordPl: "dynia", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "punish",
+    wordPl: "karać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "puppet",
+    wordPl: "kukiełka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "quality",
+    wordPl: "jakość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "quarters",
+    wordPl: "kwatera", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "queen",
+    wordPl: "królowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "query",
+    wordPl: "zapytanie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "queue",
+    wordPl: "kolejka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "quid",
+    wordPl: "funt", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "quote",
+    wordPl: "cytować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "raccoon",
+    wordPl: "szop", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "radiation",
+    wordPl: "promieniowanie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "radiator",
+    wordPl: "kaloryfer", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "radish",
+    wordPl: "rzodkiewka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "raft",
+    wordPl: "tratwa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rage",
+    wordPl: "wściekłość", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rainbow",
+    wordPl: "tęcza", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rake",
+    wordPl: "grabie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "random",
+    wordPl: "losowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ransom",
+    wordPl: "okup", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rapid",
+    wordPl: "gwałtowny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rare",
+    wordPl: "rzadki", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rash",
+    wordPl: "wysypka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "raspberry",
+    wordPl: "malina", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ratio",
+    wordPl: "proporcja", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "raw",
+    wordPl: "surowy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ray",
+    wordPl: "promień", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "razor",
+    wordPl: "żyletka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reaper",
+    wordPl: "żniwiarz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reasonable",
+    wordPl: "sensowny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rebellious",
+    wordPl: "buntowniczy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rebirth",
+    wordPl: "odrodzenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reboot",
+    wordPl: "uruchomić ponownie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "recent",
+    wordPl: "niedawny, ostatni", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "recipe",
+    wordPl: "przepis", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reckless",
+    wordPl: "lekkomyślny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reclaim",
+    wordPl: "odzyskać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "recognize",
+    wordPl: "rozpoznawać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "recover",
+    wordPl: "dojść do siebie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "redemption",
+    wordPl: "odkupienie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reed",
+    wordPl: "trzcina", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reef",
+    wordPl: "rafa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "referee",
+    wordPl: "sędzia", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+     Word(
+    wordEn: "refrain",
+    wordPl: "powstrzymywać się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "refresh",
+    wordPl: "odświeżyć", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "refreshments",
+    wordPl: "przekąski", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "refugee",
+    wordPl: "uchodźca", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "refuse",
+    wordPl: "odmawiać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "regain",
+    wordPl: "odzyskać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "regards",
+    wordPl: "pozdrowienia", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "regret",
+    wordPl: "żałować", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reinforce",
+    wordPl: "wzmacniać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reinforcement",
+    wordPl: "wzmocnienie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reject",
+    wordPl: "odrzucać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "relapse",
+    wordPl: "mieć nawrót", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "relevant",
+    wordPl: "istotny, znaczący", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "reliability",
+    wordPl: "niezawodność", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "relic",
+    wordPl: "relikt", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "reluctant",
+    wordPl: "niechętny", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "remarkable",
+    wordPl: "niezwykły", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "remind",
+    wordPl: "przypominać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "remote",
+    wordPl: "odległy", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "renaissance",
+    wordPl: "renesans", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "renew",
+    wordPl: "odnawiać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "repay",
+    wordPl: "spłacać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "reptile",
+    wordPl: "gad", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "require",
+    wordPl: "wymagać", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "requirement",
+    wordPl: "wymaganie", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "rescue",
+    wordPl: "ratować, ocalić", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "research",
+    wordPl: "badania naukowe", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "resign",
+    wordPl: "rezygnować", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "resist",
+    wordPl: "stawiać opór", 
+    points: 0, 
+    wordLevel: "B"),
+
+    Word(
+    wordEn: "resistance",
+    wordPl: "opór", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+    
+    
+
+
+
+
 
 
     

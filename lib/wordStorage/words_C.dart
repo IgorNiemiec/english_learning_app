@@ -985,6 +985,195 @@ final wordsC = [
     points: 0, 
     wordLevel: "C"),
 
+     Word(
+    wordEn: "prevalence",
+    wordPl: "przewaga", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "prickle",
+    wordPl: "kolec", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "prig",
+    wordPl: "zarozumialec", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "pronoun",
+    wordPl: "zaimek", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "prophet",
+    wordPl: "prorok", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "prudent",
+    wordPl: "roztropny", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "pug",
+    wordPl: "mops (pies)", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "pundit",
+    wordPl: "ekspert", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "purgatory",
+    wordPl: "czyściec", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "quash",
+    wordPl: "unieważnić", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "quench",
+    wordPl: "ugasić pragnienie", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rag",
+    wordPl: "ścierka", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "raisin",
+    wordPl: "rodzynek", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rambling",
+    wordPl: "chaotyczny", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rampage",
+    wordPl: "siać zniszczenie", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rapacious",
+    wordPl: "zachłanny", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "ravage",
+    wordPl: "spustoszyć", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "ravenous",
+    wordPl: "wygłodniały", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "ravine",
+    wordPl: "wąwóz", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "reckoning",
+    wordPl: "rozrachunek", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "red tape",
+    wordPl: "biurokracja", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "reek",
+    wordPl: "cuchnąć", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "refrigerate",
+    wordPl: "chłodzić w lodówce", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "relent",
+    wordPl: "ustąpić", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "relentless",
+    wordPl: "nieustępliwy", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "remorse",
+    wordPl: "wyrzuty sumienia", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "repugnant",
+    wordPl: "odrażający", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "reputable",
+    wordPl: "renomowany", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "requiem",
+    wordPl: "msza żałobna", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "reshuffle",
+    wordPl: "przetasowanie", 
+    points: 0, 
+    wordLevel: "C"),
+
+    Word(
+    wordEn: "resonant",
+    wordPl: "donośny", 
+    points: 0, 
+    wordLevel: "C"),
+
+
+
+
 
 
      
