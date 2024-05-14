@@ -3820,6 +3820,267 @@ final List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
+     Word(
+    wordEn: "resort",
+    wordPl: "kurort", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "resource",
+    wordPl: "zasób", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "respect",
+    wordPl: "szacunek", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "responsibility",
+    wordPl: "odpowiedzialność", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "restful",
+    wordPl: "relaksujący", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "restore",
+    wordPl: "przywracać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "restrict",
+    wordPl: "ograniczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "retire",
+    wordPl: "przechodzić na emeryturę", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "retiree",
+    wordPl: "emeryt", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "retirement",
+    wordPl: "emerytura", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "retreat",
+    wordPl: "wycofać się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reveal",
+    wordPl: "ujawniać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "revenge",
+    wordPl: "zemsta", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "revenue",
+    wordPl: "dochód", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "revolution",
+    wordPl: "rewolucja", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "reward",
+    wordPl: "nagroda", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rewind",
+    wordPl: "przewijać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rework",
+    wordPl: "przerobić", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rhino",
+    wordPl: "nosorożec", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rib",
+    wordPl: "żebro", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rib cage",
+    wordPl: "klatka piersiowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ridiculous",
+    wordPl: "absurdalny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rigid",
+    wordPl: "sztywny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rink",
+    wordPl: "lodowisko", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "riot",
+    wordPl: "zamieszki", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "risk",
+    wordPl: "ryzyko", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rite",
+    wordPl: "rytuał", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "roar",
+    wordPl: "ryczeć", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "robbery",
+    wordPl: "napad", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rocket",
+    wordPl: "rakieta", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rookie",
+    wordPl: "nowicjusz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "root",
+    wordPl: "korzeń", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "root out",
+    wordPl: "wyplenić", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rope",
+    wordPl: "lina", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rose",
+    wordPl: "róża", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rotate",
+    wordPl: "obracać się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rotten",
+    wordPl: "zgniły", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "roundabout",
+    wordPl: "rondo", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "route",
+    wordPl: "trasa", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "royal",
+    wordPl: "królewski", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "rub",
+    wordPl: "pocierać, trzeć", 
+    points: 0, 
+    wordLevel: "B"),
+
+    
+
+    
+
+    
+
+
+
+  
+
+
+    
+    
+
+
     
     
     

@@ -1171,6 +1171,96 @@ final wordsC = [
     points: 0, 
     wordLevel: "C"),
 
+     Word(
+    wordEn: "resound",
+    wordPl: "rozbrzmiewać", 
+    points: 0, 
+    wordLevel: "C"),
+
+       Word(
+    wordEn: "ressurect",
+    wordPl: "wskrzeszać", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "reticent",
+    wordPl: "małomówny", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "retrial",
+    wordPl: "powtórny proces sądowy", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "revamp",
+    wordPl: "unowocześniać", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "ribbon",
+    wordPl: "wstążka", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rickety",
+    wordPl: "koślawy", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "riddle",
+    wordPl: "zagadka", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "ridge",
+    wordPl: "grzbiet", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "robe",
+    wordPl: "kaftan", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rockery",
+    wordPl: "ogródek skalny", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "roe",
+    wordPl: "ikra", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rook",
+    wordPl: "gawron", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rotter",
+    wordPl: "kanalia", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "rowan",
+    wordPl: "jarzębina", 
+    points: 0, 
+    wordLevel: "C"),
+
 
 
 

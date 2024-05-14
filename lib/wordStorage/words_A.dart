@@ -1459,6 +1459,66 @@ final wordsA = [
     points: 0, 
     wordLevel: "A"),
 
+     Word(
+    wordEn: "restaurant",
+    wordPl: "restauracja", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "return",
+    wordPl: "wracać", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "rice",
+    wordPl: "ryż", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "rich",
+    wordPl: "bogaty", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "ring",
+    wordPl: "pierścień", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "river",
+    wordPl: "rzeka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "road",
+    wordPl: "droga", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "roof",
+    wordPl: "dach", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "room",
+    wordPl: "pokój", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "round",
+    wordPl: "okrągły", 
+    points: 0, 
+    wordLevel: "A"),
+
     
     
 
