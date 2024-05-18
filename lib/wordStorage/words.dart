@@ -4066,6 +4066,673 @@ final List<Word> words = [
     points: 0, 
     wordLevel: "B"),
 
+      Word(
+    wordEn: "rude",
+    wordPl: "grzeczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "rudimentary",
+    wordPl: "prymitywny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "ruin",
+    wordPl: "rujnować", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "rust",
+    wordPl: "rdza", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "rustle",
+    wordPl: "szeleścić", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "ruthless",
+    wordPl: "bezwzględny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "rye",
+    wordPl: "żyto", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sabre",
+    wordPl: "szabla", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sacrifice",
+    wordPl: "poświęcenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "saddle",
+    wordPl: "siodło", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "safety",
+    wordPl: "bezpieczeństwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sail",
+    wordPl: "żeglować", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sailboat",
+    wordPl: "żaglówka", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sailor",
+    wordPl: "żeglarz", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "saint",
+    wordPl: "święty", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "salary",
+    wordPl: "pensja", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "salvage",
+    wordPl: "ocalić", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sample",
+    wordPl: "próbka", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sandstorm",
+    wordPl: "burza piaskowa", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "savage",
+    wordPl: "brutalny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "savings",
+    wordPl: "oszczędności", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sawdust",
+    wordPl: "trociny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "scapegoat",
+    wordPl: "kozioł ofiarny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "scar",
+    wordPl: "blizna", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "scarecrow",
+    wordPl: "strach na wróble", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "scholarship",
+    wordPl: "stypendium", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "scorn",
+    wordPl: "pogarda", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "scream",
+    wordPl: "wrzeszcześ", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "screw",
+    wordPl: "śruba, wkręt", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "screwdriver",
+    wordPl: "śrubokręt", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "scripture",
+    wordPl: "pismo święte", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sculpture",
+    wordPl: "rzeźba", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "seabed",
+    wordPl: "dno morskie", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "seafood",
+    wordPl: "owoce morza", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "seagull",
+    wordPl: "mewa", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "seahorse",
+    wordPl: "konik morski", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "seal",
+    wordPl: "foka", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "seaweed",
+    wordPl: "wodorosty", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "seldom",
+    wordPl: "rzadko", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "selfish",
+    wordPl: "samolubny", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "send out",
+    wordPl: "rozesłać", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sensor",
+    wordPl: "czujnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sergeant",
+    wordPl: "sierżant", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "servant",
+    wordPl: "służący", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sew",
+    wordPl: "szyć", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shadow",
+    wordPl: "cień", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shape",
+    wordPl: "kształt", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sharp",
+    wordPl: "ostry", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shell",
+    wordPl: "skorupa", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shelter",
+    wordPl: "schron", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shepherd",
+    wordPl: "pasterz", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shipyard",
+    wordPl: "stocznia", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "short-circuit",
+    wordPl: "zwarcie", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shortage",
+    wordPl: "niedobór, brak", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shortcut",
+    wordPl: "skrót", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shovel",
+    wordPl: "łopata", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "show off",
+    wordPl: "popisywać się", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "shy",
+    wordPl: "nieśmiały", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sibling",
+    wordPl: "rodzeństwo", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "sign",
+    wordPl: "znak", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "signature",
+    wordPl: "podpis", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "silence",
+    wordPl: "cisza", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "silk",
+    wordPl: "jedwab", 
+    points: 0, 
+    wordLevel: "B"),
+
+      Word(
+    wordEn: "similar",
+    wordPl: "podobny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "simplify",
+    wordPl: "upraszczać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "simultaneous",
+    wordPl: "jednoczesny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sin",
+    wordPl: "grzech", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sinful",
+    wordPl: "grzeszny, karygodny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sinister",
+    wordPl: "złowieszczy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sink",
+    wordPl: "zatonąć", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ski lift",
+    wordPl: "wyciąg narciarski", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "ski slope",
+    wordPl: "stok narciarski", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "skill",
+    wordPl: "umiejętność", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "skirmish",
+    wordPl: "potyczka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "skull",
+    wordPl: "czaszka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "skunk",
+    wordPl: "skunks", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "skyline",
+    wordPl: "panorama", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "skyscraper",
+    wordPl: "drapacz chmur", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "slaughter",
+    wordPl: "zarzynać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "slave",
+    wordPl: "niewolnik", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sledge",
+    wordPl: "sanki", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sleep off",
+    wordPl: "odsypiać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sleepwalker",
+    wordPl: "lunatyk", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sleeve",
+    wordPl: "rękaw", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "slip",
+    wordPl: "poślizgnąć się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sloth",
+    wordPl: "leniwiec (zwierzę)", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "slouch",
+    wordPl: "garbić się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "snail",
+    wordPl: "ślimak", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "smart",
+    wordPl: "bystry", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "smoker",
+    wordPl: "palacz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sneeze",
+    wordPl: "kichać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sniff",
+    wordPl: "pociągać nosem", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "snore",
+    wordPl: "chrapać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "snowdrift",
+    wordPl: "zaspa śnieżna", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "snowflake",
+    wordPl: "płatek śniegu", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "snowman",
+    wordPl: "bałwan", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sober",
+    wordPl: "trzeźwy", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "socket",
+    wordPl: "gniazdko elektryczne", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "soil",
+    wordPl: "gleba, ziemia", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "solace",
+    wordPl: "pocieszenie", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "soldier",
+    wordPl: "żołnierz", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "solve",
+    wordPl: "rozwiązywać", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "soul",
+    wordPl: "dusza", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "source",
+    wordPl: "źródło", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "souvenir",
+    wordPl: "pamiątka", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "spacecraft",
+    wordPl: "statek kosmiczny", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "spark",
+    wordPl: "iskra", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sparkle",
+    wordPl: "iskrzyć się", 
+    points: 0, 
+    wordLevel: "B"),
+
+     Word(
+    wordEn: "sparrow",
+    wordPl: "wróbel", 
+    points: 0, 
+    wordLevel: "B"),
+
+
+
+    
+
+    
+
+    
+    
+
+
+
+    
+
     
 
     

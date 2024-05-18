@@ -1519,6 +1519,315 @@ final wordsA = [
     points: 0, 
     wordLevel: "A"),
 
+      Word(
+    wordEn: "run",
+    wordPl: "biegać", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sad",
+    wordPl: "smutny", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "safe",
+    wordPl: "bezpieczny", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "salad",
+    wordPl: "sałatka", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "salt",
+    wordPl: "sól", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sand",
+    wordPl: "piasek", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sandwich",
+    wordPl: "kanapka", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "saturday",
+    wordPl: "sobota", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sauce",
+    wordPl: "sos", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sausage",
+    wordPl: "kiełbasa", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "scarf",
+    wordPl: "szalik", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "school",
+    wordPl: "szkoła", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "science",
+    wordPl: "nauka", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "scooter",
+    wordPl: "skuter", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "screen",
+    wordPl: "ekran", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sea",
+    wordPl: "morze", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "see",
+    wordPl: "widzieć", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "seed",
+    wordPl: "ziarno", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sell",
+    wordPl: "sprzedawać", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "september",
+    wordPl: "wrzesień", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "shark",
+    wordPl: "rekin", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "sheep",
+    wordPl: "owca", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "ship",
+    wordPl: "statek", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "shoe",
+    wordPl: "but", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "shop",
+    wordPl: "sklep", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "short",
+    wordPl: "krótki", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "shoulder",
+    wordPl: "ramię, bark", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "shower",
+    wordPl: "prysznic", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "silver",
+    wordPl: "srebro", 
+    points: 0, 
+    wordLevel: "A"),
+
+      Word(
+    wordEn: "simple",
+    wordPl: "prosty", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "sing",
+    wordPl: "śpiewać", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "singer",
+    wordPl: "śpiewak", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "sister",
+    wordPl: "siostra", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "sit",
+    wordPl: "siedzieć", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "size",
+    wordPl: "rozmiar", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "skateboard",
+    wordPl: "deskorolka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "skirt",
+    wordPl: "spódnica", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "sky",
+    wordPl: "niebo", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "sleep",
+    wordPl: "spać", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "slice",
+    wordPl: "kroić", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "smile",
+    wordPl: "uśmiechać się", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "snake",
+    wordPl: "wąż", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "snow",
+    wordPl: "śnieg", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "snowball",
+    wordPl: "śnieżka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "soap",
+    wordPl: "mydło", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "sock",
+    wordPl: "skarpetka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "soft",
+    wordPl: "miękki", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "song",
+    wordPl: "piosenka", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "sound",
+    wordPl: "dźwięk", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "soup",
+    wordPl: "zupa", 
+    points: 0, 
+    wordLevel: "A"),
+
+     Word(
+    wordEn: "south",
+    wordPl: "połódnie", 
+    points: 0, 
+    wordLevel: "A"),
+
+
+
+    
     
     
 

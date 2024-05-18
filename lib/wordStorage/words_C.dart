@@ -1261,6 +1261,121 @@ final wordsC = [
     points: 0, 
     wordLevel: "C"),
 
+      Word(
+    wordEn: "rubble",
+    wordPl: "gruz", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "sacrilege",
+    wordPl: "świętokradztwo", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "scrooge",
+    wordPl: "sknera", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "scurf",
+    wordPl: "łupież", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "sedative",
+    wordPl: "środek uspokajający", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "sediment",
+    wordPl: "osad", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "sentinel",
+    wordPl: "wartownik", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "serfdom",
+    wordPl: "pańszczyzna", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "sermon",
+    wordPl: "kazanie (kościelne)", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "shrew",
+    wordPl: "ryjówka", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "sidekick",
+    wordPl: "pomagier", 
+    points: 0, 
+    wordLevel: "C"),
+
+      Word(
+    wordEn: "silicate",
+    wordPl: "krzemiam", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "sketchbook",
+    wordPl: "szkicownik", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "skive",
+    wordPl: "wagarować", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "sly",
+    wordPl: "przebiegły", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "smirk",
+    wordPl: "szczerzyć zęby", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "sneakers",
+    wordPl: "tenisówki", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "solitude",
+    wordPl: "samotność", 
+    points: 0, 
+    wordLevel: "C"),
+
+     Word(
+    wordEn: "soot",
+    wordPl: "sadza", 
+    points: 0, 
+    wordLevel: "C"),
+
+
 
 
 
