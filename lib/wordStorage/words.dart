@@ -731,8 +731,8 @@ final List<Word> words = [
     wordLevel: "B"),
 
       Word(
-    wordEn: "wgięcie",
-    wordPl: "dint", 
+    wordEn: "dint",
+    wordPl: "wgięcie", 
     points: 0, 
     wordLevel: "B"),
 

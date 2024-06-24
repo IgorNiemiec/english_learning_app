@@ -910,7 +910,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
       late List<Word> filteredWords;
 
-
       
       switch(event.wordLevel)
       {
