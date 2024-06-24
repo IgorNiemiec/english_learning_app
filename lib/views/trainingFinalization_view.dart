@@ -92,7 +92,7 @@ class TrainingFinalizationView extends StatelessWidget
 
                 },
                 style: applicationGreenButtonStyle(),
-                child: Text("Save training words in my library",style: applicationBlackTextStyle(18),),
+                child: Text("Save training words",style: applicationBlackTextStyle(30),),
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
@@ -109,7 +109,7 @@ class TrainingFinalizationView extends StatelessWidget
 
                 },
                 style: applicationGreenButtonStyle(),
-                child: Text("Leave without saving words in my library",style: applicationBlackTextStyle(15),),
+                child: Text("Leave without saving",style: applicationBlackTextStyle(30),),
               ),
             ),
             const SizedBox(),
