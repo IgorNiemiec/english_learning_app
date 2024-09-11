@@ -1239,8 +1239,6 @@ class AppBloc extends Bloc<AppEvent,AppState>
 
     CollectionReference collectionReference = database.collection('UserLibrary');
 
-  
-
     UserLibrary userLibrary = UserLibrary(words: [],wordOfTheDay: wotd);
 
     await collectionReference.doc(userId).set(userLibrary.toJson());
